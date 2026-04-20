@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Senior Home Safety Assessment Tool v1</title>
+<style>
+  /* ============================================================
+     Senior Home Safety (a Novo Industries Inc. service) — SHS Assessment Tool v1
+     Based on CSA/ASC B652:23 Accessible Dwellings
+     Brand: warmer palette than Novo Accessibility — still professional
+     Colors: TEAL #2E7D8F primary, NAVY #1F3864 secondary, AMBER #E8A33D warm accent
+     Font: Arial, 12pt body minimum
+     ============================================================ */
+  :root {
+    --teal: #2E7D8F;
+    --teal-dark: #1F5A68;
+    --navy: #1F3864;
+    --amber: #E8A33D;
+    --amber-light: #FFF8E1;
+    --lgrn: #D5E8D4;
+    --lred: #F8CECC;
+    --ltel: #DAE8FC;
+    --bg: #F7F9FA;
+    --border: #CCCCCC;
+    --text: #111111;
+    --muted: #555555;
+    --crit: #B22222;
+    --high: #D97E00;
+    --mod: #2E7D8F;
+    --minor: #7A8A99;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+  }
+  header {
+    background: var(--teal);
+    color: white;
+    padding: 14px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  header h1 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  header .subtitle {
+    font-size: 13px;
+    opacity: 0.95;
+    margin-top: 2px;
+  }
+  nav.tabs {
+    background: white;
+    border-bottom: 2px solid var(--teal);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 8px 10px 0;
+    overflow-x: auto;
+  }
+  nav.tabs button {
+    background: #E9ECEF;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    white-space: nowrap;
+    border-radius: 6px 6px 0 0;
+  }
+  nav.tabs button.active {
+    background: var(--teal);
+    color: white;
+    font-weight: bold;
+  }
+  nav.tabs button:hover:not(.active) {
+    background: var(--ltel);
+  }
+  main {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .panel h2 {
+    color: var(--teal-dark);
+    margin-top: 0;
+    font-size: 20px;
+    border-bottom: 2px solid var(--teal);
+    padding-bottom: 8px;
+  }
+  .panel h3 {
+    color: var(--teal-dark);
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 12px;
+  }
+  .field {
+    flex: 1;
+    min-width: 200px;
+  }
+  .field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    background: white;
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 2px rgba(46,125,143,0.2);
+  }
+  button.primary, button.secondary, button.danger {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    margin-right: 8px;
+    margin-top: 4px;
+  }
+  button.primary {
+    background: var(--teal);
+    color: white;
+  }
+  button.primary:hover { background: var(--teal-dark); }
+  button.secondary {
+    background: var(--navy);
+    color: white;
+  }
+  button.secondary:hover { background: #2A4A7C; }
+  button.danger {
+    background: var(--crit);
+    color: white;
+  }
+  button.danger:hover { background: #D32F2F; }
+  .category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .category-list li {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .category-list li:hover {
+    border-color: var(--teal);
+    background: var(--ltel);
+  }
+  .category-list li .cat-name {
+    font-weight: bold;
+    color: var(--teal-dark);
+    flex: 1;
+    min-width: 200px;
+  }
+  .category-list li .cat-score {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .category-list li .cat-badge {
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+  .b-pass { background: var(--lgrn); color: #1A5D1A; }
+  .b-mod { background: #FFF2CC; color: #7A5700; }
+  .b-fail { background: var(--lred); color: #8B1A1A; }
+  .b-na { background: #E0E0E0; color: #555; }
+  .feature-row {
+    background: #FAFAFA;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+  .feature-row .feature-title {
+    font-weight: bold;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+  .feature-row .feature-clause {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .feature-row .feature-guidance {
+    font-size: 13px;
+    color: var(--text);
+    background: var(--amber-light);
+    padding: 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--amber);
+  }
+  .status-buttons {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .status-buttons button {
+    padding: 6px 12px;
+    border: 2px solid var(--border);
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+  }
+  .status-buttons button.selected.safe { background: var(--lgrn); border-color: #1A5D1A; }
+  .status-buttons button.selected.minor { background: #ECEFF1; border-color: #607D8B; }
+  .status-buttons button.selected.mod { background: #FFF2CC; border-color: #7A5700; }
+  .status-buttons button.selected.high { background: #FFE0B2; border-color: #D97E00; }
+  .status-buttons button.selected.crit { background: var(--lred); border-color: #8B1A1A; color: #8B1A1A; }
+  .status-buttons button.selected.na { background: #E0E0E0; border-color: #555; font-style: italic; }
+  .summary-tile {
+    background: var(--ltel);
+    border-left: 4px solid var(--teal);
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+  .summary-tile .big-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--teal-dark);
+  }
+  .summary-tile .label {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+  }
+  table.score-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  table.score-table th, table.score-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid var(--border);
+    font-size: 13px;
+  }
+  table.score-table th {
+    background: var(--teal);
+    color: white;
+    font-weight: bold;
+  }
+  table.score-table tr:nth-child(even) td { background: #FAFAFA; }
+  .save-indicator {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: var(--lgrn);
+    color: #1A5D1A;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 200;
+  }
+  .save-indicator.show { opacity: 1; }
+  #reportOutput {
+    background: white;
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 12pt;
+    line-height: 1.5;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  #reportOutput h1, #reportOutput h2, #reportOutput h3 {
+    color: var(--teal-dark);
+  }
+  #reportOutput h1 { font-size: 20pt; border-bottom: 2px solid var(--teal); padding-bottom: 8px; }
+  #reportOutput h2 { font-size: 16pt; margin-top: 24px; }
+  #reportOutput h3 { font-size: 14pt; margin-top: 20px; }
+  #reportOutput table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 11pt;
+  }
+  #reportOutput table th, #reportOutput table td {
+    padding: 6px 8px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  #reportOutput table th {
+    background: var(--teal);
+    color: white;
+    font-weight: bold;
+  }
+  #reportOutput .report-header {
+    text-align: center;
+    border-bottom: 3px solid var(--teal);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+  #reportOutput .report-box {
+    background: #FAFAFA;
+    border: 1px solid var(--border);
+    padding: 12px 15px;
+    border-radius: 4px;
+    margin: 15px 0;
+  }
+  .hidden { display: none !important; }
+  .warning-box {
+    background: var(--amber-light);
+    border-left: 4px solid var(--amber);
+    padding: 12px 15px;
+    margin: 15px 0;
+    font-size: 14px;
+  }
+  .critical-box {
+    background: #FFEBEE;
+    border-left: 4px solid var(--crit);
+    padding: 12px 15px;
+    margin: 15px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #8B1A1A;
+  }
+  .measurement-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .measurement-row input {
+    flex: 1;
+  }
+  .measurement-row .unit-hint {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    main { padding: 10px; }
+    .panel { padding: 15px; }
+    nav.tabs button { padding: 6px 10px; font-size: 13px; }
+    header h1 { font-size: 16px; }
+  }
+  @media print {
+    header, nav.tabs, .no-print { display: none !important; }
+    main { padding: 0; }
+    .panel { box-shadow: none; border: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Senior Home Safety Assessment Tool</h1>
+  <div class="subtitle">Based on CSA/ASC B652:23 Accessible Dwellings · A service of Novo Industries Inc.</div>
+</header>
+
+<div class="save-indicator" id="saveIndicator">Saved</div>
+
+<nav class="tabs" id="tabNav">
+  <button class="active" data-tab="setup">1. Setup</button>
+  <button data-tab="assess">2. Assessment</button>
+  <button data-tab="remediation">3. Remediation</button>
+  <button data-tab="score">4. Home Safety Score</button>
+  <button data-tab="funding">5. Funding Programs</button>
+  <button data-tab="report">6. Generate Reports</button>
+  <button data-tab="manage">Manage Data</button>
+</nav>
+
+<main>
+
+<!-- ==================== SETUP TAB ==================== -->
+<section id="tab-setup" class="tab-panel">
+  <div class="panel">
+    <h2>Client and Home Setup</h2>
+    <p style="color: var(--muted); font-size: 14px;">Complete these details before starting the assessment. All fields are editable throughout.</p>
+
+    <h3>Client Information</h3>
+    <div class="row">
+      <div class="field">
+        <label for="clientName">Client Name(s)</label>
+        <input type="text" id="clientName" placeholder="e.g. Mrs. Margaret Thompson">
+      </div>
+      <div class="field">
+        <label for="clientAge">Client Age / Ages</label>
+        <input type="text" id="clientAge" placeholder="e.g. 78 and 82">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="clientContact">Contact (phone / email)</label>
+        <input type="text" id="clientContact" placeholder="Phone or email">
+      </div>
+      <div class="field">
+        <label for="emergencyContact">Emergency Contact / Adult Child</label>
+        <input type="text" id="emergencyContact" placeholder="Name and phone">
+      </div>
+    </div>
+
+    <h3>Home Details</h3>
+    <div class="row">
+      <div class="field">
+        <label for="homeAddress">Home Address</label>
+        <input type="text" id="homeAddress" placeholder="Street, City, Postal Code">
+      </div>
+      <div class="field">
+        <label for="homeType">Home Type</label>
+        <select id="homeType">
+          <option value="">Select...</option>
+          <option>Single-family detached</option>
+          <option>Bungalow</option>
+          <option>Two-storey</option>
+          <option>Split-level</option>
+          <option>Townhouse / row house</option>
+          <option>Condo / apartment</option>
+          <option>Mobile home</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="homeAge">Home Age / Year Built</label>
+        <input type="text" id="homeAge" placeholder="e.g. Built 1978, Renovated 2010">
+      </div>
+      <div class="field">
+        <label for="occupancy">Occupancy</label>
+        <select id="occupancy">
+          <option value="">Select...</option>
+          <option>Owner-occupied</option>
+          <option>Rental</option>
+          <option>Family-owned (adult child owns)</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Client Context and Goals</h3>
+    <div class="row">
+      <div class="field">
+        <label for="mobilityContext">Mobility / Health Context</label>
+        <textarea id="mobilityContext" placeholder="e.g. Uses a walker indoors. History of one fall in past year. Arthritis in knees. Hard of hearing."></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="goalsContext">Client Goals (in their words, if known)</label>
+        <textarea id="goalsContext" placeholder="e.g. 'I want to stay in my home as long as possible. I don't want to rely on my kids to do things for me.'"></textarea>
+      </div>
+    </div>
+
+    <h3>Assessment Details</h3>
+    <div class="row">
+      <div class="field">
+        <label for="assessmentDate">Assessment Date</label>
+        <input type="date" id="assessmentDate">
+      </div>
+      <div class="field">
+        <label for="assessorName">Assessor Name</label>
+        <input type="text" id="assessorName" value="Carl Christie">
+      </div>
+      <div class="field">
+        <label for="assessorCreds">Credentials</label>
+        <input type="text" id="assessorCreds" value="SHSS">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="referralSource">Referral Source (if any)</label>
+        <input type="text" id="referralSource" placeholder="e.g. Dr. Lee at Foothills Family Medicine, or self-referred">
+      </div>
+      <div class="field">
+        <label for="equipment">Equipment Used</label>
+        <input type="text" id="equipment" placeholder="e.g. Bosch GLM laser measure, dynamometer, lux meter, digital inclinometer">
+      </div>
+    </div>
+
+    <h3>Category Applicability</h3>
+    <p style="color: var(--muted); font-size: 13px;">Mark any categories that do not apply to this home (e.g. no garage, no basement, single-storey). N/A categories are skipped in scoring.</p>
+    <div id="applicabilityList"></div>
+  </div>
+</section>
+
+<!-- ==================== ASSESSMENT TAB ==================== -->
+<section id="tab-assess" class="tab-panel hidden">
+  <div class="panel">
+    <h2>Room-by-Room Assessment</h2>
+    <p style="color: var(--muted); font-size: 14px;">Tap a category to open it. Your progress saves automatically. Severity scale: Safe → Minor → Moderate → High → Critical. Any CRITICAL finding flags the home for immediate safety attention.</p>
+    <ul class="category-list" id="categoryList"></ul>
+  </div>
+
+  <div class="panel hidden" id="categoryDetail">
+    <button class="secondary" onclick="backToCategoryList()">← Back to Categories</button>
+    <h2 id="categoryDetailTitle"></h2>
+    <p id="categoryDetailDescription" style="color: var(--muted);"></p>
+    <div id="featureList"></div>
+  </div>
+</section>
+
+<!-- ==================== REMEDIATION TAB ==================== -->
+<section id="tab-remediation" class="tab-panel hidden">
+  <div class="panel">
+    <h2>Modification Plan</h2>
+    <p style="color: var(--muted); font-size: 14px;">Every finding ranked Minor or higher appears here grouped by severity. Add a cost estimate and suggested timeline. Items marked CRITICAL trigger an immediate-action flag in both reports.</p>
+    <div id="remediationList"></div>
+    <div id="remediationSummary" style="margin-top: 20px;"></div>
+  </div>
+</section>
+
+<!-- ==================== SCORE TAB ==================== -->
+<section id="tab-score" class="tab-panel hidden">
+  <div class="panel">
+    <h2>Home Safety Score</h2>
+    <p style="color: var(--muted); font-size: 13px;">Score is calculated from CSA B652:23 feature weightings. A score of 100 = no safety concerns identified. A score below 60 indicates multiple high-severity barriers that warrant attention for aging in place.</p>
+    <div class="summary-grid" id="scoreTiles"></div>
+    <h3>Score by Category</h3>
+    <table class="score-table" id="scoreTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Category</th>
+          <th>Score</th>
+          <th>Highest Severity</th>
+          <th>Primary Finding</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== FUNDING TAB ==================== -->
+<section id="tab-funding" class="tab-panel hidden">
+  <div class="panel">
+    <h2>Funding Program Eligibility</h2>
+    <p style="color: var(--muted); font-size: 14px;">Check each program the client may qualify for. The client-facing report includes a section listing programs marked as potentially eligible.</p>
+    <div class="warning-box">
+      <strong>Verify before citing in report:</strong> Funding program thresholds and eligibility criteria change. The figures below are based on program rules as of early 2026. Confirm on each program's current website before submitting the client-facing report. Program contact information is included in the report.
+    </div>
+    <div id="fundingList"></div>
+  </div>
+</section>
+
+<!-- ==================== REPORT TAB ==================== -->
+<section id="tab-report" class="tab-panel hidden">
+  <div class="panel no-print">
+    <h2>Generate Reports</h2>
+    <p style="color: var(--muted); font-size: 14px;">Two reports are produced from the same assessment data: a clinical summary for OTs, case managers, or physicians; and a plain-language report for the client and family. Choose which one to display, then copy or download.</p>
+
+    <div class="row" style="margin-bottom: 15px;">
+      <div class="field" style="max-width: 400px;">
+        <label>Report to View</label>
+        <select id="reportSelector" onchange="buildReport()">
+          <option value="ot">OT Clinical Summary (for referrals, case managers, physicians)</option>
+          <option value="client">Client-Facing Plain Language Report (for family)</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="primary" onclick="buildReport()">Refresh Report</button>
+    <button class="secondary" onclick="copyReportToClipboard()">Copy to Clipboard</button>
+    <button class="secondary" onclick="window.print()">Print / Save as PDF</button>
+    <button class="secondary" onclick="exportReportAsWord()">Download as .doc</button>
+  </div>
+  <div id="reportOutput">
+    <p style="text-align: center; color: var(--muted); padding: 40px;">Click "Refresh Report" to generate.</p>
+  </div>
+</section>
+
+<!-- ==================== MANAGE TAB ==================== -->
+<section id="tab-manage" class="tab-panel hidden">
+  <div class="panel">
+    <h2>Manage Assessment Data</h2>
+    <p style="color: var(--muted); font-size: 14px;">Your assessment data is saved automatically in this browser. Use the tools below to back up, restore, or start a new assessment.</p>
+
+    <h3>Backup</h3>
+    <p>Download all assessment data as a JSON file. Keep this file safe in case your browser data is cleared.</p>
+    <button class="primary" onclick="exportData()">Download Backup File</button>
+
+    <h3>Restore</h3>
+    <p>Load a previously downloaded backup file.</p>
+    <input type="file" id="importFile" accept=".json" onchange="importData(event)">
+
+    <h3>New Assessment</h3>
+    <p style="color: #8B1A1A;">⚠️ Clears all current data and starts fresh. Make a backup first.</p>
+    <button class="danger" onclick="clearAllData()">Start New Assessment (Clear All)</button>
+
+    <h3>About This Tool</h3>
+    <div class="warning-box">
+      <strong>Senior Home Safety Assessment Tool v1</strong><br>
+      Built for Carl Christie, Novo Industries Inc., for the Senior Home Safety service line. Uses CSA/ASC B652:23 Accessible Dwellings as the technical reference. This tool produces assessment data and dual-audience draft reports. It is not a diagnostic medical instrument; findings support but do not replace clinical judgment from an Occupational Therapist or physician.<br><br>
+      Data is stored only in this browser's local storage. No data leaves your device. If you clear your browser data or switch devices without exporting a backup, your assessment data will be lost.<br><br>
+      <strong>A note on Bluetooth laser measures:</strong> Browser-based web apps cannot connect directly to Bluetooth laser measures on iPad or iPhone (Apple has not implemented Web Bluetooth). The recommended workflow is to use the Bosch MeasureOn app natively on your phone or iPad, then enter measurements manually into this tool. Each measurement field accepts numeric input with unit hints.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== SCRIPT ==================== -->
+<script>
+/* ============================================================
+   CSA B652:23 — CATEGORIES AND FEATURES
+   Each feature has a severity weight (1-5) that drives the score.
+   ============================================================ */
+
+const CATEGORIES = [
+  {
+    id: 1, num: 1, name: "Exterior Route and Entry", icon: "🚪",
+    description: "Pathways from street or parking to home, porches, entry doors, thresholds.",
+    features: [
+      { id: "1.1", title: "Pathway surface condition", clause: "B652 §5.2.1 / §4.6", required: "Firm, stable, no cracks > 13mm", guidance: "Check for heaving, cracks, loose gravel, ponding water. Walk the route yourself.", weight: 4 },
+      { id: "1.2", title: "Pathway clear width", clause: "B652 §5.2.1", required: "Minimum 900mm, preferred 1100mm", guidance: "Narrower than 900mm restricts walker and scooter use.", weight: 3 },
+      { id: "1.3", title: "Pathway slope and cross-slope", clause: "B652 §5.2.1", required: "Running slope max 5% preferred, cross-slope max 2%", guidance: "Steep approach increases fall risk especially in winter. Measure with inclinometer.", weight: 4 },
+      { id: "1.4", title: "Lighting along pathway to entry", clause: "B652 §4.8", required: "Adequate illumination, operable after dark", guidance: "Test after dusk. Motion-activated lights reduce fall risk at night.", weight: 4 },
+      { id: "1.5", title: "Entry door threshold height", clause: "B652 §5.7.4", required: "Max 13mm, bevelled", guidance: "Threshold > 20mm is a significant trip hazard. Measure from exterior side.", weight: 5 },
+      { id: "1.6", title: "Entry door width (clear)", clause: "B652 §5.7.1", required: "Min 860mm, preferred 900mm", guidance: "Narrow door blocks walker and wheelchair access. Measure with door fully open.", weight: 4 },
+      { id: "1.7", title: "Entry door operating force", clause: "B652 §5.7.6", required: "Max 22N for interior, 38N exterior", guidance: "Heavy doors are a major barrier. Use dynamometer if available.", weight: 3 },
+      { id: "1.8", title: "Entry door hardware", clause: "B652 §5.7.5", required: "Lever or loop, operable with closed fist", guidance: "Round knobs are difficult with arthritis. Lever replacement is usually simple.", weight: 4 },
+      { id: "1.9", title: "Entry stairs or steps", clause: "B652 §5.6", required: "Uniform rise, handrail present", guidance: "Note any inconsistent step heights, missing handrails, or steep pitch.", weight: 5 },
+      { id: "1.10", title: "Handrail at entry stairs", clause: "B652 §5.6.3", required: "At least one side, 865-965mm height, graspable", guidance: "Missing entry handrail is one of the highest-risk findings for seniors.", weight: 5 },
+      { id: "1.11", title: "Shelter or overhang at entry", clause: "B652 §5.4", required: "Protection from weather at door", guidance: "Unsheltered entries increase slip risk from ice, snow, rain during key-fumbling.", weight: 2 }
+    ]
+  },
+  {
+    id: 2, num: 2, name: "Interior Circulation", icon: "🚶",
+    description: "Hallways, doorways between rooms, floor surfaces, transitions.",
+    features: [
+      { id: "2.1", title: "Hallway clear width", clause: "B652 §5.8.1", required: "Min 900mm, preferred 1100mm", guidance: "Measure narrowest point. Furniture in hallways often reduces usable width.", weight: 3 },
+      { id: "2.2", title: "Interior door clear width", clause: "B652 §5.7.1", required: "Min 800mm, preferred 860mm", guidance: "Measure every door the client uses regularly. Bathroom doors especially critical.", weight: 4 },
+      { id: "2.3", title: "Interior door hardware", clause: "B652 §5.7.5", required: "Lever or loop", guidance: "Check all frequently used doors including closets for key items.", weight: 3 },
+      { id: "2.4", title: "Interior thresholds / transitions", clause: "B652 §5.7.4 / §4.6.3", required: "Max 13mm, bevelled", guidance: "Tile-to-carpet transitions, door saddles, sunken rooms. High trip risk.", weight: 5 },
+      { id: "2.5", title: "Floor surface — loose rugs or mats", clause: "B652 §4.6.1", required: "Secured or removed", guidance: "Loose scatter rugs are the #1 indoor fall hazard for seniors. Document each.", weight: 5 },
+      { id: "2.6", title: "Floor surface — slippery or worn", clause: "B652 §4.6.1", required: "Slip-resistant finish", guidance: "Polished hardwood, waxed linoleum, worn spots all increase fall risk.", weight: 4 },
+      { id: "2.7", title: "Floor surface — level changes", clause: "B652 §4.6.3", required: "Ramped if over 13mm, visual contrast", guidance: "Step-down living rooms, sunken entries — high risk for loss-of-balance falls.", weight: 5 },
+      { id: "2.8", title: "Cords or cables across walkways", clause: "B652 §4.7.2", required: "Secured, not crossing path of travel", guidance: "Extension cords, lamp cords, phone chargers. Very common in older homes.", weight: 4 },
+      { id: "2.9", title: "Clutter along primary walking routes", clause: "B652 §4.7.2", required: "Clear path", guidance: "Piled items in hallways, stacked boxes. Note and photograph.", weight: 4 },
+      { id: "2.10", title: "Lighting at circulation paths", clause: "B652 §4.8", required: "Even illumination, no shadowed areas", guidance: "Measure with lux meter if available. Night routes especially important.", weight: 4 }
+    ]
+  },
+  {
+    id: 3, num: 3, name: "Stairs and Level Changes", icon: "📐",
+    description: "Interior stairs, basement stairs, stairs to second floor.",
+    features: [
+      { id: "3.1", title: "Handrail on stairs — presence", clause: "B652 §5.6.3", required: "At least one side, ideally both", guidance: "Missing interior stair handrail is a critical safety concern for any senior.", weight: 5 },
+      { id: "3.2", title: "Handrail height and grip", clause: "B652 §5.6.3", required: "865-965mm above nosing, graspable diameter", guidance: "Too low, too high, or too thick to grip firmly all reduce effectiveness.", weight: 4 },
+      { id: "3.3", title: "Handrail extensions", clause: "B652 §5.6.3", required: "Extend 300mm beyond top and bottom step", guidance: "Missing extensions mean the client has no support at transition points.", weight: 3 },
+      { id: "3.4", title: "Stair tread uniformity", clause: "B652 §5.6.1", required: "Uniform height and depth", guidance: "Measure multiple treads. Variation greater than 10mm is a fall hazard.", weight: 4 },
+      { id: "3.5", title: "Stair nosing contrast", clause: "B652 §5.6.2", required: "Visual contrast, no protrusion", guidance: "Hard-to-see step edges are a major fall risk especially in low light.", weight: 4 },
+      { id: "3.6", title: "Stair lighting", clause: "B652 §4.8", required: "Switches at top and bottom, even illumination", guidance: "Dark stairs are responsible for many senior falls. Night lights recommended.", weight: 5 },
+      { id: "3.7", title: "Stair surface — carpet or treads", clause: "B652 §4.6", required: "Secured, no loose carpet", guidance: "Worn or loose stair carpet is a specific documented fall hazard.", weight: 5 }
+    ]
+  },
+  {
+    id: 4, num: 4, name: "Bathroom", icon: "🚿",
+    description: "Entry, toilet, sink/vanity, shower/bath, storage. The highest-risk room.",
+    features: [
+      { id: "4.1", title: "Bathroom door width", clause: "B652 §5.9.3", required: "Min 800mm clear", guidance: "Bathroom doors are often narrower than code minimum in older homes.", weight: 4 },
+      { id: "4.2", title: "Bathroom floor slip resistance", clause: "B652 §5.9.4", required: "Slip-resistant when wet", guidance: "Tile, glossy ceramic, small mats all increase slip risk. Test dry and wet.", weight: 5 },
+      { id: "4.3", title: "Turning space in bathroom", clause: "B652 §5.9.2", required: "Min 1500mm turning circle", guidance: "Cramped bathroom blocks safe use of walker or wheelchair.", weight: 3 },
+      { id: "4.4", title: "Grab bars — toilet", clause: "B652 §5.9.11", required: "Rear and side bars, properly anchored", guidance: "Absence of toilet grab bars is common in older homes. Critical for transfer safety.", weight: 5 },
+      { id: "4.5", title: "Grab bars — tub/shower", clause: "B652 §5.9.11", required: "Vertical and horizontal bars, anchored to studs", guidance: "Most common bathroom fall location. Suction bars are NOT adequate.", weight: 5 },
+      { id: "4.6", title: "Toilet seat height", clause: "B652 §5.9.10", required: "430-480mm to top of seat", guidance: "Standard toilets are often too low for seniors with hip/knee limitations. Raised seat available.", weight: 4 },
+      { id: "4.7", title: "Shower / tub entry threshold", clause: "B652 §5.9.13", required: "Curbless or low threshold", guidance: "Standard tub entry is a major fall risk. Note current height.", weight: 5 },
+      { id: "4.8", title: "Shower seat or bench", clause: "B652 §5.9.13", required: "Present, stable", guidance: "Shower chair or bench reduces standing time and fall risk. Removable or built-in.", weight: 4 },
+      { id: "4.9", title: "Hand-held showerhead", clause: "B652 §5.9.13", required: "Height-adjustable, accessible from seat", guidance: "Fixed showerheads require standing and arm reach. Hand-held is a simple, high-value upgrade.", weight: 3 },
+      { id: "4.10", title: "Bathroom lighting", clause: "B652 §5.9.6", required: "Good general and task lighting, night light", guidance: "Night-time bathroom visits are a high-fall scenario. Motion-activated lights excellent.", weight: 4 },
+      { id: "4.11", title: "Sink/vanity accessibility", clause: "B652 §5.9.12", required: "Reachable, no obstruction from seated position if needed", guidance: "Pedestal sinks may be hard to approach with walker.", weight: 2 },
+      { id: "4.12", title: "Emergency access / lock", clause: "B652 §5.9.3", required: "Lock openable from outside in emergency", guidance: "If client falls or has medical event, family must be able to enter quickly.", weight: 4 }
+    ]
+  },
+  {
+    id: 5, num: 5, name: "Kitchen", icon: "🍳",
+    description: "Counters, storage, appliances, sink, lighting, floor.",
+    features: [
+      { id: "5.1", title: "Kitchen floor slip resistance", clause: "B652 §5.10.3", required: "Slip-resistant, especially near sink", guidance: "Spills at sink create slip hazard. Check current surface.", weight: 4 },
+      { id: "5.2", title: "Loose kitchen mats", clause: "B652 §4.6.1", required: "Secured or removed", guidance: "Mats in front of sink and stove are common trip hazards.", weight: 4 },
+      { id: "5.3", title: "Counter height accessibility", clause: "B652 §5.10.6", required: "Standard height, knee clearance at one section if needed", guidance: "Client may benefit from seated food prep. Usually not feasible to modify.", weight: 2 },
+      { id: "5.4", title: "Upper cabinet reach", clause: "B652 §5.10.8", required: "Frequently used items reachable without step stool", guidance: "Step stool use is a major fall risk. Note items client currently reaches for.", weight: 5 },
+      { id: "5.5", title: "Lower cabinet / drawer access", clause: "B652 §5.10.8", required: "Pull-out shelves where needed", guidance: "Deep cabinets with fixed shelves require bending and reaching. Pull-outs are a simple upgrade.", weight: 3 },
+      { id: "5.6", title: "Stove and oven controls", clause: "B652 §5.10.9", required: "Front or side controls, clear markings", guidance: "Back-mounted controls force leaning over burners. Clear labelling matters for vision changes.", weight: 3 },
+      { id: "5.7", title: "Stove safety features", clause: "B652 §5.10.9", required: "Auto-shutoff or indicator of use", guidance: "Cognitive concerns warrant auto-shutoff device. Note if absent.", weight: 4 },
+      { id: "5.8", title: "Refrigerator access", clause: "B652 §5.10.9", required: "Freezer drawer or side-by-side preferred", guidance: "Top-freezer units force reaching high. Side-by-side or drawer styles better.", weight: 2 },
+      { id: "5.9", title: "Kitchen lighting", clause: "B652 §5.10.4", required: "General plus task lighting at sink and stove", guidance: "Under-cabinet lighting is a simple upgrade that significantly improves visibility.", weight: 3 },
+      { id: "5.10", title: "Sink faucet controls", clause: "B652 §5.10.7", required: "Lever or single-handle", guidance: "Two-knob faucets are difficult with arthritis. Lever replacement straightforward.", weight: 3 }
+    ]
+  },
+  {
+    id: 6, num: 6, name: "Bedroom", icon: "🛏️",
+    description: "Bed area, closet, lighting, floor, emergency access.",
+    features: [
+      { id: "6.1", title: "Bedroom floor surface", clause: "B652 §5.11.2", required: "Slip-resistant, no loose rugs near bed", guidance: "Bedside rug is a well-documented fall hazard especially for night bathroom trips.", weight: 5 },
+      { id: "6.2", title: "Path to bathroom at night", clause: "B652 §4.8 / §5.11.3", required: "Lighted, clear, no trip hazards", guidance: "Night light, clear path, no obstacles. Visualize client moving in the dark.", weight: 5 },
+      { id: "6.3", title: "Bedside lighting", clause: "B652 §5.11.3", required: "Lamp within reach, operable from bed", guidance: "Touch lamp or motion-activated light allows safer nighttime wake-up.", weight: 4 },
+      { id: "6.4", title: "Bed height and transfer", clause: "Clinical consideration", required: "Allows safe transfer, feet flat on floor when seated", guidance: "Standard beds are often too high or too low. Bed risers or frame change may help.", weight: 3 },
+      { id: "6.5", title: "Phone or emergency alert reachable from bed", clause: "Clinical consideration", required: "Phone, alert pendant, or similar within arm's reach", guidance: "If fall occurs, client must be able to call for help. Medical alert devices recommended.", weight: 5 },
+      { id: "6.6", title: "Closet accessibility", clause: "B652 §5.11.6", required: "Clothes rods and shelves within reach", guidance: "High rods require reaching. Adjustable closet organizers help.", weight: 2 },
+      { id: "6.7", title: "Bedroom door and exit path", clause: "B652 §5.7.1", required: "Unobstructed in emergency", guidance: "Consider fire egress and ability to exit quickly in an emergency.", weight: 4 }
+    ]
+  },
+  {
+    id: 7, num: 7, name: "Laundry", icon: "🧺",
+    description: "Washer/dryer location, access, floor, lighting.",
+    features: [
+      { id: "7.1", title: "Laundry location — stairs required", clause: "Clinical consideration", required: "Accessible without stairs if possible", guidance: "Basement laundry requires navigating stairs while carrying loads. High-risk activity.", weight: 5 },
+      { id: "7.2", title: "Washer/dryer controls accessibility", clause: "B652 §5.12.8", required: "Front-loading preferred, reachable controls", guidance: "Top-loading with high rim requires bending and reaching into tub. Front-load safer.", weight: 3 },
+      { id: "7.3", title: "Laundry floor surface", clause: "B652 §5.12.5", required: "Slip-resistant, water-safe", guidance: "Overflow risk. Check for existing water damage or current leaks.", weight: 3 },
+      { id: "7.4", title: "Laundry lighting", clause: "B652 §5.12.6", required: "Adequate general and task lighting", guidance: "Basement laundry often under-lit. Upgrade straightforward.", weight: 3 },
+      { id: "7.5", title: "Laundry carry path", clause: "B652 §2.5", required: "Clear path, no trip hazards", guidance: "Carrying laundry limits visibility. Keep route clear.", weight: 4 }
+    ]
+  },
+  {
+    id: 8, num: 8, name: "Lighting and Controls", icon: "💡",
+    description: "Switches, outlets, thermostat, overall illumination.",
+    features: [
+      { id: "8.1", title: "Light switch locations", clause: "B652 §4.5.3", required: "At each room entry, reachable height", guidance: "Switches too high, behind furniture, or missing from room entry all affect safety.", weight: 3 },
+      { id: "8.2", title: "Switch type — rocker vs toggle", clause: "B652 §4.5.5", required: "Rocker or large-paddle switches", guidance: "Traditional toggle switches are difficult with arthritis. Rocker replacement simple.", weight: 2 },
+      { id: "8.3", title: "Outlet heights and accessibility", clause: "B652 §4.5.3", required: "Reachable without bending or furniture move", guidance: "Old homes have outlets at 150mm (6\"). Seniors cannot reach without crouching.", weight: 3 },
+      { id: "8.4", title: "Thermostat height and readability", clause: "B652 §4.5.3", required: "Reachable, large display", guidance: "Smart thermostats with large display significantly easier for vision changes.", weight: 2 },
+      { id: "8.5", title: "General illumination levels", clause: "B652 §4.8", required: "Even lighting, no dark zones", guidance: "Older eyes need 2-3x more light than younger eyes. Under-lit homes common.", weight: 4 },
+      { id: "8.6", title: "Night lighting — hallways and bathroom path", clause: "B652 §4.8", required: "Motion-activated or plug-in night lights", guidance: "Night lighting is one of the highest value-per-dollar modifications.", weight: 5 }
+    ]
+  },
+  {
+    id: 9, num: 9, name: "Emergency Egress and Alerts", icon: "🚨",
+    critical: true,
+    description: "Smoke/CO detectors, fire escape, emergency contact systems.",
+    features: [
+      { id: "9.1", title: "Smoke detectors — all levels", clause: "B652 §5.8.3", required: "Present, functional, tested, visual alerts if hearing loss", guidance: "CRITICAL. Test each detector. If hearing loss present, visual/strobe alarms required.", weight: 5 },
+      { id: "9.2", title: "Carbon monoxide detectors", clause: "Building safety standard", required: "Present on each floor and near bedrooms", guidance: "CRITICAL. CO is odourless. Required in all homes with gas appliances or attached garage.", weight: 5 },
+      { id: "9.3", title: "Fire extinguisher", clause: "Building safety standard", required: "Kitchen minimum, one per floor preferred", guidance: "Client must be able to lift and operate it. Check date of inspection.", weight: 3 },
+      { id: "9.4", title: "Emergency egress — bedroom windows", clause: "B652 §5.8.3", required: "Operable from bed area, sized for egress", guidance: "Bedroom window must be operable from inside for fire escape. Check sticking or painted-shut windows.", weight: 4 },
+      { id: "9.5", title: "Medical alert system", clause: "Clinical consideration", required: "Pendant or smart-watch alert active", guidance: "If fall with injury occurs, help must be summonable. Lifeline, Apple Watch fall detection, Philips.", weight: 5 },
+      { id: "9.6", title: "Phone accessibility in emergency", clause: "Clinical consideration", required: "Phone reachable from likely fall locations", guidance: "Bedside, bathroom, main living area phones. Cordless batteries should be fresh.", weight: 4 },
+      { id: "9.7", title: "Emergency contact list posted", clause: "Clinical consideration", required: "Visible, current, includes family and primary physician", guidance: "Posted on fridge with large print. Updated if contacts change.", weight: 3 }
+    ]
+  },
+  {
+    id: 10, num: 10, name: "Exterior and Yard", icon: "🏡",
+    description: "Driveway, walkways, garage, yard hazards.",
+    features: [
+      { id: "10.1", title: "Driveway condition", clause: "B652 §5.2.1", required: "Firm, stable, no major cracks or heaves", guidance: "Winter ice accumulation, cracks, potholes all fall hazards.", weight: 3 },
+      { id: "10.2", title: "Garage floor and entry", clause: "B652 §5.3.3", required: "Level entry from garage to home, clear path", guidance: "Step up from garage common. Ramp may be feasible.", weight: 4 },
+      { id: "10.3", title: "Garage door operator accessibility", clause: "B652 §4.5", required: "Remote or accessible switch", guidance: "Manual overhead doors are very difficult. Power operator with remote strongly recommended.", weight: 2 },
+      { id: "10.4", title: "Mailbox location", clause: "Clinical consideration", required: "Reachable without stairs or long walk in weather", guidance: "Daily trip. Consider relocation if hazardous in winter.", weight: 2 },
+      { id: "10.5", title: "Snow and ice removal plan", clause: "Clinical consideration", required: "Plan in place (service, family, or client)", guidance: "Who removes snow? Does client attempt it themselves? Discuss with family.", weight: 3 }
+    ]
+  }
+];
+
+const STATUS_SEVERITY = {
+  "SAFE": 0,
+  "MINOR": 1,
+  "MODERATE": 2,
+  "HIGH": 3,
+  "CRITICAL": 4,
+  "NA": null
+};
+
+const STATUS_LABEL = {
+  "SAFE": "Safe / Compliant",
+  "MINOR": "Minor Concern",
+  "MODERATE": "Moderate Concern",
+  "HIGH": "High Priority",
+  "CRITICAL": "Critical — Immediate",
+  "NA": "Not Applicable"
+};
+
+const FUNDING_PROGRAMS = [
+  {
+    id: "sharp",
+    name: "SHARP — Seniors Home Adaptation and Repair Program",
+    jurisdiction: "Alberta (provincial)",
+    description: "Low-interest loan to help eligible senior homeowners finance accessibility and safety modifications.",
+    eligibility: "Alberta resident, 65 or older (or spouse 65+), minimum 3 years home ownership, income threshold applies (verify current Alberta Seniors Benefit threshold).",
+    maxFunding: "Up to $40,000 loan",
+    contact: "Alberta Seniors Benefit 1-877-644-9992 · alberta.ca/sharp.aspx",
+    verifyNote: "Thresholds and terms update annually. Confirm current figures at alberta.ca before citing in client report."
+  },
+  {
+    id: "ramp",
+    name: "RAMP — Residential Access Modification Program",
+    jurisdiction: "Alberta (provincial)",
+    description: "Grant for low-income Albertans with mobility challenges to make home modifications.",
+    eligibility: "Alberta resident, low income threshold, mobility-related disability or mobility limitation documented.",
+    maxFunding: "Up to $7,500 per year, $15,000 lifetime",
+    contact: "Alberta Seniors and Housing 1-877-644-9992 · alberta.ca/ramp",
+    verifyNote: "Income threshold and funding caps update periodically. Confirm at alberta.ca before citing."
+  },
+  {
+    id: "hasi",
+    name: "HASI — Home Adaptations for Seniors Independence",
+    jurisdiction: "Federal (CMHC, where available)",
+    description: "Federal program for home adaptations to help seniors remain independent.",
+    eligibility: "Senior homeowner, adaptation for health and safety, income thresholds vary by region.",
+    maxFunding: "Varies by region; historically up to $3,500",
+    contact: "CMHC 1-800-668-2642 · cmhc-schl.gc.ca",
+    verifyNote: "Program has had availability changes. Confirm current status and funding with CMHC before citing in client report."
+  },
+  {
+    id: "aadl",
+    name: "AADL — Alberta Aids to Daily Living",
+    jurisdiction: "Alberta (provincial)",
+    description: "Funding for medical equipment and supplies including mobility aids, lift systems, bathing aids.",
+    eligibility: "Alberta resident with a long-term disability or chronic illness, assessed by an authorized AADL specialist (often an Occupational Therapist).",
+    maxFunding: "Varies by equipment category; cost-share may apply",
+    contact: "AADL 1-780-427-0731 · alberta.ca/aadl",
+    verifyNote: "Requires OT or other authorized specialist assessment for many items. Client must obtain a referral first."
+  },
+  {
+    id: "rrap",
+    name: "RRAP — Residential Rehabilitation Assistance Program (Disabilities)",
+    jurisdiction: "Federal (where available)",
+    description: "Funding for modifications to improve accessibility for persons with disabilities.",
+    eligibility: "Homeowner, person with disability resides in home, income threshold.",
+    maxFunding: "Varies; historically up to $26,500 for major accessibility modifications",
+    contact: "CMHC 1-800-668-2642 · cmhc-schl.gc.ca",
+    verifyNote: "Federal RRAP program availability has fluctuated. Confirm current status with CMHC before citing."
+  }
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let state = loadState();
+
+function defaultState() {
+  return {
+    version: "1.0",
+    savedAt: null,
+    setup: {
+      clientName: "",
+      clientAge: "",
+      clientContact: "",
+      emergencyContact: "",
+      homeAddress: "",
+      homeType: "",
+      homeAge: "",
+      occupancy: "",
+      mobilityContext: "",
+      goalsContext: "",
+      assessmentDate: new Date().toISOString().substr(0, 10),
+      assessorName: "Carl Christie",
+      assessorCreds: "SHSS",
+      referralSource: "",
+      equipment: "Laser measure, dynamometer, lux meter, digital inclinometer",
+      categoryApplicable: Object.fromEntries(CATEGORIES.map(c => [c.id, true]))
+    },
+    features: {},
+    remediation: {},
+    funding: {},
+    currentCategory: null
+  };
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem("shsAssessState");
+    if (!raw) return defaultState();
+    const parsed = JSON.parse(raw);
+    if (!parsed.version) return defaultState();
+    return parsed;
+  } catch (e) {
+    console.warn("Failed to load state, starting fresh", e);
+    return defaultState();
+  }
+}
+
+function saveState() {
+  state.savedAt = new Date().toISOString();
+  try {
+    localStorage.setItem("shsAssessState", JSON.stringify(state));
+    showSaveIndicator();
+  } catch (e) {
+    alert("Warning: Could not save to browser storage. " + e.message);
+  }
+}
+
+function showSaveIndicator() {
+  const el = document.getElementById("saveIndicator");
+  el.classList.add("show");
+  clearTimeout(window._saveTimer);
+  window._saveTimer = setTimeout(() => el.classList.remove("show"), 1200);
+}
+
+/* ============================================================
+   TAB NAV
+   ============================================================ */
+document.querySelectorAll("nav.tabs button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const tab = btn.dataset.tab;
+    document.querySelectorAll("nav.tabs button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.add("hidden"));
+    document.getElementById("tab-" + tab).classList.remove("hidden");
+    window.scrollTo(0, 0);
+    if (tab === "assess") renderCategoryList();
+    if (tab === "remediation") renderRemediation();
+    if (tab === "score") renderScore();
+    if (tab === "funding") renderFunding();
+  });
+});
+
+/* ============================================================
+   SETUP
+   ============================================================ */
+function renderSetup() {
+  const s = state.setup;
+  const fields = ["clientName","clientAge","clientContact","emergencyContact","homeAddress","homeType","homeAge","occupancy","mobilityContext","goalsContext","assessmentDate","assessorName","assessorCreds","referralSource","equipment"];
+  fields.forEach(f => {
+    const el = document.getElementById(f);
+    if (!el) return;
+    el.value = s[f] || "";
+    el.addEventListener("input", () => {
+      state.setup[f] = el.value;
+      saveState();
+    });
+  });
+
+  const applicabilityList = document.getElementById("applicabilityList");
+  applicabilityList.innerHTML = "";
+  CATEGORIES.forEach(c => {
+    const div = document.createElement("div");
+    div.style.marginBottom = "6px";
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.id = "app_" + c.id;
+    cb.checked = s.categoryApplicable[c.id] !== false;
+    cb.addEventListener("change", () => {
+      state.setup.categoryApplicable[c.id] = cb.checked;
+      saveState();
+    });
+    const label = document.createElement("label");
+    label.htmlFor = "app_" + c.id;
+    label.innerHTML = " " + c.icon + " Category " + c.num + ": " + c.name;
+    label.style.marginLeft = "6px";
+    label.style.cursor = "pointer";
+    label.style.fontWeight = "normal";
+    div.appendChild(cb);
+    div.appendChild(label);
+    applicabilityList.appendChild(div);
+  });
+}
+
+/* ============================================================
+   ASSESSMENT — category list
+   ============================================================ */
+function renderCategoryList() {
+  document.getElementById("categoryDetail").classList.add("hidden");
+  const list = document.getElementById("categoryList");
+  list.innerHTML = "";
+  CATEGORIES.forEach(c => {
+    const applicable = state.setup.categoryApplicable[c.id] !== false;
+    const { highestSeverity, completed, total } = categoryProgress(c);
+    const li = document.createElement("li");
+    li.addEventListener("click", () => openCategory(c.id));
+
+    const name = document.createElement("div");
+    name.className = "cat-name";
+    name.textContent = c.icon + " Category " + c.num + " — " + c.name;
+    if (c.critical) {
+      const flag = document.createElement("span");
+      flag.textContent = " 🚨";
+      flag.title = "Contains critical life safety items";
+      name.appendChild(flag);
+    }
+    li.appendChild(name);
+
+    const score = document.createElement("div");
+    score.className = "cat-score";
+    if (!applicable) {
+      score.textContent = "Not Applicable";
+    } else {
+      score.textContent = completed + " of " + total + " items assessed";
+    }
+    li.appendChild(score);
+
+    const badge = document.createElement("div");
+    if (!applicable) {
+      badge.className = "cat-badge b-na";
+      badge.textContent = "N/A";
+    } else if (completed === 0) {
+      badge.className = "cat-badge b-na";
+      badge.textContent = "Not Started";
+    } else if (highestSeverity === 4) {
+      badge.className = "cat-badge b-fail";
+      badge.textContent = "CRITICAL";
+    } else if (highestSeverity === 3) {
+      badge.className = "cat-badge b-fail";
+      badge.textContent = "High";
+    } else if (highestSeverity === 2) {
+      badge.className = "cat-badge b-mod";
+      badge.textContent = "Moderate";
+    } else if (highestSeverity === 1) {
+      badge.className = "cat-badge b-mod";
+      badge.textContent = "Minor";
+    } else {
+      badge.className = "cat-badge b-pass";
+      badge.textContent = "Safe";
+    }
+    li.appendChild(badge);
+    list.appendChild(li);
+  });
+}
+
+function categoryProgress(category) {
+  let highestSeverity = 0;
+  let completed = 0;
+  const total = category.features.length;
+  category.features.forEach(f => {
+    const data = state.features[f.id];
+    if (!data || !data.status) return;
+    completed++;
+    if (data.status === "NA") return;
+    const sev = STATUS_SEVERITY[data.status];
+    if (sev > highestSeverity) highestSeverity = sev;
+  });
+  return { highestSeverity, completed, total };
+}
+
+function openCategory(catId) {
+  state.currentCategory = catId;
+  const category = CATEGORIES.find(c => c.id === catId);
+  document.getElementById("categoryList").parentElement.classList.add("hidden");
+  const detail = document.getElementById("categoryDetail");
+  detail.classList.remove("hidden");
+  document.getElementById("categoryDetailTitle").textContent = category.icon + " Category " + category.num + " — " + category.name;
+  document.getElementById("categoryDetailDescription").textContent = category.description;
+  renderFeatureList(category);
+}
+
+function backToCategoryList() {
+  state.currentCategory = null;
+  document.getElementById("categoryDetail").classList.add("hidden");
+  document.getElementById("categoryList").parentElement.classList.remove("hidden");
+  renderCategoryList();
+}
+
+function renderFeatureList(category) {
+  const container = document.getElementById("featureList");
+  container.innerHTML = "";
+  category.features.forEach(f => {
+    const data = state.features[f.id] || { status: null, measured: "", notes: "" };
+    const row = document.createElement("div");
+    row.className = "feature-row";
+
+    const title = document.createElement("div");
+    title.className = "feature-title";
+    title.textContent = f.id + " · " + f.title;
+    row.appendChild(title);
+
+    const clause = document.createElement("div");
+    clause.className = "feature-clause";
+    clause.textContent = f.clause + " · Required: " + f.required + " · Weight: " + f.weight + "/5";
+    row.appendChild(clause);
+
+    const guidance = document.createElement("div");
+    guidance.className = "feature-guidance";
+    guidance.textContent = f.guidance;
+    row.appendChild(guidance);
+
+    const statusWrap = document.createElement("div");
+    statusWrap.className = "status-buttons";
+    [["SAFE","safe"],["MINOR","minor"],["MODERATE","mod"],["HIGH","high"],["CRITICAL","crit"],["NA","na"]].forEach(([s, cls]) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = s === "NA" ? "N/A" : s;
+      btn.className = (data.status === s ? "selected " : "") + cls;
+      btn.addEventListener("click", () => {
+        if (!state.features[f.id]) state.features[f.id] = {};
+        state.features[f.id].status = s;
+        saveState();
+        renderFeatureList(category);
+      });
+      statusWrap.appendChild(btn);
+    });
+    row.appendChild(statusWrap);
+
+    const measRow = document.createElement("div");
+    measRow.className = "row";
+    const measField = document.createElement("div");
+    measField.className = "field";
+    measField.innerHTML = `<label>Measured / Observed</label><input type="text" placeholder="e.g. 780mm or 25N or Absent" value="${(data.measured||"").replace(/"/g,'&quot;')}" />`;
+    measField.querySelector("input").addEventListener("input", (e) => {
+      if (!state.features[f.id]) state.features[f.id] = {};
+      state.features[f.id].measured = e.target.value;
+      saveState();
+    });
+    measRow.appendChild(measField);
+
+    const notesField = document.createElement("div");
+    notesField.className = "field";
+    notesField.innerHTML = `<label>Notes / Observations</label><textarea placeholder="Observations and recommended modifications">${(data.notes||"").replace(/</g,"&lt;")}</textarea>`;
+    notesField.querySelector("textarea").addEventListener("input", (e) => {
+      if (!state.features[f.id]) state.features[f.id] = {};
+      state.features[f.id].notes = e.target.value;
+      saveState();
+    });
+    measRow.appendChild(notesField);
+
+    row.appendChild(measRow);
+    container.appendChild(row);
+  });
+}
+
+/* ============================================================
+   REMEDIATION
+   ============================================================ */
+function renderRemediation() {
+  const container = document.getElementById("remediationList");
+  container.innerHTML = "";
+  let critical = [], high = [], moderate = [], minor = [];
+
+  CATEGORIES.forEach(category => {
+    if (state.setup.categoryApplicable[category.id] === false) return;
+    category.features.forEach(f => {
+      const data = state.features[f.id];
+      if (!data || !data.status || data.status === "SAFE" || data.status === "NA") return;
+      const item = {
+        category: category,
+        feature: f,
+        data: data,
+        remediation: state.remediation[f.id] || {}
+      };
+      if (data.status === "CRITICAL") critical.push(item);
+      else if (data.status === "HIGH") high.push(item);
+      else if (data.status === "MODERATE") moderate.push(item);
+      else if (data.status === "MINOR") minor.push(item);
+    });
+  });
+
+  if (critical.length === 0 && high.length === 0 && moderate.length === 0 && minor.length === 0) {
+    container.innerHTML = "<p style='color:var(--muted);'>No modifications recommended yet. Complete the assessment to see modification items here.</p>";
+    document.getElementById("remediationSummary").innerHTML = "";
+    return;
+  }
+
+  const groups = [
+    { title: "CRITICAL — Immediate Action (today or this week)", items: critical, color: "var(--crit)" },
+    { title: "HIGH PRIORITY — Within 30 days", items: high, color: "var(--high)" },
+    { title: "MODERATE — Within 90 days", items: moderate, color: "var(--mod)" },
+    { title: "MINOR — As budget and convenience allow", items: minor, color: "var(--minor)" }
+  ];
+
+  groups.forEach(group => {
+    if (group.items.length === 0) return;
+    const header = document.createElement("h3");
+    header.textContent = group.title;
+    header.style.color = group.color;
+    header.style.borderLeft = "4px solid " + group.color;
+    header.style.paddingLeft = "10px";
+    container.appendChild(header);
+
+    group.items.forEach(item => {
+      const row = document.createElement("div");
+      row.className = "feature-row";
+      if (item.data.status === "CRITICAL") row.style.borderLeft = "4px solid var(--crit)";
+
+      const title = document.createElement("div");
+      title.className = "feature-title";
+      title.textContent = item.category.icon + " Cat " + item.category.num + " · " + item.feature.id + " — " + item.feature.title;
+      row.appendChild(title);
+
+      if (item.data.notes) {
+        const notes = document.createElement("div");
+        notes.style.fontSize = "13px";
+        notes.style.color = "var(--muted)";
+        notes.style.margin = "4px 0 8px";
+        notes.textContent = "Observations: " + item.data.notes;
+        row.appendChild(notes);
+      }
+
+      const fieldsRow = document.createElement("div");
+      fieldsRow.className = "row";
+
+      const recField = document.createElement("div");
+      recField.className = "field";
+      recField.innerHTML = `<label>Recommended Modification</label><textarea placeholder="e.g. Install vertical and horizontal grab bars anchored to studs at shower. Replace bath mat with secured no-slip mat.">${(item.remediation.recommendation||"").replace(/</g,"&lt;")}</textarea>`;
+      recField.querySelector("textarea").addEventListener("input", (e) => {
+        if (!state.remediation[item.feature.id]) state.remediation[item.feature.id] = {};
+        state.remediation[item.feature.id].recommendation = e.target.value;
+        saveState();
+      });
+      fieldsRow.appendChild(recField);
+
+      const costField = document.createElement("div");
+      costField.className = "field";
+      costField.innerHTML = `<label>Cost Estimate</label><input type="text" value="${(item.remediation.cost||"").replace(/"/g,'&quot;')}" placeholder="e.g. $180 – $350 or No-cost action">`;
+      costField.querySelector("input").addEventListener("input", (e) => {
+        if (!state.remediation[item.feature.id]) state.remediation[item.feature.id] = {};
+        state.remediation[item.feature.id].cost = e.target.value;
+        saveState();
+        updateRemediationSummary();
+      });
+      fieldsRow.appendChild(costField);
+
+      const timelineField = document.createElement("div");
+      timelineField.className = "field";
+      timelineField.style.maxWidth = "150px";
+      timelineField.innerHTML = `<label>Timeline</label><input type="text" value="${(item.remediation.timeline||"").replace(/"/g,'&quot;')}" placeholder="e.g. 7 days">`;
+      timelineField.querySelector("input").addEventListener("input", (e) => {
+        if (!state.remediation[item.feature.id]) state.remediation[item.feature.id] = {};
+        state.remediation[item.feature.id].timeline = e.target.value;
+        saveState();
+      });
+      fieldsRow.appendChild(timelineField);
+
+      row.appendChild(fieldsRow);
+      container.appendChild(row);
+    });
+  });
+
+  updateRemediationSummary();
+}
+
+function updateRemediationSummary() {
+  const summary = document.getElementById("remediationSummary");
+  summary.innerHTML = "";
+  let lowTotal = 0, highTotal = 0;
+  Object.entries(state.remediation).forEach(([fid, r]) => {
+    if (!r.cost) return;
+    const nums = r.cost.match(/\$?[\d,]+/g);
+    if (nums && nums.length >= 1) {
+      const first = parseInt(nums[0].replace(/[\$,]/g, ""));
+      if (!isNaN(first)) lowTotal += first;
+      const last = parseInt(nums[nums.length-1].replace(/[\$,]/g, ""));
+      if (!isNaN(last)) highTotal += last;
+    }
+  });
+  if (lowTotal > 0 || highTotal > 0) {
+    const div = document.createElement("div");
+    div.className = "summary-tile";
+    div.innerHTML = `<div class="label">Total Modification Estimate</div><div class="big-number">$${lowTotal.toLocaleString()} – $${highTotal.toLocaleString()}</div><div style="font-size:13px;color:var(--muted);margin-top:6px;">Before applicable grants. See Funding tab for programs the client may qualify for.</div>`;
+    summary.appendChild(div);
+  }
+}
+
+/* ============================================================
+   SCORE — Home Safety Score 0-100
+   ============================================================ */
+function computeHomeSafetyScore() {
+  // For each applicable feature that has been assessed:
+  //   Severity 0 (SAFE) = full feature weight awarded
+  //   Severity 1 (MINOR) = 0.75 * weight
+  //   Severity 2 (MODERATE) = 0.50 * weight
+  //   Severity 3 (HIGH) = 0.25 * weight
+  //   Severity 4 (CRITICAL) = 0 * weight
+  //   NA is excluded entirely
+  let earned = 0, possible = 0;
+  let criticals = 0, highs = 0, moderates = 0, minors = 0;
+
+  CATEGORIES.forEach(category => {
+    if (state.setup.categoryApplicable[category.id] === false) return;
+    category.features.forEach(f => {
+      const data = state.features[f.id];
+      if (!data || !data.status || data.status === "NA") return;
+      const sev = STATUS_SEVERITY[data.status];
+      possible += f.weight;
+      const multiplier = [1.0, 0.75, 0.50, 0.25, 0.0][sev];
+      earned += f.weight * multiplier;
+
+      if (data.status === "CRITICAL") criticals++;
+      else if (data.status === "HIGH") highs++;
+      else if (data.status === "MODERATE") moderates++;
+      else if (data.status === "MINOR") minors++;
+    });
+  });
+
+  const score = possible > 0 ? Math.round((earned / possible) * 100) : 0;
+  let band = "Not Enough Data";
+  let bandColor = "var(--muted)";
+  if (possible > 0) {
+    if (criticals > 0) { band = "Safety Attention Required — Critical Findings Present"; bandColor = "var(--crit)"; }
+    else if (score >= 85) { band = "Home Supports Safe Aging in Place"; bandColor = "#1A5D1A"; }
+    else if (score >= 70) { band = "Minor Improvements Recommended"; bandColor = "var(--mod)"; }
+    else if (score >= 55) { band = "Multiple Improvements Recommended"; bandColor = "var(--high)"; }
+    else { band = "Significant Safety Concerns"; bandColor = "var(--crit)"; }
+  }
+
+  return { score, band, bandColor, criticals, highs, moderates, minors, possible, earned: Math.round(earned) };
+}
+
+function renderScore() {
+  const result = computeHomeSafetyScore();
+  const tiles = document.getElementById("scoreTiles");
+  tiles.innerHTML = "";
+
+  const scoreTile = document.createElement("div");
+  scoreTile.className = "summary-tile";
+  scoreTile.style.borderLeftColor = result.bandColor;
+  scoreTile.innerHTML = `<div class="label">Home Safety Score</div><div class="big-number" style="color:${result.bandColor};">${result.score}<span style="font-size:18pt;color:var(--muted);">/100</span></div><div style="font-size:14px;font-weight:bold;color:${result.bandColor};">${result.band}</div>`;
+  tiles.appendChild(scoreTile);
+
+  const findingsTile = document.createElement("div");
+  findingsTile.className = "summary-tile";
+  findingsTile.innerHTML = `<div class="label">Findings Summary</div>
+    <div style="margin-top:8px;font-size:15px;">
+      <div style="color:var(--crit);font-weight:bold;">Critical: ${result.criticals}</div>
+      <div style="color:var(--high);font-weight:bold;">High: ${result.highs}</div>
+      <div style="color:var(--mod);font-weight:bold;">Moderate: ${result.moderates}</div>
+      <div style="color:var(--minor);">Minor: ${result.minors}</div>
+    </div>`;
+  tiles.appendChild(findingsTile);
+
+  const tbody = document.querySelector("#scoreTable tbody");
+  tbody.innerHTML = "";
+  CATEGORIES.forEach(category => {
+    const applicable = state.setup.categoryApplicable[category.id] !== false;
+    if (!applicable) {
+      const tr = document.createElement("tr");
+      tr.style.opacity = "0.5";
+      tr.innerHTML = `<td>${category.num}</td><td><em>${category.icon} ${esc(category.name)}</em></td><td><em>N/A</em></td><td><em>—</em></td><td><em>Not applicable</em></td>`;
+      tbody.appendChild(tr);
+      return;
+    }
+    const { highestSeverity, completed, total } = categoryProgress(category);
+    let catEarned = 0, catPossible = 0;
+    category.features.forEach(f => {
+      const data = state.features[f.id];
+      if (!data || !data.status || data.status === "NA") return;
+      const sev = STATUS_SEVERITY[data.status];
+      catPossible += f.weight;
+      const multiplier = [1.0, 0.75, 0.50, 0.25, 0.0][sev];
+      catEarned += f.weight * multiplier;
+    });
+    const catScore = catPossible > 0 ? Math.round((catEarned / catPossible) * 100) : null;
+    const severityLabel = ["Safe","Minor","Moderate","High","CRITICAL"][highestSeverity] || "—";
+    const finding = getPrimaryFinding(category);
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${category.num}</td><td><strong>${category.icon} ${esc(category.name)}</strong></td><td>${catScore !== null ? catScore + "/100" : "<em>Not started</em>"}</td><td><strong>${severityLabel}</strong></td><td>${esc(finding)}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function getPrimaryFinding(category) {
+  const crits = [];
+  const highs = [];
+  category.features.forEach(f => {
+    const data = state.features[f.id];
+    if (!data) return;
+    if (data.status === "CRITICAL") crits.push(f.title);
+    else if (data.status === "HIGH") highs.push(f.title);
+  });
+  if (crits.length > 0) return "CRITICAL: " + crits.slice(0, 2).join("; ") + (crits.length > 2 ? " + " + (crits.length - 2) + " more" : "");
+  if (highs.length > 0) return "High: " + highs.slice(0, 2).join("; ") + (highs.length > 2 ? " + " + (highs.length - 2) + " more" : "");
+  return "No high-severity findings";
+}
+
+/* ============================================================
+   FUNDING
+   ============================================================ */
+function renderFunding() {
+  const container = document.getElementById("fundingList");
+  container.innerHTML = "";
+  FUNDING_PROGRAMS.forEach(prog => {
+    const row = document.createElement("div");
+    row.className = "feature-row";
+
+    const isEligible = state.funding[prog.id] === true;
+
+    const header = document.createElement("div");
+    header.style.display = "flex";
+    header.style.alignItems = "center";
+    header.style.gap = "10px";
+    header.style.marginBottom = "8px";
+
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.id = "fund_" + prog.id;
+    cb.checked = isEligible;
+    cb.addEventListener("change", () => {
+      state.funding[prog.id] = cb.checked;
+      saveState();
+    });
+
+    const title = document.createElement("label");
+    title.htmlFor = "fund_" + prog.id;
+    title.style.fontWeight = "bold";
+    title.style.color = "var(--teal-dark)";
+    title.style.fontSize = "15px";
+    title.style.cursor = "pointer";
+    title.textContent = prog.name;
+
+    header.appendChild(cb);
+    header.appendChild(title);
+    row.appendChild(header);
+
+    const info = document.createElement("div");
+    info.style.fontSize = "13px";
+    info.innerHTML = `
+      <div><strong>Jurisdiction:</strong> ${esc(prog.jurisdiction)}</div>
+      <div><strong>Description:</strong> ${esc(prog.description)}</div>
+      <div><strong>Eligibility:</strong> ${esc(prog.eligibility)}</div>
+      <div><strong>Max Funding:</strong> ${esc(prog.maxFunding)}</div>
+      <div><strong>Contact:</strong> ${esc(prog.contact)}</div>
+      <div style="color:var(--high);font-style:italic;margin-top:6px;">Verify: ${esc(prog.verifyNote)}</div>
+    `;
+    row.appendChild(info);
+    container.appendChild(row);
+  });
+}
+
+/* ============================================================
+   REPORT GENERATION — dual audience
+   ============================================================ */
+function buildReport() {
+  const s = state.setup;
+  const hasData = s.clientName || Object.keys(state.features).length > 0;
+  if (!hasData) {
+    document.getElementById("reportOutput").innerHTML = "<p style='text-align:center;color:var(--muted);padding:40px;'>Please complete Setup and at least one Category before generating a report.</p>";
+    return;
+  }
+
+  const reportType = document.getElementById("reportSelector").value || "ot";
+  if (reportType === "ot") {
+    buildOtReport();
+  } else {
+    buildClientReport();
+  }
+}
+
+function buildOtReport() {
+  const s = state.setup;
+  const result = computeHomeSafetyScore();
+  const dateStr = s.assessmentDate ? new Date(s.assessmentDate + "T00:00:00").toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" }) : "[Date TBD]";
+
+  // Gather findings
+  const critFindings = [];
+  const highFindings = [];
+  const modFindings = [];
+  CATEGORIES.forEach(category => {
+    if (state.setup.categoryApplicable[category.id] === false) return;
+    category.features.forEach(f => {
+      const data = state.features[f.id];
+      if (!data || !data.status || data.status === "SAFE" || data.status === "NA") return;
+      const item = { category, feature: f, data, remediation: state.remediation[f.id] || {} };
+      if (data.status === "CRITICAL") critFindings.push(item);
+      else if (data.status === "HIGH") highFindings.push(item);
+      else if (data.status === "MODERATE") modFindings.push(item);
+    });
+  });
+
+  let html = "";
+  html += `
+    <div class="report-header">
+      <div style="font-size:14pt;font-weight:bold;color:var(--teal-dark);">SENIOR HOME SAFETY</div>
+      <div style="font-size:11pt;color:var(--muted);">A service of Novo Industries Inc.  │  seniorhomesafety.com  │  carl@seniorhomesafety.com  │  587-355-4677</div>
+    </div>
+
+    <h1>Home Safety Assessment — Clinical Summary</h1>
+    <div style="font-size:13pt;color:var(--teal-dark);font-style:italic;margin-bottom:20px;">For Occupational Therapy, Case Manager, or Primary Care Referral</div>
+
+    <table style="margin-bottom:20px;">
+      <tr>
+        <td style="width:50%;vertical-align:top;">
+          <strong>CLIENT</strong><br>
+          <strong style="font-size:13pt;">${esc(s.clientName) || "[Client Name]"}</strong><br>
+          Age: ${esc(s.clientAge) || "[age]"}<br>
+          ${esc(s.homeAddress) || ""}<br>
+          ${esc(s.homeType) || ""}${s.homeAge ? " · " + esc(s.homeAge) : ""}<br>
+          Contact: ${esc(s.clientContact) || "—"}<br>
+          Emergency contact: ${esc(s.emergencyContact) || "—"}
+        </td>
+        <td style="width:50%;vertical-align:top;">
+          <strong>HOME SAFETY SCORE</strong><br>
+          <strong style="font-size:22pt;color:var(--teal-dark);">${result.score}/100</strong><br>
+          <strong style="color:${result.bandColor};">${result.band}</strong><br>
+          <br>
+          Findings: <strong style="color:var(--crit);">${result.criticals} Critical</strong>, <strong style="color:var(--high);">${result.highs} High</strong>, <strong>${result.moderates} Moderate</strong>, ${result.minors} Minor<br>
+          Assessment Date: ${dateStr}<br>
+          Assessor: ${esc(s.assessorName)}, ${esc(s.assessorCreds)}
+        </td>
+      </tr>
+    </table>
+
+    <div class="report-box">
+      <strong>SCOPE AND PURPOSE</strong><br>
+      This is a home safety assessment using CSA/ASC B652:23 Accessible Dwellings as the technical reference. It supports referral, care planning, and funding applications. It does not replace clinical occupational therapy evaluation, functional assessment, or medical diagnosis. The assessor is a Certified Senior Home Safety Specialist (SHSS). Findings below are offered to support the client's ability to age safely in place.
+    </div>
+
+    <h2>1. Client Context</h2>
+    <div class="report-box">
+      <strong>Referral source:</strong> ${esc(s.referralSource) || "Not specified"}<br>
+      <strong>Mobility and health context:</strong> ${esc(s.mobilityContext) || "Not documented"}<br>
+      <strong>Client goals:</strong> ${esc(s.goalsContext) || "Not documented"}
+    </div>
+
+    <h2>2. Summary of Findings</h2>
+  `;
+
+  if (critFindings.length > 0) {
+    html += `<div class="report-box" style="background:#FFEBEE;border-color:var(--crit);">
+      <strong style="color:var(--crit);">⚠ CRITICAL FINDINGS — Immediate attention required</strong><br>
+      The following findings represent hazards that warrant immediate action (within 24 to 72 hours) regardless of any other consideration.
+      <ul style="margin-top:8px;">
+        ${critFindings.map(item => `<li><strong>${esc(item.feature.title)}</strong> (${esc(item.category.name)})${item.data.notes ? " — " + esc(item.data.notes) : ""}</li>`).join("")}
+      </ul>
+    </div>`;
+  }
+
+  html += `<table><thead><tr><th>Cat</th><th>Finding</th><th>Severity</th><th>Measured / Observed</th><th>Recommendation</th></tr></thead><tbody>`;
+  [...critFindings, ...highFindings, ...modFindings].forEach(item => {
+    const sevColor = item.data.status === "CRITICAL" ? "var(--crit)" : item.data.status === "HIGH" ? "var(--high)" : "var(--mod)";
+    html += `<tr>
+      <td>${item.category.num}</td>
+      <td><strong>${esc(item.feature.title)}</strong><br><em style="font-size:10pt;color:var(--muted);">${esc(item.feature.clause)}</em></td>
+      <td style="color:${sevColor};font-weight:bold;">${item.data.status}</td>
+      <td>${esc(item.data.measured || "—")}</td>
+      <td>${esc(item.remediation.recommendation || item.data.notes || "—")}${item.remediation.cost ? "<br><em>Est: " + esc(item.remediation.cost) + "</em>" : ""}</td>
+    </tr>`;
+  });
+  html += `</tbody></table>`;
+
+  // Detailed findings by category
+  html += `<h2>3. Detailed Findings by Category</h2>`;
+  CATEGORIES.forEach(category => {
+    if (state.setup.categoryApplicable[category.id] === false) return;
+    const assessedFeatures = category.features.filter(f => state.features[f.id] && state.features[f.id].status);
+    if (assessedFeatures.length === 0) return;
+
+    html += `<h3>${category.icon} Category ${category.num} — ${esc(category.name)}</h3>`;
+    html += `<table><thead><tr><th>Item</th><th>Required</th><th>Measured</th><th>Severity</th><th>Notes</th></tr></thead><tbody>`;
+    assessedFeatures.forEach(f => {
+      const data = state.features[f.id];
+      const sevColor = data.status === "CRITICAL" ? "var(--crit)" : data.status === "HIGH" ? "var(--high)" : data.status === "MODERATE" ? "var(--mod)" : data.status === "MINOR" ? "var(--minor)" : "#1A5D1A";
+      html += `<tr>
+        <td><strong>${f.id}</strong> ${esc(f.title)}</td>
+        <td>${esc(f.required)}</td>
+        <td>${esc(data.measured || "—")}</td>
+        <td style="color:${sevColor};font-weight:bold;">${data.status === "NA" ? "N/A" : data.status}</td>
+        <td>${esc(data.notes || "")}</td>
+      </tr>`;
+    });
+    html += `</tbody></table>`;
+  });
+
+  // Clinical recommendations
+  html += `<h2>4. Clinical Recommendations</h2>`;
+  html += `<div class="report-box">
+    <strong>For the referring clinician:</strong><br>
+    This assessment documents built-environment factors that may affect the client's ability to age safely in place. It supports but does not replace clinical OT evaluation. Recommended next steps:
+    <ul>
+      ${critFindings.length > 0 ? "<li><strong>Immediate:</strong> Review critical findings with client and family. Initiate immediate-action modifications (24-72 hours).</li>" : ""}
+      ${highFindings.length > 0 ? "<li><strong>Short-term (30 days):</strong> Coordinate modifications for high-priority findings. Consider AADL referral if mobility aids or bathroom equipment indicated.</li>" : ""}
+      <li><strong>Functional assessment:</strong> If not recently completed, a functional OT assessment would complement this built-environment assessment and identify equipment and training needs.</li>
+      <li><strong>Funding:</strong> See Section 5 for programs the client may qualify for based on this assessment.</li>
+    </ul>
+  </div>`;
+
+  // Funding programs
+  const eligiblePrograms = FUNDING_PROGRAMS.filter(p => state.funding[p.id]);
+  if (eligiblePrograms.length > 0) {
+    html += `<h2>5. Funding Programs — Potential Eligibility</h2>`;
+    html += `<p><em>The following programs have been identified as potentially applicable based on this assessment. Eligibility must be confirmed directly with each program. Current thresholds and availability should be verified before application.</em></p>`;
+    html += `<table><thead><tr><th>Program</th><th>Jurisdiction</th><th>Max Funding</th><th>Contact</th></tr></thead><tbody>`;
+    eligiblePrograms.forEach(p => {
+      html += `<tr><td><strong>${esc(p.name)}</strong><br><em style="font-size:10pt;">${esc(p.description)}</em></td><td>${esc(p.jurisdiction)}</td><td>${esc(p.maxFunding)}</td><td>${esc(p.contact)}</td></tr>`;
+    });
+    html += `</tbody></table>`;
+  }
+
+  html += `
+    <hr style="margin:30px 0;border:none;border-top:1px solid var(--border);">
+    <div style="text-align:center;font-size:10pt;color:var(--muted);">
+      Senior Home Safety (a service of Novo Industries Inc.)  │  seniorhomesafety.com  │  carl@seniorhomesafety.com  │  587-355-4677<br>
+      CSA/ASC B652:23 Accessible Dwellings  │  ${dateStr}  │  ${esc(s.assessorName)}, ${esc(s.assessorCreds)}<br>
+      <em>This is a home safety assessment, not a medical diagnosis. Confidential — ${esc(s.clientName) || "Client"}.</em>
+    </div>
+  `;
+
+  document.getElementById("reportOutput").innerHTML = html;
+}
+
+function buildClientReport() {
+  const s = state.setup;
+  const result = computeHomeSafetyScore();
+  const dateStr = s.assessmentDate ? new Date(s.assessmentDate + "T00:00:00").toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" }) : "[Date TBD]";
+
+  const critFindings = [];
+  const highFindings = [];
+  const modFindings = [];
+  const minorFindings = [];
+  CATEGORIES.forEach(category => {
+    if (state.setup.categoryApplicable[category.id] === false) return;
+    category.features.forEach(f => {
+      const data = state.features[f.id];
+      if (!data || !data.status || data.status === "SAFE" || data.status === "NA") return;
+      const item = { category, feature: f, data, remediation: state.remediation[f.id] || {} };
+      if (data.status === "CRITICAL") critFindings.push(item);
+      else if (data.status === "HIGH") highFindings.push(item);
+      else if (data.status === "MODERATE") modFindings.push(item);
+      else if (data.status === "MINOR") minorFindings.push(item);
+    });
+  });
+
+  let html = "";
+  html += `
+    <div class="report-header">
+      <div style="font-size:14pt;font-weight:bold;color:var(--teal-dark);">SENIOR HOME SAFETY</div>
+      <div style="font-size:11pt;color:var(--muted);">Helping seniors stay safely at home  │  seniorhomesafety.com  │  carl@seniorhomesafety.com  │  587-355-4677</div>
+    </div>
+
+    <h1>Your Home Safety Report</h1>
+    <p style="font-size:13pt;color:var(--muted);">Prepared for ${esc(s.clientName) || "[you]"} on ${dateStr}</p>
+
+    <div class="report-box" style="background:var(--ltel);border-color:var(--teal);">
+      <strong>Dear ${esc(s.clientName) || "friend"},</strong><br><br>
+      Thank you for welcoming me into your home. This report is written for you and your family. It explains what I found during our visit and what we can do, step by step, to make your home safer. There is no rush on most of these items. Please read through, ask questions, and share this with anyone who helps you make decisions.<br><br>
+      <strong>Your Home Safety Score is ${result.score} out of 100.</strong><br>
+      <em>${esc(result.band)}</em>
+    </div>
+  `;
+
+  // Critical section comes first if present
+  if (critFindings.length > 0) {
+    html += `<h2>Please Address These Right Away</h2>
+    <div class="report-box" style="background:#FFEBEE;border-color:var(--crit);">
+      <p>A small number of items came up during our visit that should be looked at <strong>in the next few days</strong>, not weeks. These are things that could lead to a serious fall or injury if left as they are. Please ask a family member or handyperson to help with these.</p>
+      <ul>
+        ${critFindings.map(item => `<li><strong>${esc(item.feature.title)}.</strong> ${esc(item.remediation.recommendation || item.data.notes || "See the detailed list below.")}</li>`).join("")}
+      </ul>
+    </div>`;
+  }
+
+  // Your home at a glance
+  html += `<h2>Your Home at a Glance</h2>
+    <p>Here is what I looked at, organized by area. For each area, I have marked whether things are working well (Safe), or whether there is something to improve. You do not have to tackle everything at once.</p>
+    <table><thead><tr><th>Area of Your Home</th><th>How it Looks Today</th></tr></thead><tbody>`;
+  CATEGORIES.forEach(category => {
+    if (state.setup.categoryApplicable[category.id] === false) return;
+    const { highestSeverity, completed, total } = categoryProgress(category);
+    if (completed === 0) return;
+    let plainEnglish = "";
+    if (highestSeverity === 0) plainEnglish = "✅ Looking good.";
+    else if (highestSeverity === 1) plainEnglish = "✨ Minor things to consider.";
+    else if (highestSeverity === 2) plainEnglish = "⚠️ A few things to improve when you can.";
+    else if (highestSeverity === 3) plainEnglish = "⚠️ Some important improvements recommended.";
+    else if (highestSeverity === 4) plainEnglish = "🚨 Please address right away.";
+    html += `<tr><td><strong>${category.icon} ${esc(category.name)}</strong></td><td>${plainEnglish}</td></tr>`;
+  });
+  html += `</tbody></table>`;
+
+  // Recommendations in plain language
+  html += `<h2>What We Recommend, in Order</h2>
+    <p>Here is the full list of suggestions, starting with the most important. Costs shown are estimates and may vary depending on your location and the tradesperson you choose. If you are unsure, ask your family or contact us and we can suggest reliable local contractors.</p>
+  `;
+
+  const allOrdered = [...critFindings, ...highFindings, ...modFindings, ...minorFindings];
+  if (allOrdered.length === 0) {
+    html += `<p><em>No safety concerns were identified that need action. Continue with the positive habits you already have in place, and feel free to reach out if anything changes.</em></p>`;
+  } else {
+    allOrdered.forEach((item, idx) => {
+      const priorityLabel = item.data.status === "CRITICAL" ? "URGENT" :
+                           item.data.status === "HIGH" ? "Important" :
+                           item.data.status === "MODERATE" ? "When you can" : "Optional";
+      const priorityColor = item.data.status === "CRITICAL" ? "var(--crit)" :
+                           item.data.status === "HIGH" ? "var(--high)" :
+                           item.data.status === "MODERATE" ? "var(--mod)" : "var(--minor)";
+      html += `<div class="report-box" style="border-left:4px solid ${priorityColor};">
+        <div style="color:${priorityColor};font-weight:bold;font-size:11pt;">${priorityLabel} · ${esc(item.category.name)}</div>
+        <div style="font-weight:bold;margin:4px 0;">${idx + 1}. ${esc(item.feature.title)}</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:4px;">What I saw: ${esc(item.data.notes || item.data.measured || "See assessor notes")}</div>
+        <div>${esc(item.remediation.recommendation || "Ask a family member or handyperson to review this item.")}</div>
+        ${item.remediation.cost ? `<div style="margin-top:6px;font-size:13px;"><strong>Approximate cost:</strong> ${esc(item.remediation.cost)}</div>` : ""}
+        ${item.remediation.timeline ? `<div style="font-size:13px;"><strong>Suggested timeline:</strong> ${esc(item.remediation.timeline)}</div>` : ""}
+      </div>`;
+    });
+  }
+
+  // Funding programs in plain language
+  const eligiblePrograms = FUNDING_PROGRAMS.filter(p => state.funding[p.id]);
+  if (eligiblePrograms.length > 0) {
+    html += `<h2>Programs That May Help Pay for Improvements</h2>
+      <p>You may qualify for one or more of the programs below. They can help cover part or all of the cost of making your home safer. Most of these programs require an application, and some have income limits or other rules. Call the contact number listed to find out if you qualify. Your family is welcome to help with the applications.</p>
+      <p><em>Note: program details do change. The information below was current as of early 2026. Please confirm the current details when you call.</em></p>`;
+    eligiblePrograms.forEach(p => {
+      html += `<div class="report-box">
+        <div style="font-weight:bold;color:var(--teal-dark);font-size:13pt;">${esc(p.name)}</div>
+        <div style="margin-top:6px;">${esc(p.description)}</div>
+        <div style="margin-top:6px;"><strong>Who it is for:</strong> ${esc(p.eligibility)}</div>
+        <div><strong>How much it can cover:</strong> ${esc(p.maxFunding)}</div>
+        <div><strong>How to contact them:</strong> ${esc(p.contact)}</div>
+      </div>`;
+    });
+  }
+
+  // Closing
+  html += `<h2>What Happens Next</h2>
+    <div class="report-box">
+      <p><strong>1. Share this report.</strong> Show it to your family members and your doctor or case manager if you have one. They can help you decide what to do first.</p>
+      <p><strong>2. Start with what matters most.</strong> If there are urgent items, please address those first, even if it is a temporary fix (for example, removing a loose rug today while you arrange for a longer-term solution).</p>
+      <p><strong>3. Ask for help.</strong> You do not have to do any of this alone. If you have questions about this report or need help finding a reliable contractor, I am happy to help.</p>
+      <p><strong>4. Stay in touch.</strong> Let me know how things go. We can re-check your home in 6 or 12 months if you would like.</p>
+      <p style="margin-top:15px;">Thank you again for your time and trust. Your safety matters.</p>
+      <p>Warmly,<br><strong>${esc(s.assessorName)}, ${esc(s.assessorCreds)}</strong><br>Senior Home Safety</p>
+    </div>
+
+    <hr style="margin:30px 0;border:none;border-top:1px solid var(--border);">
+    <div style="text-align:center;font-size:10pt;color:var(--muted);">
+      Senior Home Safety (a service of Novo Industries Inc.)  │  seniorhomesafety.com  │  carl@seniorhomesafety.com  │  587-355-4677<br>
+      CSA/ASC B652:23 Accessible Dwellings  │  ${dateStr}<br>
+      <em>Confidential — prepared for ${esc(s.clientName) || "Client"} and family.</em>
+    </div>
+  `;
+
+  document.getElementById("reportOutput").innerHTML = html;
+}
+
+function esc(str) {
+  if (!str) return "";
+  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+/* ============================================================
+   EXPORT
+   ============================================================ */
+function copyReportToClipboard() {
+  const reportHtml = document.getElementById("reportOutput").innerHTML;
+  const plainText = document.getElementById("reportOutput").innerText;
+  if (navigator.clipboard && navigator.clipboard.write) {
+    const blob = new Blob([reportHtml], { type: "text/html" });
+    const plainBlob = new Blob([plainText], { type: "text/plain" });
+    navigator.clipboard.write([new ClipboardItem({ "text/html": blob, "text/plain": plainBlob })])
+      .then(() => alert("Report copied to clipboard."))
+      .catch(() => {
+        navigator.clipboard.writeText(plainText).then(() => alert("Plain text report copied."));
+      });
+  } else {
+    navigator.clipboard.writeText(plainText).then(() => alert("Report copied."));
+  }
+}
+
+function exportReportAsWord() {
+  const reportHtml = document.getElementById("reportOutput").innerHTML;
+  const s = state.setup;
+  const reportType = document.getElementById("reportSelector").value || "ot";
+  const label = reportType === "ot" ? "Clinical" : "Client";
+  const filename = ("SHS_" + label + "_" + (s.clientName || "Assessment") + "_" + (s.assessmentDate || "")).replace(/[^A-Za-z0-9_-]/g, "_") + ".doc";
+  const docContent = `
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+<head>
+<meta charset="UTF-8">
+<title>Senior Home Safety Assessment</title>
+<style>
+body { font-family: Arial, sans-serif; font-size: 12pt; }
+h1, h2, h3 { color: #1F5A68; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+table th, table td { padding: 6px 8px; border: 1px solid #CCCCCC; }
+table th { background: #2E7D8F; color: white; }
+</style>
+</head>
+<body>${reportHtml}</body>
+</html>
+  `;
+  const blob = new Blob([docContent], { type: "application/msword" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportData() {
+  const s = state.setup;
+  const filename = "SHS_Backup_" + (s.clientName || "Assessment").replace(/[^A-Za-z0-9_-]/g, "_") + "_" + new Date().toISOString().substr(0, 10) + ".json";
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+  alert("Backup downloaded: " + filename);
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (!imported.version) throw new Error("Not a valid backup file");
+      if (!confirm("This will replace your current assessment data. Continue?")) return;
+      state = imported;
+      saveState();
+      renderSetup();
+      alert("Backup restored.");
+    } catch (err) {
+      alert("Could not import: " + err.message);
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = "";
+}
+
+function clearAllData() {
+  if (!confirm("This will erase all assessment data. Make sure you have downloaded a backup. Continue?")) return;
+  if (!confirm("Are you absolutely sure? This cannot be undone.")) return;
+  localStorage.removeItem("shsAssessState");
+  state = defaultState();
+  renderSetup();
+  renderCategoryList();
+  alert("All data cleared.");
+}
+
+/* Initial render */
+renderSetup();
+renderCategoryList();
+</script>
+
+</body>
+</html>
