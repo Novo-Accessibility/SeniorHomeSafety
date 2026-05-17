@@ -1,0 +1,13 @@
+# robots.txt — novoseniorsafety.com
+# Senior Home Safety — A Novo Industries Inc. Service
+
+# Allow all search engine crawlers to index the full site
+User-agent: *
+Allow: /
+
+# Block any accidental indexing of development or draft files
+# (add specific file paths here if any draft pages exist)
+# Disallow: /draft-
+
+# Sitemap location — submit this URL to Google Search Console
+Sitemap: https://novoseniorsafety.com/sitemap.xml
