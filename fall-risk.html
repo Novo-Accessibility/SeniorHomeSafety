@@ -6,6 +6,14 @@
 <title>Fall Risk Assessment for Seniors | Senior Home Safety</title>
 <meta name="description" content="A one-visit home safety assessment that finds every fall risk and tells you what to fix first, what it costs, and which government programs help pay. Report in 3 business days. From $295.">
 <meta name="robots" content="noindex">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18450182689"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18450182689');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -552,6 +560,13 @@
           headers:{'Accept':'application/json'}
         });
         if(r.ok){
+          if(typeof gtag==='function'){
+            gtag('event','conversion',{
+              'send_to':'AW-18450182689/tTadCPjLkfccEKHk3d1E',
+              'value':150.0,
+              'currency':'CAD'
+            });
+          }
           cf.style.display='none';
           fok.classList.add('show');
           return;
