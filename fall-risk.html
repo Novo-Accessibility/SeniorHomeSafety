@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fall Risk Assessment for Seniors | Senior Home Safety</title>
+<meta name="description" content="A one-visit home safety assessment that finds every fall risk and tells you what to fix first, what it costs, and which government programs help pay. Report in 3 business days. From $295.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#C0392B;
+    --red-dark:#962D21;
+    --ink:#1C1917;
+    --body:#44403C;
+    --muted:#78716C;
+    --paper:#FDFBF7;
+    --card:#FFFFFF;
+    --line:#E7E1D8;
+    --warm:#F6F1E8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--body);
+    font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Instrument Serif",Georgia,"Times New Roman",serif;
+    font-weight:400;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+    line-height:1.1;
+    margin:0;
+  }
+  em{font-style:italic;color:var(--red);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .narrow{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#F5F1EA;
+    padding:10px 0;
+    font-size:15px;
+    letter-spacing:.01em;
+  }
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  .topbar strong{color:#fff;font-weight:600;}
+  .topbar a{color:#fff;text-decoration:none;font-weight:700;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 0 56px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;}
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--red);
+    margin-bottom:20px;
+  }
+  h1{font-size:clamp(42px,5.6vw,66px);margin-bottom:22px;}
+  .lede{font-size:21px;line-height:1.55;color:var(--body);margin:0 0 28px;max-width:33ch;}
+  .lede strong{color:var(--ink);font-weight:600;}
+
+  .cta-block{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:28px;
+    box-shadow:0 2px 4px rgba(28,25,23,.04),0 12px 32px rgba(28,25,23,.06);
+  }
+  .cta-label{
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:10px;
+  }
+  .phone{
+    display:block;
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:clamp(34px,4.4vw,44px);
+    color:var(--ink);
+    text-decoration:none;
+    line-height:1.1;
+    margin-bottom:6px;
+  }
+  .phone:hover{color:var(--red);}
+  .phone-sub{font-size:15px;color:var(--muted);margin-bottom:22px;}
+  .divider{
+    display:flex;align-items:center;gap:14px;
+    font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    margin:22px 0;
+  }
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  form label{
+    display:block;
+    font-size:14px;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  form input,form select,form textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:17px;
+    color:var(--ink);
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:12px 14px;
+    margin-bottom:16px;
+  }
+  form input:focus,form select:focus,form textarea:focus{
+    outline:2px solid var(--red);
+    outline-offset:1px;
+    border-color:var(--red);
+  }
+  .btn{
+    display:block;
+    width:100%;
+    background:var(--red);
+    color:#fff;
+    border:0;
+    border-radius:9px;
+    font-family:inherit;
+    font-size:18px;
+    font-weight:700;
+    padding:16px;
+    cursor:pointer;
+    letter-spacing:.01em;
+  }
+  .btn:hover{background:var(--red-dark);}
+  .fineprint{font-size:15px;color:var(--muted);margin:12px 0 0;text-align:center;}
+  .form-ok{
+    display:none;
+    background:var(--warm);
+    border:1px solid var(--red);
+    border-radius:10px;
+    padding:22px;
+    font-size:17px;
+    color:var(--ink);
+    line-height:1.5;
+  }
+  .form-ok.show{display:block;}
+  .form-ok strong{font-size:19px;}
+  .form-ok a{color:var(--red);font-weight:700;}
+
+  /* ---------- Testimonials ---------- */
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .quote{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+  }
+  .quote blockquote{
+    margin:0 0 20px;
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:23px;
+    line-height:1.4;
+    color:var(--ink);
+  }
+  .quote .who{
+    margin-top:auto;
+    font-size:16px;
+    font-weight:600;
+    color:var(--red);
+  }
+  .quote .who span{display:block;color:var(--muted);font-weight:400;font-size:15px;}
+
+  /* ---------- Trust strip ---------- */
+  .trust{
+    background:var(--warm);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:26px 0;
+  }
+  .trust-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px 40px;
+    font-size:16px;
+    font-weight:600;
+    color:var(--ink);
+    text-align:center;
+  }
+  .trust-row span{display:flex;align-items:center;gap:9px;}
+  .tick{color:var(--red);font-size:19px;line-height:1;}
+
+  /* ---------- Sections ---------- */
+  section{padding:64px 0;}
+  h2{font-size:clamp(32px,4vw,44px);margin-bottom:18px;}
+  .section-lede{font-size:19px;color:var(--body);max-width:60ch;margin:0 0 40px;}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .step{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:28px;
+  }
+  .step-num{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:40px;
+    color:var(--red);
+    line-height:1;
+    margin-bottom:14px;
+  }
+  .step h3{font-size:24px;margin-bottom:10px;}
+  .step p{margin:0;font-size:17px;}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .finds{list-style:none;padding:0;margin:0;}
+  .finds li{
+    padding:13px 0 13px 32px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    font-size:17px;
+  }
+  .finds li::before{
+    content:"";
+    position:absolute;left:0;top:21px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--red);
+  }
+  .finds li:last-child{border-bottom:0;}
+
+  .money{
+    background:var(--ink);
+    color:#EDE8E0;
+  }
+  .money h2{color:#fff;}
+  .money .section-lede{color:#C9C2B8;}
+  .fund-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .fund{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:12px;
+    padding:22px;
+  }
+  .fund h3{color:#fff;font-size:22px;margin-bottom:7px;}
+  .fund p{margin:0;font-size:16px;color:#C9C2B8;}
+
+  /* ---------- Pricing ---------- */
+  .price-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    max-width:640px;
+  }
+  .price-row{
+    display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+    padding:18px 26px;
+    border-bottom:1px solid var(--line);
+    font-size:17px;
+  }
+  .price-row:last-child{border-bottom:0;}
+  .price-row strong{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:27px;
+    color:var(--ink);
+    font-weight:400;
+    white-space:nowrap;
+  }
+
+  /* ---------- Assessor ---------- */
+  .bio{
+    background:var(--warm);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:36px;
+  }
+  .bio h2{margin-bottom:6px;}
+  .bio .role{font-size:16px;color:var(--red);font-weight:700;letter-spacing:.03em;margin-bottom:20px;}
+  .creds{list-style:none;padding:0;margin:22px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+  .creds li{font-size:16px;font-weight:600;color:var(--ink);display:flex;gap:9px;align-items:flex-start;}
+
+  /* ---------- Closing ---------- */
+  .closing{text-align:center;padding:72px 0;}
+  .closing h2{margin-bottom:16px;}
+  .closing p{font-size:19px;max-width:52ch;margin:0 auto 32px;}
+  .closing .phone{font-size:clamp(38px,5vw,52px);}
+  .btn-inline{
+    display:inline-block;
+    width:auto;
+    padding:16px 40px;
+    text-decoration:none;
+    margin-top:8px;
+  }
+
+  footer{
+    background:var(--ink);
+    color:#9A938A;
+    padding:32px 0;
+    font-size:15px;
+    text-align:center;
+  }
+  footer a{color:#EDE8E0;}
+  footer .brand{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:22px;
+    color:#fff;
+    display:block;
+    margin-bottom:8px;
+  }
+
+  @media (max-width:880px){
+    .hero-grid,.split{grid-template-columns:1fr;gap:40px;}
+    .steps,.fund-grid,.creds{grid-template-columns:1fr;}
+    .lede{max-width:none;}
+    .hero{padding:44px 0 40px;}
+    section{padding:48px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><strong>Senior Home Safety</strong> &nbsp;·&nbsp; Serving Calgary and area within 50 km</span>
+    <span>Call <a href="tel:+15873554677">587-355-4677</a></span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Home Fall Risk Assessment</span>
+      <h1>Worried about a fall <em>before</em> it happens?</h1>
+      <p class="lede">One visit finds every fall risk in the home — then hands you a written plan showing <strong>what to fix first, what it costs, and which government programs help pay for it.</strong></p>
+      <p class="lede" style="font-size:18px;color:var(--muted);">Report in your hands within 3 business days. No sales pitch, no contractor commissions, no obligation.</p>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-label">Talk to the assessor</div>
+      <a class="phone" href="tel:+15873554677">587-355-4677</a>
+      <div class="phone-sub">Straight through to Carl. No call centre.</div>
+
+      <div class="divider">or request a call back</div>
+
+      <form id="cf" action="https://formspree.io/f/xnjwggwo" method="POST">
+        <input type="hidden" name="form_type" value="Fall Risk ad page">
+
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="email">Email (optional)</label>
+        <input type="email" id="email" name="email">
+
+        <label for="message">What's prompting the call?</label>
+        <select id="message" name="message">
+          <option>There's been a fall or a near miss</option>
+          <option>Coming home from hospital or rehab</option>
+          <option>Planning ahead — no incident yet</option>
+          <option>Memory or dementia concerns</option>
+          <option>Something else</option>
+        </select>
+
+        <button class="btn" type="submit">Request a call back</button>
+        <p class="fineprint">One call back, within one business day.</p>
+        <p id="cf-warn" style="display:none;font-size:16px;color:var(--red);font-weight:600;text-align:center;margin:12px 0 0;">
+          That didn't go through — please call 587-355-4677 instead.
+        </p>
+      </form>
+
+      <div id="fok" class="form-ok">
+        <strong>Got it.</strong><br>
+        Carl will call you back within one business day. If it's urgent, call
+        <a href="tel:+15873554677">587-355-4677</a> directly.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="trust">
+  <div class="wrap trust-row">
+    <span><span class="tick">✓</span> RHFAC Professional</span>
+    <span><span class="tick">✓</span> Senior Home Safety Specialist</span>
+    <span><span class="tick">✓</span> Fully insured</span>
+    <span><span class="tick">✓</span> Laser-measured findings</span>
+    <span><span class="tick">✓</span> Calgary owned &amp; operated</span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Three steps. That's the whole thing.</h2>
+    <p class="section-lede">Most families call after a fall, a hospital stay, or a moment that scared them. The process is built to be simple at exactly that moment.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>A phone call</h3>
+        <p>Ten minutes. What's happened, what worries you, what the home is like. Flat price confirmed before anything is booked.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>The visit</h3>
+        <p>Between 1.5 and 3 hours depending on the size of the home. Photographs and laser measurements throughout, and a conversation about how the home is used day to day.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>The report</h3>
+        <p>Within 3 business days. Every risk found, ranked by urgency, each with a real dollar cost and the funding that applies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap split">
+    <div>
+      <h2>What a fall risk check finds</h2>
+      <p class="section-lede">Twelve categories, room by room. The hazards that cause falls are rarely the ones families expect — and they are almost never the expensive ones.</p>
+    </div>
+    <ul class="finds">
+      <li>Bathrooms — grab bar placement, transfer clearance, tub and shower entry</li>
+      <li>Stairs and hallways — handrail height, tread depth, lighting at the top and bottom</li>
+      <li>Flooring and trip hazards — thresholds, rugs, transitions between rooms</li>
+      <li>Lighting and electrical — night paths, switch placement, cord runs</li>
+      <li>Entrances and exterior — steps, landings, winter approach</li>
+      <li>Kitchen, bedroom and living spaces — reach heights, seating, turning room</li>
+      <li>Memory and dementia safety — wandering, stove safety, orientation cues</li>
+      <li>Fire, emergency and personal safety — alarms, exits, call for help</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Families who've been through it.</h2>
+    <p class="section-lede">Two of the moments that bring people to this service — one after a fall, one before a hospital discharge.</p>
+    <div class="quotes">
+      <div class="quote">
+        <blockquote>“When Mom fell in the bathroom, we had no idea where to start. The assessment showed us exactly what needed fixing first and what it would cost. Having someone walk through the house with laser measurements and a clear plan took a huge weight off our shoulders.”</blockquote>
+        <div class="who">Ryan<span>Hamptons, Calgary</span></div>
+      </div>
+      <div class="quote">
+        <blockquote>“AHS told us Mom could come home in a week, but her house wasn't ready. This assessment gave us a clear list of what had to be done before she arrived, plus the funding programs we could use. We booked the work the same day because the report made everything so straightforward.”</blockquote>
+        <div class="who">Annette<span>Arbor Lake, Calgary</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="money">
+  <div class="wrap">
+    <h2>Most families miss the funding.</h2>
+    <p class="section-lede">Four programs can cover a meaningful share of what a home needs. Every report names the ones the household qualifies for and what each one covers.</p>
+    <div class="fund-grid">
+      <div class="fund">
+        <h3>SHARP</h3>
+        <p>Alberta Seniors Home Adaptation and Repair Program.</p>
+      </div>
+      <div class="fund">
+        <h3>AADL</h3>
+        <p>Alberta Aids to Daily Living.</p>
+      </div>
+      <div class="fund">
+        <h3>Home Accessibility Tax Credit</h3>
+        <p>Federal. 15% on eligible renovations up to $20,000.</p>
+      </div>
+      <div class="fund">
+        <h3>Multigenerational Home Renovation Tax Credit</h3>
+        <p>Federal. 15% on eligible work up to $50,000.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Flat price. Quoted before anything starts.</h2>
+    <p class="section-lede">One fee covers the visit, the laser-measured floor plan, the full written report and three vetted contractor referrals. No referral fees and no commissions — the recommendations have nothing riding on them.</p>
+    <div class="price-card">
+      <div class="price-row"><span>Condo or apartment</span><strong>$295</strong></div>
+      <div class="price-row"><span>House up to 1,200 sq ft</span><strong>$395</strong></div>
+      <div class="price-row"><span>House 1,200 – 2,500 sq ft</span><strong>$495</strong></div>
+      <div class="price-row"><span>Larger homes</span><strong>Quoted</strong></div>
+    </div>
+    <p style="font-size:16px;color:var(--muted);margin-top:14px;">Plus GST. Full refund up to 24 hours before the visit.</p>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <div class="bio">
+      <h2>Carl Christie</h2>
+      <div class="role">Assessor and Director, Senior Home Safety</div>
+      <p>Twenty years supporting an engineering and architectural firm, and a project there redesigning a building for disabled access, is what moved this work to the front. The assessment is built the way a technical person would build it: measured, documented, costed, and written so a family can act on it without needing anyone to interpret it.</p>
+      <ul class="creds">
+        <li><span class="tick">✓</span> RHFAC Professional — Rick Hansen Foundation</li>
+        <li><span class="tick">✓</span> Senior Home Safety Specialist (SHSS)</li>
+        <li><span class="tick">✓</span> Findings referenced to CSA B652:23</li>
+        <li><span class="tick">✓</span> Fully insured</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="closing">
+  <div class="narrow">
+    <h2>The call costs nothing.</h2>
+    <p>Ten minutes on the phone will tell you whether an assessment is worth doing at all. If it isn't, you'll be told that.</p>
+    <a class="phone" href="tel:+15873554677">587-355-4677</a>
+    <a class="btn btn-inline" href="#name">Or request a call back</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="brand">Senior Home Safety</span>
+    A trade name of Novo Industries Inc. &nbsp;·&nbsp;
+    <a href="mailto:info@novoseniorsafety.com">info@novoseniorsafety.com</a> &nbsp;·&nbsp;
+    <a href="tel:+15873554677">587-355-4677</a>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var cf = document.getElementById('cf');
+    var fok = document.getElementById('fok');
+    if(!cf) return;
+    cf.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var btn = cf.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      try{
+        var r = await fetch(cf.action, {
+          method:'POST',
+          body:new FormData(cf),
+          headers:{'Accept':'application/json'}
+        });
+        if(r.ok){
+          cf.style.display='none';
+          fok.classList.add('show');
+          return;
+        }
+      }catch(err){}
+      btn.disabled = false;
+      btn.textContent = 'Request a call back';
+      var warn = document.getElementById('cf-warn');
+      if(warn) warn.style.display = 'block';
+    });
+  })();
+</script>
+
+</body>
+</html>
