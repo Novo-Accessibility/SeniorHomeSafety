@@ -76,12 +76,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shs.css">
+<style>:root{--accent:#C0392B;--accent2:#E74C3C}</style>
 </head>
 <body>
 
+<a href="#main" class="skip">Skip to main content</a>
+
 <nav>
   <div class="ni">
-    <a href="index.html" class="nb"><div class="nm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div> Senior Home Safety</a>
+    <a href="/" class="nb"><div class="nm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div> Senior Home Safety</a>
     <ul class="nl">
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="fall-risk-assessment-calgary.html" aria-current="page">Fall Risk</a></li>
@@ -89,7 +92,7 @@
       <li><a href="home-modification-funding-alberta.html">Funding</a></li>
       <li><a href="sample-report.html">Sample Report</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="index.html#contact" class="nc">Request a Call</a></li>
+      <li><a href="/#contact" class="nc">Request a Call</a></li>
     </ul>
     <button class="mt" id="mt" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -101,24 +104,28 @@
     <a href="sample-report.html" class="ml">Sample Report</a>
     <a href="about.html" class="ml">About</a>
     <a href="methodology.html" class="ml">How We Assess</a>
+    <a href="for-occupational-therapists.html" class="ml">For Occupational Therapists</a>
     <a href="home-safety-assessment-vs-occupational-therapy.html" class="ml">Assessment vs. an OT</a>
     <a href="how-we-vet-contractors.html" class="ml">How We Vet Contractors</a>
     <a href="service-areas.html" class="ml">Service Areas</a>
-    <a href="index.html#contact" class="mc ml">Request a Call</a>
+    <a href="/#contact" class="mc ml">Request a Call</a>
   </div>
 </nav>
 
-<header class="ph">
+<header class="phero" style="background-image:url('taking_measurements.jpg')">
   <div class="w">
-    <div class="bc"><a href="index.html">Home</a> &rsaquo; Fall risk assessment</div>
+    <div class="bc"><a href="/">Home</a> &rsaquo; Fall risk assessment</div>
+    <div class="hrule"></div>
     <h1>Fall risk assessment for a senior's home in Calgary.</h1>
     <p class="lede">Half of the falls that put a Canadian senior in hospital happen at home. A fall risk assessment finds the specific features of that home making a fall more likely, and tells you which to fix first.</p>
     
   </div>
 </header>
 
+<main id="main">
 
-<section class="sec">
+
+<section class="sec dark">
   <div class="w">
     <p class="sl">The problem</p>
     <h2>Why the home is where this gets decided.</h2>
@@ -139,27 +146,27 @@
     <p>Fall risk in a home is rarely one dramatic hazard. It is usually four or five ordinary things that combine: a dim hallway, a threshold lip, a rug that slides, a grab bar that was never installed. The assessment works through them systematically rather than by impression.</p>
     <div class="grid2">
       <div class="card">
-        <span class="tag">Bathroom</span>
+        <div class="ico g-teal"><svg viewBox="0 0 24 24"><path d="M12 2.7s6 5.5 6 9.8a6 6 0 01-12 0c0-4.3 6-9.8 6-9.8z"/></svg></div><span class="tag">Bathroom</span>
         <p>Grab bar presence, position and anchoring. Tub wall height and entry method. Toilet height and clearance either side. Shower threshold. Floor surface when wet. Bath mat security. Reachable emergency call.</p>
       </div>
       <div class="card">
-        <span class="tag">Stairs &amp; hallways</span>
+        <div class="ico g-red"><svg viewBox="0 0 24 24"><path d="M3 20h4v-4h4v-4h4V8h4V4"/></svg></div><span class="tag">Stairs &amp; hallways</span>
         <p>Handrail presence on both sides, continuity and grip. Tread depth and riser consistency. Edge visibility. Lighting at the top and bottom. Clear width against any mobility aid in use. Landings and turns.</p>
       </div>
       <div class="card">
-        <span class="tag">Flooring &amp; thresholds</span>
+        <div class="ico g-clay"><svg viewBox="0 0 24 24"><path d="M12 2l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/></svg></div><span class="tag">Flooring &amp; thresholds</span>
         <p>Loose or curled rugs. Threshold heights between rooms. Transitions between surfaces. Trailing cords. Slip resistance in kitchen and entry. Clutter in common walking routes.</p>
       </div>
       <div class="card">
-        <span class="tag">Lighting &amp; electrical</span>
+        <div class="ico g-gold"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a6 6 0 00-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-1.5c0-.6.3-1.2.8-1.6A6 6 0 0012 2z"/></svg></div><span class="tag">Lighting &amp; electrical</span>
         <p>Light levels on stairs, in hallways and at entries. Switch placement at both ends of a route. Night lighting on the path from bed to bathroom. Reachability of switches and outlets without stooping or stretching.</p>
       </div>
       <div class="card">
-        <span class="tag">Entrances &amp; exterior</span>
+        <div class="ico g-green"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><circle cx="15" cy="12" r="1"/></svg></div><span class="tag">Entrances &amp; exterior</span>
         <p>Step height and consistency. Handrails. Landing depth at the door. Surface condition and winter drainage. Door threshold. Lighting at the approach. Where a walker or wheelchair would have to stop.</p>
       </div>
       <div class="card">
-        <span class="tag">Bedroom &amp; living spaces</span>
+        <div class="ico g-plum"><svg viewBox="0 0 24 24"><path d="M3 19V8M3 13h18v6M7 13v-3h5v3"/></svg></div><span class="tag">Bedroom &amp; living spaces</span>
         <p>Bed height for a safe transfer. Clear route from bed to door. Seating height and arm support. Reach to frequently used items. Clearance around furniture measured against the mobility aid actually in use.</p>
       </div>
     </div>
@@ -167,18 +174,20 @@
   </div>
 </section>
 
-<section class="sec">
-  <div class="w">
-    <p class="sl">Why measurement</p>
-    <h2>A measured finding can be acted on. An impression cannot.</h2>
-    <p>&ldquo;The hallway looks narrow&rdquo; gives a family nothing to do. &ldquo;The clearance between the dresser and the bed measures 62&nbsp;cm, and a walker needs 75&nbsp;cm&rdquo; tells them exactly what to move and why. Every dimensional finding in the report is backed by a number taken on site with a professional laser distance measurer accurate to &plusmn;1.5&nbsp;mm.</p>
-    <p>That matters most where the margin is small. A threshold lip of 13&nbsp;mm and one of 25&nbsp;mm look identical in a photograph and behave completely differently under a walker wheel. Measurement is also what lets a contractor quote the work without a second visit, and what lets an occupational therapist use the report rather than start over.</p>
-    <div class="note">
-      <strong>Some findings have no measurement, and the report says so.</strong>
-      <p>&ldquo;No grab bar present&rdquo; is a finding without a dimension. The report distinguishes between what was measured and what was observed, rather than implying a number behind every line.</p>
+
+<section class="band dark flip">
+  <div class="bi">
+    <div class="bimg" style="background-image:url('taking_measurements.jpg')" role="img" aria-label="Laser measurements being taken in a hallway during an assessment"></div>
+    <div class="btxt">
+      <p class="sl">Why measurement</p>
+      <h2>A measured finding can be acted on. An impression cannot.</h2>
+      <p>&ldquo;The hallway looks narrow&rdquo; gives a family nothing to do. &ldquo;The clearance between the dresser and the bed measures 62&nbsp;cm, and a walker needs 75&nbsp;cm&rdquo; tells them exactly what to move and why.</p>
+      <p>Every dimensional finding is backed by a number taken on site with a professional laser distance measurer accurate to &plusmn;1.5&nbsp;mm. A threshold lip of 13&nbsp;mm and one of 25&nbsp;mm look identical in a photograph and behave completely differently under a walker wheel.</p>
+      <p>Some findings have no measurement, and the report says so. &ldquo;No grab bar present&rdquo; is a finding without a dimension, and no number is invented for it.</p>
     </div>
   </div>
 </section>
+
 
 <section class="sec warm">
   <div class="w">
@@ -200,12 +209,14 @@
 </section>
 
 
+</main>
+
 <section class="cta">
   <div class="w">
     <h2>Start with a free call.</h2>
     <p>Tell us what is going on at home. We will call back within one business day, talk it through, and say plainly whether an assessment would help. No obligation either way.</p>
     <div class="ctab">
-      <a href="index.html#contact" class="btn br">Request a Free Call</a>
+      <a href="/#contact" class="btn br">Request a Free Call</a>
       <a href="tel:+15873554677" class="btn bo">587-355-4677</a>
     </div>
     <div class="ctam">Or email <a href="mailto:info@novoseniorsafety.com">info@novoseniorsafety.com</a> &middot; Assessments from $295 + GST</div>
@@ -215,7 +226,7 @@
 <footer>
   <div class="w"><div class="fti">
     <span class="ftb">Senior Home Safety &middot; A Novo Industries Service</span>
-    <ul class="ftn"><li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="index.html#contact">Contact</a></li></ul>
+    <ul class="ftn"><li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="for-occupational-therapists.html">For OTs & Discharge Planners</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">Assessment vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="/#contact">Contact</a></li></ul>
     <div class="ftc">&copy; 2026 Novo Industries Inc. &middot; Calgary, Alberta &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></div>
   </div></div>
 </footer>

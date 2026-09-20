@@ -76,12 +76,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shs.css">
+<style>:root{--accent:#5B3E8A;--accent2:#8067B5}</style>
 </head>
 <body>
 
+<a href="#main" class="skip">Skip to main content</a>
+
 <nav>
   <div class="ni">
-    <a href="index.html" class="nb"><div class="nm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div> Senior Home Safety</a>
+    <a href="/" class="nb"><div class="nm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div> Senior Home Safety</a>
     <ul class="nl">
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li>
@@ -89,7 +92,7 @@
       <li><a href="home-modification-funding-alberta.html">Funding</a></li>
       <li><a href="sample-report.html">Sample Report</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="index.html#contact" class="nc">Request a Call</a></li>
+      <li><a href="/#contact" class="nc">Request a Call</a></li>
     </ul>
     <button class="mt" id="mt" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -101,24 +104,28 @@
     <a href="sample-report.html" class="ml">Sample Report</a>
     <a href="about.html" class="ml">About</a>
     <a href="methodology.html" class="ml">How We Assess</a>
+    <a href="for-occupational-therapists.html" class="ml">For Occupational Therapists</a>
     <a href="home-safety-assessment-vs-occupational-therapy.html" class="ml" aria-current="page">Assessment vs. an OT</a>
     <a href="how-we-vet-contractors.html" class="ml">How We Vet Contractors</a>
     <a href="service-areas.html" class="ml">Service Areas</a>
-    <a href="index.html#contact" class="mc ml">Request a Call</a>
+    <a href="/#contact" class="mc ml">Request a Call</a>
   </div>
 </nav>
 
-<header class="ph">
+<header class="phero" style="background-image:url('hero.jpg')">
   <div class="w">
-    <div class="bc"><a href="index.html">Home</a> &rsaquo; Assessment vs. an OT</div>
+    <div class="bc"><a href="/">Home</a> &rsaquo; Assessment vs. an OT</div>
+    <div class="hrule"></div>
     <h1>Home safety assessment, or an occupational therapist?</h1>
     <p class="lede">They answer different questions, and families are often told to get one when they need the other — or told nothing at all and left to guess. Here is the honest comparison.</p>
     
   </div>
 </header>
 
+<main id="main">
 
-<section class="sec">
+
+<section class="sec dark">
   <div class="w">
     <p class="sl">The core difference</p>
     <h2>One assesses the person. One assesses the building.</h2>
@@ -139,7 +146,7 @@
         <tr><td><strong>Can prescribe equipment</strong></td><td>Yes</td><td>No</td></tr>
         <tr><td><strong>Required for AADL funding</strong></td><td>Yes, for items requiring clinical assessment</td><td>No &mdash; cannot substitute</td></tr>
         <tr><td><strong>Typical output</strong></td><td>Clinical recommendations, equipment prescriptions, technique training</td><td>A written report: ranked findings, measurements, costs, phased plan, contractors</td></tr>
-        <tr><td><strong>Covers every room and category</strong></td><td>Usually focused on the tasks at issue</td><td>Yes &mdash; 145 checkpoints across 12 categories</td></tr>
+        <tr><td><strong>Covers every room and category</strong></td><td>Usually focused on the tasks at issue</td><td>Yes &mdash; 143 checkpoints across 12 categories</td></tr>
         <tr><td><strong>Costs the family</strong></td><td>Depends on route &mdash; may be publicly funded through AHS, or private</td><td>$295 to $495 + GST, paid privately</td></tr>
         <tr><td><strong>Wait</strong></td><td>Varies; public-system waits can be long</td><td>Booked directly; report in 3 business days</td></tr>
       </tbody>
@@ -155,7 +162,7 @@
     <h2>Which one first.</h2>
     <div class="grid2">
       <div class="card acc">
-        <h3 style="font-size:1.2rem;margin-top:0">Start with an OT if&hellip;</h3>
+        <div class="ico g-plum"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0"/><path d="M16.5 5.5a3.2 3.2 0 010 6M17 20a6.6 6.6 0 00-1.6-4.3"/></svg></div><h3 style="font-size:1.2rem;margin-top:0">Start with an OT if&hellip;</h3>
         <ul style="margin-bottom:0">
           <li>The person's own function has changed &mdash; new weakness, worse balance, a recent decline</li>
           <li>You need equipment funded through AADL</li>
@@ -164,7 +171,7 @@
         </ul>
       </div>
       <div class="card acc">
-        <h3 style="font-size:1.2rem;margin-top:0">Start with a home safety assessment if&hellip;</h3>
+        <div class="ico g-red"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h3 style="font-size:1.2rem;margin-top:0">Start with a home safety assessment if&hellip;</h3>
         <ul style="margin-bottom:0">
           <li>The person is managing, and the worry is the house</li>
           <li>You want a complete picture of every room rather than the two the OT focused on</li>
@@ -173,6 +180,15 @@
           <li>You are on a waiting list and want to act on the environment meanwhile</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="w">
+    <div class="note good">
+      <strong>Are you an occupational therapist or discharge planner?</strong>
+      <p>There is a page written for you rather than for families: what the report contains, where the line sits between clinical and environmental, and how a referral works. <a href="for-occupational-therapists.html">For OTs and discharge planners &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -187,12 +203,14 @@
 </section>
 
 
+</main>
+
 <section class="cta">
   <div class="w">
     <h2>Start with a free call.</h2>
     <p>Tell us what is going on at home. We will call back within one business day, talk it through, and say plainly whether an assessment would help. No obligation either way.</p>
     <div class="ctab">
-      <a href="index.html#contact" class="btn br">Request a Free Call</a>
+      <a href="/#contact" class="btn br">Request a Free Call</a>
       <a href="tel:+15873554677" class="btn bo">587-355-4677</a>
     </div>
     <div class="ctam">Or email <a href="mailto:info@novoseniorsafety.com">info@novoseniorsafety.com</a> &middot; Assessments from $295 + GST</div>
@@ -202,7 +220,7 @@
 <footer>
   <div class="w"><div class="fti">
     <span class="ftb">Senior Home Safety &middot; A Novo Industries Service</span>
-    <ul class="ftn"><li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="index.html#contact">Contact</a></li></ul>
+    <ul class="ftn"><li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="for-occupational-therapists.html">For OTs & Discharge Planners</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">Assessment vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="/#contact">Contact</a></li></ul>
     <div class="ftc">&copy; 2026 Novo Industries Inc. &middot; Calgary, Alberta &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></div>
   </div></div>
 </footer>

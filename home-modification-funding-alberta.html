@@ -76,12 +76,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shs.css">
+<style>:root{--accent:#8B6914;--accent2:#C29A3A}</style>
 </head>
 <body>
 
+<a href="#main" class="skip">Skip to main content</a>
+
 <nav>
   <div class="ni">
-    <a href="index.html" class="nb"><div class="nm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div> Senior Home Safety</a>
+    <a href="/" class="nb"><div class="nm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div> Senior Home Safety</a>
     <ul class="nl">
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li>
@@ -89,7 +92,7 @@
       <li><a href="home-modification-funding-alberta.html" aria-current="page">Funding</a></li>
       <li><a href="sample-report.html">Sample Report</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="index.html#contact" class="nc">Request a Call</a></li>
+      <li><a href="/#contact" class="nc">Request a Call</a></li>
     </ul>
     <button class="mt" id="mt" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -101,21 +104,25 @@
     <a href="sample-report.html" class="ml">Sample Report</a>
     <a href="about.html" class="ml">About</a>
     <a href="methodology.html" class="ml">How We Assess</a>
+    <a href="for-occupational-therapists.html" class="ml">For Occupational Therapists</a>
     <a href="home-safety-assessment-vs-occupational-therapy.html" class="ml">Assessment vs. an OT</a>
     <a href="how-we-vet-contractors.html" class="ml">How We Vet Contractors</a>
     <a href="service-areas.html" class="ml">Service Areas</a>
-    <a href="index.html#contact" class="mc ml">Request a Call</a>
+    <a href="/#contact" class="mc ml">Request a Call</a>
   </div>
 </nav>
 
-<header class="ph">
+<header class="phero" style="background-image:url('grab_bar.jpg')">
   <div class="w">
-    <div class="bc"><a href="index.html">Home</a> &rsaquo; Funding programs</div>
+    <div class="bc"><a href="/">Home</a> &rsaquo; Funding programs</div>
+    <div class="hrule"></div>
     <h1>Paying for home modifications in Alberta.</h1>
     <p class="lede">Four programs commonly help Alberta seniors pay for home safety work. Each has different rules, and none of them is automatic. Here is what each one does and what it asks you for.</p>
     <p class="phm">Figures on this page were checked against the sources named on 20 September 2026. Program rules change — confirm on the official page before you apply.</p>
   </div>
 </header>
+
+<main id="main">
 
 
 <section class="sec">
@@ -127,7 +134,7 @@
   </div>
 </section>
 
-<section class="sec alt">
+<section class="sec dark">
   <div class="w">
     <p class="sl">Alberta</p>
     <h2>SHARP &mdash; Seniors Home Adaptation and Repair Program</h2>
@@ -154,7 +161,15 @@
     <h2>AADL &mdash; Alberta Aids to Daily Living</h2>
     <p>AADL cost-shares essential medical equipment and supplies: walkers, bathing equipment, home care beds and similar items. It funds equipment rather than renovation, so it sits alongside the other programs rather than overlapping them.</p>
     <p><strong>AADL requires a clinical assessment by an authorised health professional.</strong> Our report is not that assessment and cannot substitute for it. What it can do is give the assessing clinician measured environmental data &mdash; doorway widths, transfer heights, clearances &mdash; on the first visit instead of the second.</p>
-    <p class="src">Source: Government of Alberta, <a href="https://www.alberta.ca/aadl-eligibility-and-application-for-benefits" target="_blank" rel="noopener">AADL eligibility and application for benefits</a>. Checked 20 September 2026. Which specific items are covered, and which professional must assess, are set out on the AADL benefit lists &mdash; confirm there before assuming an item qualifies.</p>
+    <div class="note quiet">
+      <strong>Three things worth knowing before you apply.</strong>
+      <p><strong>Who assesses:</strong> an AADL-approved Authorizer or Specialty Assessor. In practice that is an occupational therapist, physiotherapist or registered nurse, depending on the benefit.<br>
+      <strong>In Calgary specifically:</strong> AADL authorisation for bathroom equipment such as raised toilet seats, commodes, shower seats and wall bars routes through Calgary&rsquo;s Integrated Home Care team via Community Care Access.<br>
+      <strong>Six-month rule:</strong> AADL does not fund short-term needs. The equipment has to be needed for longer than six months.</p>
+    </div>
+    <p>AADL&rsquo;s own program manual says the assessment should be carried out in the client&rsquo;s home wherever possible, precisely so that unsuitable equipment is not authorised. Measured environmental data helps that assessment; it does not replace it.</p>
+    <p><strong>Note on what is and is not covered.</strong> Bath seats, bath benches, bath boards, grab bars, raised toilet seats and commodes appear on the AADL approved product lists. A hand-held shower head does not appear on those lists &mdash; treat it as a modification you pay for, not an AADL benefit, unless AADL tells you otherwise. Only one bathing aid and one toileting aid are funded per function.</p>
+    <p class="src">Sources: Government of Alberta, <a href="https://www.alberta.ca/aadl-eligibility-and-application-for-benefits" target="_blank" rel="noopener">AADL eligibility and application for benefits</a>; AADL Approved Product Lists B and G; Alberta Health Services AADL program listing. Checked 20 September 2026.</p>
   </div>
 </section>
 
@@ -178,6 +193,19 @@
   </div>
 </section>
 
+
+<section class="band flip">
+  <div class="bi">
+    <div class="bimg" style="background-image:url('grab_bar.jpg')" role="img" aria-label="A grab bar installed following a home safety assessment recommendation"></div>
+    <div class="btxt">
+      <p class="sl">In practice</p>
+      <h2>Funding follows the work, not the other way round.</h2>
+      <p>Almost every program above wants either a contractor's written estimate or receipts from completed work. Both come after somebody has established what the work actually is.</p>
+      <p>That is the case for assessing first: an application supported by measurements, a specific scope and a real quote is a far stronger application than one built on a general sense that the bathroom is unsafe.</p>
+    </div>
+  </div>
+</section>
+
 <section class="sec warm">
   <div class="w">
     <p class="sl">Sequence</p>
@@ -197,12 +225,14 @@
 </section>
 
 
+</main>
+
 <section class="cta">
   <div class="w">
     <h2>Start with a free call.</h2>
     <p>Tell us what is going on at home. We will call back within one business day, talk it through, and say plainly whether an assessment would help. No obligation either way.</p>
     <div class="ctab">
-      <a href="index.html#contact" class="btn br">Request a Free Call</a>
+      <a href="/#contact" class="btn br">Request a Free Call</a>
       <a href="tel:+15873554677" class="btn bo">587-355-4677</a>
     </div>
     <div class="ctam">Or email <a href="mailto:info@novoseniorsafety.com">info@novoseniorsafety.com</a> &middot; Assessments from $295 + GST</div>
@@ -212,7 +242,7 @@
 <footer>
   <div class="w"><div class="fti">
     <span class="ftb">Senior Home Safety &middot; A Novo Industries Service</span>
-    <ul class="ftn"><li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="index.html#contact">Contact</a></li></ul>
+    <ul class="ftn"><li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="for-occupational-therapists.html">For OTs & Discharge Planners</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">Assessment vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="/#contact">Contact</a></li></ul>
     <div class="ftc">&copy; 2026 Novo Industries Inc. &middot; Calgary, Alberta &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></div>
   </div></div>
 </footer>
