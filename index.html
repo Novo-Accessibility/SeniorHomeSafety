@@ -15,7 +15,7 @@
 
 <!-- Primary Meta -->
 <title>Senior Home Safety | Calgary Home Safety Assessments</title>
-<meta name="description" content="A clear plan for aging safely at home. Senior Home Safety assessments in Calgary rank every hazard by cost and safety impact, identify government funding programs, and deliver vetted contractor referrals — all in one written report within 3 business days.">
+<meta name="description" content="Home safety assessments for seniors in Calgary. One visit, a written report in 3 business days, every hazard ranked by safety impact and cost. From $295.">
 <meta name="keywords" content="home safety assessment Calgary, senior home safety specialist, fall prevention Calgary, aging in place assessment, Alzheimer's home safety, home safety report Calgary, SHSS assessment, laser measurement home assessment, senior fall risk Calgary">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Carl Christie, SHSS, RHFAC Professional — Senior Home Safety">
@@ -234,6 +234,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,249,246
 .hl{font-size:.78rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:14px}
 .hero h1{font-size:3.6rem;margin-bottom:22px;letter-spacing:-.02em;color:var(--wh);text-wrap:balance}
 .hero h1 em{font-style:italic;color:var(--wh)}
+.hsub{font-family:'Instrument Serif',Georgia,serif;font-size:1.55rem;line-height:1.25;color:rgba(255,255,255,.93);margin:0 0 20px}
+.hsub em{font-style:italic}
 .hs{font-size:1.12rem;color:rgba(255,255,255,.95);line-height:1.72;margin:0 auto 20px;max-width:640px}
 .hb{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .hi{display:none}
@@ -244,6 +246,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,249,246
     .hul{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:11px}
     .hul li{color:rgba(255,255,255,.90);font-size:1.02rem;line-height:1.55;padding-left:22px;position:relative;text-wrap:pretty}
     .hul li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--red)}
+
+.gl{background:var(--wh);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:52px 0}
+.glg{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;background:var(--bg)}
+.gli{padding:22px 24px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:var(--wh)}
+.gli:nth-child(3n){border-right:none}
+.gli dt{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px}
+.gli dd{font-size:.95rem;font-weight:600;color:var(--ink);line-height:1.5}
+.gli dd small{display:block;font-weight:500;color:var(--ink2);font-size:.84rem;margin-top:3px}
+.notg{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:820px;margin:34px auto 0}
+.noti{background:var(--wh);border:1px solid var(--bdr);border-left:3px solid var(--ink3);border-radius:0 10px 10px 0;padding:16px 20px}
+.noti strong{display:block;font-size:.92rem;color:var(--ink);margin-bottom:4px}
+.noti span{font-size:.86rem;color:var(--ink2);line-height:1.6}
+.tsg{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:48px auto 0}
+.tsc{background:var(--wh);border-radius:var(--rl);padding:30px 32px;border-top:4px solid var(--red);box-shadow:0 4px 20px rgba(26,26,26,.06)}
+.tsc blockquote{font-family:'Instrument Serif',Georgia,serif;font-size:1.22rem;line-height:1.46;color:var(--ink);margin-bottom:18px}
+.tsa{font-size:.84rem;font-weight:700;color:var(--ink2)}
+.tsa span{display:block;font-weight:500;color:var(--ink3);margin-top:2px}
+@media(max-width:820px){.glg{grid-template-columns:repeat(2,1fr)}.gli:nth-child(3n){border-right:1px solid var(--bdr)}.gli:nth-child(2n){border-right:none}.notg,.tsg{grid-template-columns:1fr}}
+@media(max-width:520px){.glg{grid-template-columns:1fr}.gli{border-right:none!important}}
 
 .trust{padding:34px 0;border-bottom:1px solid var(--bdr)}
 .tr{display:grid;grid-template-columns:repeat(3,auto);justify-content:center;align-items:center;column-gap:36px;row-gap:16px}
@@ -408,22 +429,24 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
       Senior Home Safety
     </a>
     <ul class="nl">
-      <li><a href="#process">How It Works</a></li>
-      <li><a href="#sample-report">Sample Report</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#included">What's Included</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li>
+      <li><a href="alzheimers-dementia-home-safety.html">Dementia</a></li>
+      <li><a href="home-modification-funding-alberta.html">Funding</a></li>
+      <li><a href="sample-report.html">Sample Report</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="#contact" class="nc">Request a Call</a></li>
     </ul>
     <button class="mt" id="mt" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mp" id="mp">
-    <a href="#process" class="ml">How It Works</a>
-    <a href="#pricing" class="ml">Pricing</a>
-    <a href="#included" class="ml">What's Included</a>
-    <a href="#about" class="ml">About</a>
-    <a href="#faq" class="ml">FAQ</a>
+    <a href="pricing.html" class="ml">Pricing</a>
+    <a href="fall-risk-assessment-calgary.html" class="ml">Fall Risk Assessment</a>
+    <a href="alzheimers-dementia-home-safety.html" class="ml">Dementia Home Safety</a>
+    <a href="home-modification-funding-alberta.html" class="ml">Funding Programs</a>
+    <a href="sample-report.html" class="ml">Sample Report</a>
+    <a href="methodology.html" class="ml">How We Assess</a>
+    <a href="about.html" class="ml">About</a>
     <a href="#contact" class="mc ml">Request a Call</a>
   </div>
 </nav>
@@ -433,7 +456,8 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
     <div class="hg">
       <div>
         <div class="hl">Calgary &amp; Surrounding Area</div>
-        <h1>Every risk found. Every fix <em>prioritized.</em></h1>
+        <h1>Home safety assessments for seniors in <em>Calgary.</em></h1>
+        <p class="hsub">Every risk found. Every fix <em>prioritized.</em></p>
         <ul class="hul">
           <li>Every hazard ranked by safety impact and cost, so the first dollar counts</li>
           <li>Funding programs matched to eligible modifications, with the paperwork you need</li>
@@ -484,6 +508,24 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
   </div></div>
 </section>
 
+<section class="gl">
+  <div class="w">
+    <h2 style="font-size:1.9rem;margin-bottom:8px">What a home safety assessment costs, covers and delivers</h2>
+    <p style="color:var(--ink2);font-size:.95rem;margin-bottom:26px">Everything on this page in one place.</p>
+    <dl class="glg">
+      <div class="gli"><dt>Price</dt><dd>From $295 + GST<small>Condo $295 &middot; House to 1,200 sq ft $395 &middot; 1,200&ndash;2,500 sq ft $495 &middot; larger quoted</small></dd></div>
+      <div class="gli"><dt>Report delivery</dt><dd>3 business days<small>By email, as a PDF, after the visit</small></dd></div>
+      <div class="gli"><dt>Visit length</dt><dd>1.5 to 3 hours<small>An hour and a half for a condo, up to three for a large home</small></dd></div>
+      <div class="gli"><dt>What is checked</dt><dd>145 checkpoints<small>Across 12 categories, every room, inside and out</small></dd></div>
+      <div class="gli"><dt>Assessor</dt><dd>Carl Christie<small>Senior Home Safety Specialist (SHSS) and RHFAC Professional</small></dd></div>
+      <div class="gli"><dt>Service area</dt><dd>Calgary + 50 km<small>Airdrie, Cochrane, Chestermere, Okotoks, Strathmore and more</small></dd></div>
+      <div class="gli"><dt>Also included</dt><dd>Contractors and funding<small>Three screened local contractors and the funding programs that may apply</small></dd></div>
+      <div class="gli"><dt>Follow-up</dt><dd>30-minute call<small>By phone or video, within 60 days of delivery</small></dd></div>
+      <div class="gli"><dt>Reassessment</dt><dd>$195 + GST<small>After modifications are complete, or when circumstances change</small></dd></div>
+    </dl>
+  </div>
+</section>
+
 <section class="sec" id="self-check" style="background:var(--bgw)">
   <div class="w">
     <div class="sc rv">
@@ -510,8 +552,8 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
           <div class="ffg"><input class="ffi" type="email" name="email" placeholder="Email Address" required></div>
           <button type="submit" class="fsb" style="width:100%">Email Me My Result &amp; Checklist</button>
         </form>
-        <div id="quizLeadDone" style="display:none;text-align:center;padding:10px 0;color:var(--ink2);font-size:.9rem">Thank you \u2014 your result and checklist will arrive by email within one business day.</div>
-        <p style="text-align:center;margin-top:18px"><a href="#contact" style="font-weight:700;color:var(--red);font-size:.92rem">Or skip ahead \u2014 book your free call \u2192</a></p>
+        <div id="quizLeadDone" style="display:none;text-align:center;padding:10px 0;color:var(--ink2);font-size:.9rem">Thank you &mdash; your result and checklist will arrive by email within one business day.</div>
+        <p style="text-align:center;margin-top:18px"><a href="#contact" style="font-weight:700;color:var(--red);font-size:.92rem">Or skip ahead &mdash; book your free call &rarr;</a></p>
       </div>
     </div>
   </div>
@@ -652,11 +694,11 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
         <h4>Three Screened Contractors Per Report</h4>
         <p>Three independently vetted local contractors matched to the specific work recommended. One per primary trade. No referral fees. No commissions. The choice is yours&nbsp;entirely.</p>
         <div class="rp-sample">
-          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; Active AB business registration</span></div>
-          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; WCB clearance verified</span></div>
-          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; $2M liability insurance confirmed</span></div>
-          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; 4.5+ Google rating (10+&nbsp;reviews)</span></div>
+          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; Alberta corporate registration checked</span></div>
+          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; WCB clearance letter verified</span></div>
+          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; Prepaid contracting licence checked</span></div>
           <div class="rp-row"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; Personal introduction call completed</span></div>
+          <div class="rp-row" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18)"><span style="color:rgba(255,255,255,.78);font-weight:600;font-size:.8rem;line-height:1.5;display:block">Insurance stays in your hands: your report shows you how to ask any contractor for a $2M certificate of insurance and a WCB clearance letter before work starts.</span></div>
         </div>
       </div>
     </div>
@@ -677,7 +719,7 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
       </div>
       <a href="SHS_Sample_Report.pdf" target="_blank" rel="noopener" class="btn br" style="display:inline-flex;font-size:1.05rem;padding:16px 36px;font-family:'Plus Jakarta Sans',sans-serif">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        &nbsp;Download Sample Report
+        &nbsp;Download the 40-page sample report (PDF, 768&nbsp;KB)
       </a>
     </div>
   </div>
@@ -697,7 +739,7 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
             <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>No referral fees</div>
             <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>No commissions</div>
             <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>One per primary trade</div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>5-point vetting standard</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>Public-record checks on every one</div>
           </div>
         </div>
       </div>
@@ -706,6 +748,23 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
         <p style="color:#9CA3AF;font-size:.82rem;margin-top:10px;text-align:center;font-style:italic">Illustrative example. Findings and contractor work vary by home.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="sec" style="padding:72px 0;background:var(--bgw)">
+  <div class="w">
+    <div class="sc rv">
+      <p class="sl">Scope</p>
+      <h2 class="sh" style="font-size:2.1rem">What this assessment is not.</h2>
+      <p class="ss">Being clear about the edges of the work is part of doing it honestly.</p>
+    </div>
+    <div class="notg rv">
+      <div class="noti"><strong>Not a clinical or occupational therapy assessment</strong><span>The report assesses the home, not the person living in it. No medical or therapeutic opinion is given.</span></div>
+      <div class="noti"><strong>Not a home inspection</strong><span>No opinion is offered on the condition, structure, systems, value or insurability of the home.</span></div>
+      <div class="noti"><strong>Not a building code or accessibility certification</strong><span>Where a standard such as CSA B652 is cited, it is a plain-language reference point, not a certification.</span></div>
+      <div class="noti"><strong>Not a contractor quote</strong><span>Cost figures are a planning guide drawn from typical local pricing. Real quotes come from the contractor you hire.</span></div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:.88rem;color:var(--ink3)">The full scope is set out in the <a href="terms.html">Terms of Service</a>.</p>
   </div>
 </section>
 
@@ -776,7 +835,7 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
       <p class="sl" style="color:rgba(255,255,255,.5)">Measurement</p>
       <h2>Precise measurements on every finding.</h2>
       <p>A tape measure is good enough for a renovation estimate. It is not good enough when you need to know whether a walker clears a doorframe, a bed is at the right height for a safe transfer, or a threshold lip is a trip hazard.</p>
-      <p>Every specific finding in this report is backed by a number. Doorway widths, clearance measurements, threshold heights, fixture dimensions, all captured on site with a professional laser distance measurer accurate to ±1.5 mm. A Laser-Measured Floor Plan documents the home layout and shows exactly where each finding was recorded.</p>
+      <p>Every dimensional finding in this report is backed by a number. Doorway widths, clearance measurements, threshold heights, fixture dimensions, all captured on site with a professional laser distance measurer accurate to ±1.5 mm. A Laser-Measured Floor Plan documents the home layout and shows exactly where each finding was recorded.</p>
       <div class="lc">Every assessment includes a Laser-Measured Floor Plan with hazard overlay at no extra cost.</div>
     </div>
   </div></div>
@@ -784,11 +843,11 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
 
 <section class="sec funding" id="funding">
   <div class="w">
-    <div class="sc rv"><p class="sl">Funding Programs</p><h2 class="sh">Your report helps unlock money<br>that's already available.</h2><p class="ss">Several government programs fund home safety modifications for seniors and people with disabilities. Our report gives you documentation to support the application process.</p></div>
+    <div class="sc rv"><p class="sl">Funding Programs</p><h2 class="sh">Your report helps unlock money<br>that's already available.</h2><p class="ss">Several government programs fund home safety modifications for seniors and people with disabilities. Our report gives you measured detail to support an application. Program rules and figures change &mdash; check each official page before you apply.</p><p class="ss" style="font-size:.82rem;color:var(--ink3);margin-top:10px">Funding details last reviewed 20 September 2026.</p></div>
     <div class="fug">
       <div class="fuc rv">
         <h4>SHARP</h4><div class="fusc">Alberta</div>
-        <p>The Seniors Home Adaptation and Repair Program offers low-interest home equity loans for home adaptations and repairs, and grants for essential repairs to lower-income seniors who do not qualify for a loan. Your assessment report provides the written cost estimates and modification details that SHARP requires with every application.</p>
+        <p>The Seniors Home Adaptation and Repair Program offers low-interest home equity loans for home adaptations and repairs, and grants for essential repairs to lower-income seniors who do not qualify for a loan. Your report identifies the modifications that may qualify and gives you measured detail to hand a contractor. SHARP asks for a written cost estimate or receipts, which come from the contractor you hire.</p>
         <a class="fuli" href="https://www.alberta.ca/seniors-home-adaptation-repair-program" target="_blank" rel="noopener">Learn more at Alberta.ca &rarr;</a>
       </div>
       <div class="fuc rv">
@@ -798,7 +857,7 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
       </div>
       <div class="fuc rv">
         <h4>Home Accessibility Tax Credit</h4><div class="fusc">Federal (Nationwide)</div>
-        <p>The HATC provides a non-refundable tax credit of 15% on up to $20,000 in eligible accessibility expenses. Your report helps identify which modifications qualify and provides the documentation the CRA requires for your tax return.</p>
+        <p>The HATC provides a non-refundable tax credit of 15% on up to $20,000 in eligible accessibility expenses. Your report helps identify which modifications may qualify. The CRA wants your receipts, which you keep from the contractor who does the work.</p>
         <a class="fuli" href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-31285-home-accessibility-expenses.html" target="_blank" rel="noopener">Learn more at Canada.ca &rarr;</a>
       </div>
       <div class="fuc rv">
@@ -820,7 +879,7 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
     <div class="at rv">
       <p class="sl">About the Assessor</p>
       <h2>This work is personal.</h2>
-      <p>Carl Christie founded Senior Home Safety after watching firsthand what poorly designed spaces cost people with mobility challenges: their independence and their ability to stay home. Carl holds the <strong style="white-space:nowrap;display:inline-block">Senior Home Safety Specialist (SHSS)</strong> designation and is an <strong style="white-space:nowrap;display:inline-block">RHFAC Professional</strong> — Canada's leading accessibility rating credential through the Rick Hansen Foundation. Carl uses professional laser measurement equipment on every visit and carries comprehensive liability insurance.</p>
+      <p>Carl Christie founded Senior Home Safety after watching firsthand what poorly designed spaces cost people with mobility challenges: their independence and their ability to stay home. Carl holds the <strong style="white-space:nowrap;display:inline-block">Senior Home Safety Specialist (SHSS)</strong> designation and is an <strong style="white-space:nowrap;display:inline-block">RHFAC Professional</strong> — the Rick Hansen Foundation credential for rating the accessibility of buildings and sites. Carl uses professional laser measurement equipment on every visit and carries comprehensive liability insurance.</p>
       <div class="atg"><span>SHSS Designated</span><span>RHFAC Professional</span><span>Laser-Measured</span><span>Fully Insured</span></div>
     </div>
   </div></div>
@@ -835,14 +894,34 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
       <div class="fqi rv"><button class="fqq">What if I need to cancel or reschedule?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Cancel or reschedule for free up to 24 hours before your visit, and everything you paid is refunded within 15 days. With less than 24 hours' notice, or if no one is home when we arrive, 20% of the fee plus GST is kept and the rest refunded. There is no charge for a medical emergency or hospital stay. The full terms are in the service agreement you sign before booking.</div></div></div>
       <div class="fqi rv"><button class="fqq">Who should consider this assessment?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">This assessment is right for families who want a clear picture of the fall risks and safety gaps in a senior's home. Most clients are adult children arranging an assessment on behalf of an aging parent, or seniors who want to understand what changes would help them stay safely at home longer.</div></div></div>
       <div class="fqi rv"><button class="fqq">How long does the visit take?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Visit length depends on the size of the home. A condo or apartment usually takes about an hour and a half. A larger multi-level house can run up to three hours. Your fee is set by home size and quoted before you book, and it covers the full visit however long it takes.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Why does precise measurement matter for a home safety assessment?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Because a vague finding is not actionable. "The hallway looks narrow" tells a family nothing. "The clearance between the dresser and the bed measures 62 cm — a walker requires 75 cm" tells them exactly what to move and why. Every specific finding in this report is backed by a measurement taken on site with a professional laser distance measurer accurate to ±1.5 mm. That precision is what separates a defensible finding from an opinion, and it gives contractors and families something concrete to act on.</div></div></div>
+      <div class="fqi rv"><button class="fqq">Why does precise measurement matter for a home safety assessment?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Because a vague finding is not actionable. "The hallway looks narrow" tells a family nothing. "The clearance between the dresser and the bed measures 62 cm — a walker requires 75 cm" tells them exactly what to move and why. Every dimensional finding in this report is backed by a measurement taken on site with a professional laser distance measurer accurate to ±1.5 mm. That precision is what separates a defensible finding from an opinion, and it gives contractors and families something concrete to act on.</div></div></div>
       <div class="fqi rv"><button class="fqq">Does the report tell me what to do, or just what's wrong?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Both. Every finding includes a specific recommended action, an estimated cost range, and a priority tier. The report also includes a phased two-year capital plan organized by timeframe and impact, so you know what to address immediately, what can wait six months, and what is a longer-term project.</div></div></div>
       <div class="fqi rv"><button class="fqq">Does the assessment address Alzheimer's or dementia-specific concerns?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Yes. The SHSS assessment standard includes a dedicated module on Alzheimer's and dementia considerations. Beyond general fall prevention, the assessment evaluates wandering risk, exit security, kitchen hazards for people with cognitive impairment, wayfinding cues, medication storage, and other environmental factors that become critical as dementia progresses. If a family member has been diagnosed with Alzheimer's or another form of dementia, this assessment identifies the home modifications that can help them stay safe at home longer and reduce the burden on caregivers.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Can the report help me apply for government funding?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Yes. Several government programs fund home safety modifications, and our report is designed to support the application process. In Alberta, the <a href="https://www.alberta.ca/seniors-home-adaptation-repair-program" target="_blank" rel="noopener">Seniors Home Adaptation and Repair Program (SHARP)</a> provides low-interest home equity loans for home adaptations and repairs, with grants for essential repairs for lower-income seniors, and our report provides the written cost estimates SHARP requires. <a href="https://www.alberta.ca/aadl-eligibility-and-application-for-benefits" target="_blank" rel="noopener">Alberta Aids to Daily Living (AADL)</a> funds essential medical equipment and requires a clinical assessment by a health professional; our report gives the clinician detailed environmental data that supports a faster assessment. At the federal level, the <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-31285-home-accessibility-expenses.html" target="_blank" rel="noopener">Home Accessibility Tax Credit (HATC)</a> offers a tax credit on eligible renovation expenses, and our report helps identify which modifications qualify. The <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/multigenerational-home-renovation.html" target="_blank" rel="noopener">Multigenerational Home Renovation Tax Credit (MHRTC)</a> provides up to $7,500 toward creating a secondary suite for a senior. We note applicable programs alongside relevant findings so you know what funding may be available before committing to any work.</div></div></div>
+      <div class="fqi rv"><button class="fqq">Can the report help me apply for government funding?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Yes. Several government programs fund home safety modifications, and our report is designed to support the application process. In Alberta, the <a href="https://www.alberta.ca/seniors-home-adaptation-repair-program" target="_blank" rel="noopener">Seniors Home Adaptation and Repair Program (SHARP)</a> provides low-interest home equity loans for home adaptations and repairs, with grants for essential repairs for lower-income seniors, and our report identifies which modifications may qualify. SHARP asks for a contractor&rsquo;s written estimate or receipts, which you supply. <a href="https://www.alberta.ca/aadl-eligibility-and-application-for-benefits" target="_blank" rel="noopener">Alberta Aids to Daily Living (AADL)</a> funds essential medical equipment and requires a clinical assessment by a health professional; our report gives the clinician detailed environmental data that supports a faster assessment. At the federal level, the <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-31285-home-accessibility-expenses.html" target="_blank" rel="noopener">Home Accessibility Tax Credit (HATC)</a> offers a tax credit on eligible renovation expenses, and our report helps identify which modifications qualify. The <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/multigenerational-home-renovation.html" target="_blank" rel="noopener">Multigenerational Home Renovation Tax Credit (MHRTC)</a> provides up to $7,500 toward creating a secondary suite for a senior. We note applicable programs alongside relevant findings so you know what funding may be available before committing to any work.</div></div></div>
       <div class="fqi rv"><button class="fqq">Do I need to be present during the assessment?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Someone needs to be present to provide access and answer questions about how the occupant uses different spaces. That can be the senior themselves, a family member, or a caregiver. The more context we have about daily routines and specific concerns, the more useful the report.</div></div></div>
       <div class="fqi rv"><button class="fqq">What areas do you serve?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">The standard service area covers all of Calgary and surrounding communities including Airdrie, Cochrane, Chestermere, Okotoks, Strathmore, Langdon, Bragg Creek, De Winton, Heritage Pointe, Priddis, and Millarville. Properties in High River, Crossfield, and other communities beyond the standard area are welcome — confirm availability on your free call.</div></div></div>
       <div class="fqi rv"><button class="fqq">Can I share this with my occupational therapist?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Yes. The written report is structured to complement occupational therapy assessments. If an OT is already involved, share the report with them. It gives them detailed environmental data from day one.</div></div></div>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="testimonials" style="padding:80px 0">
+  <div class="w">
+    <div class="sc rv">
+      <p class="sl">From Calgary Families</p>
+      <h2 class="sh">What families say after the report arrives.</h2>
+    </div>
+    <div class="tsg">
+      <div class="tsc rv">
+        <blockquote>&ldquo;When Mom fell in the bathroom, we had no idea where to start. The assessment showed us exactly what needed fixing first and what it would cost. Having someone walk through the house with laser measurements and a clear plan took a huge weight off our shoulders.&rdquo;</blockquote>
+        <div class="tsa">Ryan<span>Hamptons, Calgary</span></div>
+      </div>
+      <div class="tsc rv">
+        <blockquote>&ldquo;AHS told us Mom could come home in a week, but her house wasn&rsquo;t ready. This assessment gave us a clear list of what had to be done before she arrived, plus the funding programs we could use. We booked the work the same day because the report made everything so straightforward.&rdquo;</blockquote>
+        <div class="tsa">Annette<span>Arbor Lake, Calgary</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:22px;font-size:.84rem;color:var(--ink3)">Published with each client&rsquo;s permission. First names and neighbourhoods only.</p>
   </div>
 </section>
 
@@ -854,7 +933,8 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
         <h3>Here's what happens next.</h3>
         <p>Fill out the form and we will call you within one business day. That first conversation is free and has no obligation. We will talk through your concerns, answer your questions, and figure out together whether an assessment makes sense for your situation.</p>
         <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>We call you back within one business day</div>
-        <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>info@novoseniorsafety.com</div>
+        <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><a href="mailto:info@novoseniorsafety.com" style="color:inherit">info@novoseniorsafety.com</a></div>
+        <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><a href="tel:+15873554677" style="color:inherit">587-355-4677</a></div>
         <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>Calgary &amp; surrounding communities</div>
       </div>
       <div class="fcard rv">
@@ -883,7 +963,7 @@ footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-s
 <footer>
   <div class="w"><div class="fti">
     <span class="ftb">Senior Home Safety &middot; A Novo Industries Service</span>
-    <ul class="ftn"><li><a href="#process">How It Works</a></li><li><a href="#included">What's Included</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+    <ul class="ftn"><li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="#contact">Contact</a></li></ul>
     <div class="ftc">&copy; 2026 Novo Industries Inc. &middot; Calgary, Alberta &middot; <a href="privacy.html" style="color:rgba(255,255,255,.4)">Privacy Policy</a> &middot; <a href="terms.html" style="color:rgba(255,255,255,.4)">Terms of Service</a></div>
   </div></div>
 </footer>
