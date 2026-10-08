@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- hero styled after report cover, 2026-09-20 -->
+<!-- conversion redesign, 2026-10-08 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -182,875 +182,376 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#FAF9F6;--bgw:#F0EBE1;--ink:#1A1A1A;--ink2:#504840;--ink3:#8A8078;
-  --wh:#FFF;--red:#C0392B;--red2:#A93226;--redp:#FCEAE8;
-  --bdr:#E5DFD6;--r:12px;--rl:20px;--rx:28px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--bg);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;line-height:1.15;text-wrap:balance}
-p{text-wrap:pretty}
-a{color:var(--red);text-decoration:none}
+:root{--bg:#FAF9F6;--bgw:#F0EBE1;--ink:#1A1A1A;--ink2:#504840;--ink3:#6B625A;--wh:#FFF;--red:#C0392B;--red2:#A93226;--bdr:#E5DFD6;--serif:'Instrument Serif',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-.w{max-width:1100px;margin:0 auto;padding:0 28px}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,249,246,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr)}
-.ni{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nb{font-family:'Instrument Serif',serif;font-size:1.15rem;color:var(--ink);display:flex;align-items:center;gap:10px;font-weight:800}
-.nm{width:30px;height:30px;border-radius:8px;background:var(--red);display:flex;align-items:center;justify-content:center}
-.nl{display:flex;align-items:center;gap:28px;list-style:none}
-.nl a{font-size:.86rem;font-weight:600;color:var(--ink2);transition:color .2s}
-.nl a:hover{color:var(--ink)}
-a:hover{text-decoration:underline}
-.nb:hover,.nl a:hover,.nc:hover,.btn:hover,.mp a:hover,.ftn a:hover{text-decoration:none}
-.nc{background:var(--red);color:var(--wh)!important;padding:9px 22px;border-radius:50px;font-weight:700;transition:background .2s,transform .15s;box-shadow:0 2px 10px rgba(192,57,43,.25)}
-.nc:hover{background:var(--red2);transform:translateY(-1px)}
-.mt{display:none;background:none;border:none;cursor:pointer;width:34px;height:34px;position:relative}
-.mt span{display:block;width:20px;height:2px;background:var(--ink);position:absolute;left:7px;transition:.3s}
-.mt span:nth-child(1){top:10px}.mt span:nth-child(2){top:16px}.mt span:nth-child(3){top:22px}
-.mt.on span:nth-child(1){top:16px;transform:rotate(45deg)}.mt.on span:nth-child(2){opacity:0}.mt.on span:nth-child(3){top:16px;transform:rotate(-45deg)}
-.mp{display:none;position:fixed;top:64px;left:0;right:0;background:var(--bg);padding:16px 28px 24px;border-bottom:1px solid var(--bdr);box-shadow:0 12px 40px rgba(26,26,26,.12);max-height:calc(100vh - 64px);overflow-y:auto}
+a{color:var(--red2)}a:hover{color:#7E2219}
+.w{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0}
+h2{font-size:clamp(34px,4.6vw,48px)}
+.eb{margin:0 0 14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--red2)}
+.lede{color:var(--ink2);font-size:19px;max-width:40em;margin:12px 0 40px}
+.sec{padding:88px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;text-decoration:none;border-radius:999px;padding:16px 26px;min-height:48px;font-size:17px;border:1.5px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.b-red{background:var(--red);color:#fff}.b-red:hover{background:var(--red2);color:#fff}
+.b-ink{background:var(--ink);color:#fff}.b-ink:hover{background:#000;color:#fff}
+.b-out{border-color:var(--ink);color:var(--ink)}.b-out:hover{color:var(--ink)}
+.b-wh{background:#fff;color:var(--ink)}.b-wh:hover{color:var(--ink)}
+.b-outw{border-color:#fff;color:#fff}.b-outw:hover{color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(250,249,246,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--bdr)}
+.hdr .w{display:flex;align-items:center;gap:24px;padding-top:12px;padding-bottom:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:24px;white-space:nowrap}
+.logo i{width:34px;height:34px;border-radius:9px;background:var(--red);display:flex;align-items:center;justify-content:center}
+.nav{display:flex;gap:22px;font-size:15px;font-weight:500;flex:1}
+.nav a{color:var(--ink2);text-decoration:none}.nav a:hover{color:var(--ink)}
+.hcta{display:flex;gap:10px;align-items:center}
+.hcta .btn{padding:10px 18px;font-size:15px;min-height:44px}
+.mt{display:none;width:44px;height:44px;border:0;background:transparent;align-items:center;justify-content:center;margin-left:auto;cursor:pointer}
+.mp{display:none;border-top:1px solid var(--bdr);background:var(--bg)}
 .mp.open{display:block}
-.mp a{display:block;padding:14px 0;font-size:1.05rem;font-weight:600;color:var(--ink);border-bottom:1px solid var(--bdr)}
-.mp a:last-child{border:none}
-.mp .mc{display:block;margin-top:14px;text-align:center;background:var(--red);color:var(--wh);padding:14px;border-radius:50px;font-weight:700}
-
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;border:none;text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif}
-.br{background:var(--red);color:var(--wh);box-shadow:0 4px 16px rgba(192,57,43,.3)}
-.br:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 6px 24px rgba(192,57,43,.4)}
-.bo{background:var(--wh);color:var(--ink);border:2px solid var(--wh)}
-.bo:hover{background:var(--bgw);border-color:var(--bgw)}
-
-.hero{padding:160px 0 100px;background:url('family_moment.jpg') center center/cover no-repeat;position:relative}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,15,15,.88) 0%,rgba(15,15,15,.65) 100%)}
-.hero .w{position:relative;z-index:2}
-.hg{max-width:760px;margin:0 auto;text-align:center}
-.hl{font-size:.78rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:14px}
-.hero h1{font-size:3.6rem;margin-bottom:22px;letter-spacing:-.02em;color:var(--wh);text-wrap:balance}
-.hero h1 em{font-style:italic;color:var(--wh)}
-.hsub{font-family:'Instrument Serif',Georgia,serif;font-size:1.55rem;line-height:1.25;color:rgba(255,255,255,.93);margin:0 0 20px}
-.hsub em{font-style:italic}
-.hs{font-size:1.12rem;color:rgba(255,255,255,.95);line-height:1.72;margin:0 auto 20px;max-width:640px}
-.hb{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.hi{display:none}
-.hbs{display:flex;gap:10px;margin-top:28px;justify-content:center;flex-wrap:nowrap}
-.hbd{background:#ffffff;border-radius:50px;padding:11px 22px;display:flex;flex-direction:column;align-items:center;gap:2px;border:none;white-space:nowrap;box-shadow:0 4px 18px rgba(0,0,0,.22);min-width:100px}
-.hbd strong{font-size:.9rem;font-weight:800;color:#1C2B3A;letter-spacing:-.01em}
-.hbd small{font-size:.7rem;color:#6B7280;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-    .hul{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:11px}
-    .hul li{color:rgba(255,255,255,.90);font-size:1.02rem;line-height:1.55;padding-left:22px;position:relative;text-wrap:pretty}
-    .hul li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--red)}
-
-.gl{background:var(--wh);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:52px 0}
-.glg{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;background:var(--bg)}
-.gli{padding:22px 24px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:var(--wh)}
-.gli:nth-child(3n){border-right:none}
-.gli dt{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px}
-.gli dd{font-size:.95rem;font-weight:600;color:var(--ink);line-height:1.5}
-.gli dd small{display:block;font-weight:500;color:var(--ink2);font-size:.84rem;margin-top:3px}
-.notg{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:820px;margin:34px auto 0}
-.noti{background:var(--wh);border:1px solid var(--bdr);border-left:3px solid var(--ink3);border-radius:0 10px 10px 0;padding:16px 20px}
-.noti strong{display:block;font-size:.92rem;color:var(--ink);margin-bottom:4px}
-.noti span{font-size:.86rem;color:var(--ink2);line-height:1.6}
-.tsg{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:860px;margin:48px auto 0}
-.tsc{background:var(--wh);border-radius:var(--rl);padding:30px 32px;border-top:4px solid var(--red);box-shadow:0 4px 20px rgba(26,26,26,.06)}
-.tsc blockquote{font-family:'Instrument Serif',Georgia,serif;font-size:1.22rem;line-height:1.46;color:var(--ink);margin-bottom:18px}
-.tsa{font-size:.84rem;font-weight:700;color:var(--ink2)}
-.tsa span{display:block;font-weight:500;color:var(--ink3);margin-top:2px}
-@media(max-width:820px){.glg{grid-template-columns:repeat(2,1fr)}.gli:nth-child(3n){border-right:1px solid var(--bdr)}.gli:nth-child(2n){border-right:none}.notg,.tsg{grid-template-columns:1fr}}
-@media(max-width:520px){.glg{grid-template-columns:1fr}.gli{border-right:none!important}}
-
-.trust{padding:34px 0;border-bottom:1px solid var(--bdr)}
-.tr{display:grid;grid-template-columns:repeat(3,auto);justify-content:center;align-items:center;column-gap:36px;row-gap:16px}
-.ti{display:flex;align-items:center;gap:9px;font-size:.86rem;font-weight:700;color:var(--ink2)}
-.td{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-
-.sec{padding:92px 0}
-.sl{font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
-.sh{font-size:2.5rem;margin-bottom:14px}
-.ss{font-size:1.02rem;color:var(--ink2);max-width:540px;line-height:1.68}
-.sc{text-align:center}.sc .ss{margin:0 auto}
-
-.process{background:var(--bgw)}
-.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:48px}
-.pc{background:var(--wh);border-radius:var(--rl);overflow:hidden;box-shadow:0 1px 4px rgba(26,26,26,.05);transition:transform .25s,box-shadow .25s}
-.pc:hover{transform:translateY(-5px);box-shadow:0 4px 20px rgba(26,26,26,.08)}
-.pi{aspect-ratio:16/10;overflow:hidden;background:var(--bgw)}
-.pi img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.pc:hover .pi img{transform:scale(1.04)}
-.pb{padding:26px}
-.pn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--red);color:var(--wh);font-weight:800;font-size:.82rem;margin-bottom:12px}
-.pb h3{font-size:1.25rem;margin-bottom:10px}
-.pb p{font-size:.9rem;color:var(--ink2);line-height:1.62}
-
-/* Category icon row */
-.cat-row{display:flex;justify-content:center;flex-wrap:wrap;gap:0;margin-top:48px}
-.cat-item{display:flex;flex-direction:column;align-items:center;gap:12px;padding:24px 20px;flex:0 0 16.666%;min-width:140px;text-align:center;transition:transform .2s}
-.cat-item:hover{transform:translateY(-4px)}
-.cat-ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--wh);box-shadow:0 4px 12px rgba(0,0,0,.12)}
-.cat-label{font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.3;max-width:100px}
-
-/* Sample report section */
-.report-prev{background:#1C2B3A}
-.rp-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:48px}
-.rp-card{background:rgba(255,255,255,.07);border-radius:var(--rl);padding:24px;border:1px solid rgba(255,255,255,.1);transition:background .2s,border-color .2s;border-top:3px solid transparent}
-.rp-card:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.18)}
-.rp-card:nth-child(1){grid-column:span 2;border-top-color:#2D7D9A}
-.rp-card:nth-child(2){grid-column:span 2;border-top-color:#C0392B}
-.rp-card:nth-child(3){grid-column:span 2;border-top-color:#E8A838}
-.rp-card:nth-child(4){grid-column:span 3;border-top-color:#2D9D6A}
-.rp-card:nth-child(5){grid-column:span 3;border-top-color:#7B5EA7}
-.rp-card:nth-child(1) .rp-tag{color:#4DA8C4}
-.rp-card:nth-child(2) .rp-tag{color:#E74C3C}
-.rp-card:nth-child(3) .rp-tag{color:#E8A838}
-.rp-card:nth-child(4) .rp-tag{color:#2D9D6A}
-.rp-card:nth-child(5) .rp-tag{color:#9B7DC4}
-.rp-tag{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
-.rp-card h4{color:var(--wh);font-size:1rem;font-weight:700;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif}
-.rp-card p{color:rgba(255,255,255,.65);font-size:.82rem;line-height:1.55}
-.rp-sample{background:rgba(255,255,255,.05);border-radius:8px;padding:12px;margin-top:12px;border:1px solid rgba(255,255,255,.08)}
-.rp-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.75rem}
-.rp-row:last-child{border:none}
-.rp-row span:first-child{color:rgba(255,255,255,.6)}
-.rp-row span:last-child{font-weight:700;color:var(--wh)}
-.rp-hi{color:#E74C3C!important}
-.rp-med{color:#E8A838!important}
-.rp-lo{color:#4DA8C4!important}
-.rp-dl-wrap{text-align:center;margin-top:36px}
-
-.lidar{background:var(--ink);color:var(--wh)}
-.lg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:56px;align-items:center}
-.li{border-radius:var(--rx);overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.25);aspect-ratio:16/10;background:#2A2420}
-.li img{width:100%;height:100%;object-fit:cover}
-.lidar h2{color:var(--wh);font-size:2.2rem;margin-bottom:18px}
-.lidar p{color:rgba(255,255,255,.72);font-size:.96rem;line-height:1.72;margin-bottom:14px}
-.lc{display:inline-block;background:rgba(192,57,43,.15);border-left:3px solid var(--red);padding:14px 20px;border-radius:0 10px 10px 0;margin-top:6px;color:var(--wh);font-weight:700;font-size:.9rem}
-
-.funding{background:var(--wh)}
-.fug{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px}
-.fuc{background:var(--wh);border-radius:var(--rl);padding:30px;border-top:4px solid var(--red);box-shadow:0 1px 4px rgba(26,26,26,.05)}
-.fuc h4{font-family:'Instrument Serif',serif;font-size:1.2rem;margin-bottom:5px}
-.fusc{font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin-bottom:12px}
-.fuc p{font-size:.88rem;color:var(--ink2);line-height:1.6;margin-bottom:12px}
-.fuli{font-size:.86rem;font-weight:700;color:var(--red)}
-.fuli:hover{text-decoration:underline}
-
-.prc{max-width:520px;margin:48px auto 0;background:var(--wh);border-radius:var(--rx);overflow:hidden;box-shadow:0 12px 40px rgba(26,26,26,.12)}
-.pt{background:var(--ink);padding:34px 38px;text-align:center;color:var(--wh);position:relative}
-.pt::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:18px;background:var(--wh);clip-path:ellipse(55% 100% at 50% 100%)}
-.pt h3{color:var(--wh);font-size:1.6rem;margin-bottom:5px}
-.pt p{color:rgba(255,255,255,.55);font-size:.9rem}
-.ppb{padding:30px 38px 38px}
-.ppl{list-style:none;margin-bottom:26px}
-.ppl li{padding:10px 0;font-size:.92rem;color:var(--ink);display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid var(--bdr)}
-.ppl li:last-child{border:none}
-.pck{width:20px;height:20px;min-width:20px;border-radius:6px;background:var(--redp);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;margin-top:2px}
-.ppn{text-align:center;font-size:.8rem;color:var(--ink3);margin-top:12px}
-
-.about{background:var(--bgw)}
-.ag{display:grid;grid-template-columns:.45fr 1.55fr;gap:48px;align-items:center;margin-top:48px}
-.apw{position:relative;max-width:200px}
-.ap{border-radius:var(--rx);overflow:hidden;box-shadow:0 12px 40px rgba(26,26,26,.12);aspect-ratio:3/4;background:var(--bgw)}
-.ap img{width:100%;height:100%;object-fit:cover}
-.arb{position:absolute;bottom:20px;left:-12px;background:var(--red);color:var(--wh);padding:11px 20px;border-radius:var(--r);box-shadow:0 4px 20px rgba(26,26,26,.08);font-weight:800;font-size:.88rem}
-.at h2{font-size:2.1rem;margin-bottom:18px}
-.at p{font-size:.94rem;line-height:1.72;color:var(--ink2);margin-bottom:14px}
-.at p strong{color:var(--ink)}
-.atg{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.atg span{padding:7px 16px;border-radius:50px;font-size:.8rem;font-weight:700;background:var(--wh);color:var(--ink);border:1px solid var(--bdr)}
-
-.fql{max-width:720px;margin:48px auto 0}
-.fqi{border-bottom:1px solid var(--bdr)}
-.fqq{width:100%;background:none;border:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;align-items:center;text-align:left;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);transition:color .2s;gap:16px}
-.fqq:hover{color:var(--red)}
-.fqp{width:26px;height:26px;min-width:26px;border-radius:50%;background:var(--bgw);display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:1.1rem;transition:.3s}
-.fqi.open .fqp{background:var(--red);color:var(--wh);transform:rotate(45deg)}
-.fqa{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.fqai{padding:0 0 20px;font-size:.92rem;color:var(--ink2);line-height:1.68}
-.fqai a{color:var(--red);font-weight:600}
-
-.contact{background:var(--ink);color:var(--wh)}
-.cg{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start;margin-top:44px}
-.cl h3{color:var(--wh);font-size:1.45rem;margin-bottom:14px}
-.cl>p{color:rgba(255,255,255,.6);font-size:.96rem;line-height:1.68;margin-bottom:26px}
-.cp{display:flex;align-items:center;gap:14px;padding:11px 0;color:rgba(255,255,255,.78);font-size:.92rem;font-weight:500}
-.cpi{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--wh)}
-.fcard{background:var(--wh);border-radius:var(--rx);padding:36px;box-shadow:0 16px 50px rgba(0,0,0,.2);color:var(--ink)}
-.fcard h4{font-family:'Instrument Serif',serif;font-size:1.2rem;margin-bottom:4px}
-.fhint{font-size:.86rem;color:var(--ink3);margin-bottom:22px}
-.ffg{margin-bottom:14px}
-.ffl{display:block;font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:4px}
-.ffi,.fft{width:100%;padding:11px 14px;border:2px solid var(--bdr);border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.94rem;color:var(--ink);background:var(--bg);transition:border-color .2s,box-shadow .2s;outline:none}
-.ffi:focus,.fft:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(192,57,43,.1)}
-.fft{min-height:88px;resize:vertical}
-.ffr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fsb{width:100%;padding:14px;border:none;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;color:var(--wh);background:var(--red);box-shadow:0 4px 16px rgba(192,57,43,.3);transition:all .2s}
-.fsb:hover{background:var(--red2);transform:translateY(-1px)}
-.fnt{text-align:center;font-size:.76rem;color:var(--ink3);margin-top:10px}
-.fok{display:none;text-align:center;padding:44px 20px}
-.fok.show{display:block}
-.foki{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:var(--redp);display:flex;align-items:center;justify-content:center}
-.fok h4{font-size:1.2rem;margin-bottom:6px}
-.fok p{color:var(--ink2);font-size:.92rem}
-
-footer{background:#141210;color:rgba(255,255,255,.35);padding:36px 0 28px;font-size:.82rem}
-.fti{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.ftb{font-family:'Instrument Serif',serif;font-size:1rem;color:rgba(255,255,255,.55)}
-.ftn{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;list-style:none;margin:0;padding:0}
-.ftn a{color:rgba(255,255,255,.3);transition:color .2s}
-.ftn a:hover{color:rgba(255,255,255,.65)}
-.ftc{width:100%;text-align:center;margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.05)}
-
-.rv{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1)}
-.rv.v{opacity:1;transform:translateY(0)}
-
-
-.qz-q{padding:14px 0;border-bottom:1px solid var(--bdr)}
-.qz-q:last-of-type{border-bottom:none}
-.qz-q label{display:flex;align-items:center;gap:14px;font-size:.96rem;color:var(--ink);cursor:pointer;font-weight:500}
-.qz-q input[type=checkbox]{width:20px;height:20px;accent-color:var(--red);flex-shrink:0;cursor:pointer}
-
-@media(max-width:960px){.hg,.lg,.ag,.cg{grid-template-columns:1fr;gap:40px}.hero h1{font-size:2.6rem}.pg,.fug{grid-template-columns:1fr;max-width:420px}.apw{max-width:180px}.sh{font-size:2rem}.ndi-grid{grid-template-columns:1fr!important;max-width:420px!important}.rp-grid{grid-template-columns:1fr 1fr}.cat-item{flex:0 0 33.333%;min-width:110px}.report-showcase-grid{grid-template-columns:1fr!important}.after-report-grid{grid-template-columns:1fr!important}}
-@media(max-width:980px){.nl{display:none}.mt{display:block}}
-@media(max-width:680px){.hero{padding:108px 0 50px}.hero h1{font-size:2rem}.hbs{flex-wrap:wrap}.hb{flex-direction:column}.btn{width:100%;justify-content:center}.tr{gap:18px}.tr{grid-template-columns:1fr;row-gap:12px}.sec{padding:64px 0}.ffr{grid-template-columns:1fr}.fcard{padding:28px}.ppb{padding:24px 28px 32px}.pt{padding:28px}.arb{position:static;margin-top:10px;display:inline-block}.fti{flex-direction:column;text-align:center}.rp-grid{grid-template-columns:1fr}.cat-item{flex:0 0 25%;min-width:80px}}
-
-/* top section styled after the report cover */
-.hero{padding:150px 0 90px;background:url('family_moment.jpg') center center/cover no-repeat;position:relative}
-.hero::before{background:linear-gradient(135deg,rgba(34,28,25,.9) 0%,rgba(34,28,25,.72) 100%)}
-.hg{max-width:780px;margin:0 auto;text-align:center;display:block}
-.hero .hl{font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E06A5A;line-height:1.5;margin-bottom:18px;text-wrap:initial}
-.htitle{font-family:'Instrument Serif',Georgia,serif;font-size:4.2rem;line-height:1.05;letter-spacing:-.015em;color:#F4EFE9;margin:0 0 30px}
-.htitle em{font-style:italic;color:#E06A5A}
-.hero .hul{margin:0 0 34px;gap:10px;display:flex;flex-direction:column;align-items:center}
-.hero .hul li{color:#D9CCC4;padding-left:20px}
-.hero .hul li::before{border-radius:0;width:6px;height:6px;top:10px;background:#E06A5A}
-.hpanel{text-align:left;max-width:760px;margin-left:auto;margin-right:auto;display:grid;grid-template-columns:1fr 1fr;gap:20px 36px;background:rgba(46,39,36,.92);border-radius:14px;padding:26px 30px;margin-bottom:22px}
-.hpanel div{color:#F4EFE9;font-size:1rem}
-.hpanel span{display:block;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B3A79C;margin-bottom:4px}
-.hpills{justify-content:center;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
-.hpills span{border:1px solid #6B3B34;border-radius:50px;padding:7px 16px;font-size:.88rem;color:#D9CCC4}
-.hero .hb{justify-content:center;align-items:center;gap:26px}
-.hsec{font-weight:600;color:#D9CCC4!important;border-bottom:1px solid #3B3330;padding-bottom:2px}
-.hsec:hover{color:#F4EFE9!important;text-decoration:none}
-@media(max-width:680px){.hero{padding:104px 0 56px}.htitle{font-size:2.7rem}.hpanel{grid-template-columns:1fr;padding:22px}.hero .hb{flex-direction:column;align-items:stretch;gap:16px}.hsec{text-align:center;border:none}}
-/* menu: hovered item turns red with an underline */
-.nl a{position:relative}
-.nl a:hover{color:var(--red)}
-.nl a:not(.nc)::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--red);border-radius:2px;transform:scaleX(0);transition:transform .2s}
-.nl a:not(.nc):hover::after{transform:scaleX(1)}
-.nl a.nc:hover{color:var(--wh)}
-.mp a:not(.mc):hover{color:var(--red)}
-.sa{background:#FAF9F6!important;border-top:none!important;border-bottom:none!important}
-.sb{background:#E9DCC6!important;border-top:none!important;border-bottom:none!important}
-.sb .rv,.sb .card{border-color:#D6C4A6}
-:root{--ink3:#6B625A}
+.mp a{display:block;padding:14px 24px;color:var(--ink);text-decoration:none;font-weight:600;border-bottom:1px solid var(--bdr)}
+/* hero */
+.hero{padding:56px 0 48px}
+.hero .w{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.hero-t{flex:1 1 480px;min-width:0}
+.hero h1{font-size:clamp(44px,5.6vw,66px);letter-spacing:-.01em;margin-bottom:20px}
+.hero h1 em{color:var(--red)}
+.hero .sub{margin:0 0 28px;font-size:20px;color:var(--ink2);max-width:34em}
+.hero .alt{margin:18px 0 22px;font-size:15px;color:var(--ink2)}
+.creds{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:15px;font-weight:600;color:var(--ink2)}
+.creds span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:2px}
+.hero-i{flex:1 1 420px;min-width:0;position:relative}
+.hero-i img{width:100%;height:520px;object-fit:cover;border-radius:28px}
+.facts{position:absolute;left:20px;right:20px;bottom:20px;background:#fff;border-radius:18px;padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px 28px;box-shadow:0 12px 32px rgba(26,26,26,.16)}
+.facts small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);font-weight:700}
+.facts b{font-weight:700}
+/* strip */
+.strip{background:var(--bgw);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.strip .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;padding-top:18px;padding-bottom:18px;font-size:15px;font-weight:600;color:var(--ink2)}
+/* cards */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:#fff;border:1px solid var(--bdr);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--red);color:var(--ink)}
+.card .ct{font-family:var(--serif);font-size:30px;line-height:1.15}
+.card .cd{color:var(--ink2)}
+.card .cl{font-weight:700;color:var(--red2);margin-top:auto}
+/* report */
+.dark{background:var(--ink);color:#fff}
+.dark .eb{color:#F1A097}
+.rep .w{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+.rep .w>div{flex:1 1 440px;min-width:0}
+.pts{display:flex;flex-direction:column;gap:18px;margin:28px 0 32px}
+.pt{display:flex;gap:14px}
+.pt span{flex:0 0 28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.rep img{border-radius:20px;width:100%}
+/* pricing */
+.price{background:#fff;border:1px solid var(--bdr);border-radius:20px;padding:28px}
+.price .pn{font-weight:600;color:var(--ink2)}
+.price .pp{font-family:var(--serif);font-size:56px;line-height:1.1;margin:6px 0 4px}
+.price .pd{color:var(--ink3);font-size:15px;margin-bottom:20px}
+.price .btn{width:100%;padding:13px}
+.pnotes{display:flex;flex-wrap:wrap;gap:10px 32px;color:var(--ink2);font-size:15px;margin-top:28px}
+/* steps */
+.tint{background:var(--bgw)}
+.step .n{font-family:var(--serif);font-size:64px;color:var(--red);line-height:1}
+.step h3{margin:8px 0;font-size:21px}
+.step p{margin:0;color:var(--ink2)}
+/* reviews */
+.rhd{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:36px}
+.rv{margin:0}
+.rv blockquote{margin:0;font-size:18px}
+.rv figcaption{margin-top:auto;font-weight:700}
+.rv figcaption span{font-weight:400;color:var(--ink3)}
+.rnote{margin-top:16px;font-size:14px;color:var(--ink3)}
+/* about */
+.about{background:#fff;border:1px solid var(--bdr);border-radius:28px;padding:40px;display:flex;flex-wrap:wrap;gap:40px;align-items:center}
+.about img{width:200px;height:200px;object-fit:cover;border-radius:50%;flex:0 0 auto}
+.about>div{flex:1 1 420px;min-width:0}
+.about h2{font-size:40px;margin-bottom:12px}
+.about p{color:var(--ink2);margin:0 0 16px}
+/* faq */
+.faq{max-width:860px}
+.faq h2{margin-bottom:28px}
+.faq details{border-top:1px solid var(--bdr);padding:20px 0}
+.faq details:last-of-type{border-bottom:1px solid var(--bdr)}
+.faq summary{font-weight:700;font-size:19px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--red)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:12px 0 0;color:var(--ink2)}
+/* final */
+.final{background:var(--red);color:#fff}
+.final .w{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.final .w>div{flex:1 1 440px;min-width:0}
+.final h2{font-size:clamp(40px,5vw,56px);margin-bottom:16px}
+.final .b-wh{color:var(--red2)}
+.final .small{margin-top:22px;font-size:15px}
+.final .small a{color:#fff}
+.fcard{flex:1 1 380px;min-width:0;background:#fff;color:var(--ink);border-radius:24px;padding:28px}
+.fcard h3{margin:0;font-size:20px}
+.fcard .fh{color:var(--ink2);font-size:15px;margin:2px 0 16px}
+#cf{display:flex;flex-direction:column;gap:14px}
+#cf label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
+#cf input,#cf textarea{font:inherit;font-weight:400;padding:12px 14px;border:1.5px solid #CFC7BC;border-radius:10px;min-height:48px;background:#fff;color:var(--ink)}
+#cf input:focus,#cf textarea:focus{outline:2px solid var(--red);outline-offset:1px;border-color:var(--red)}
+#cf button{font:inherit;font-weight:700;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:15px;min-height:50px;cursor:pointer}
+#cf button:disabled{opacity:.6}
+.fnt{font-size:13px;color:var(--ink3);margin:0}
+.fok{display:none}.fok.show{display:block}
+.fok h4{margin:0 0 6px;font-size:20px}
+/* footer */
+footer{background:var(--ink);color:#CFC7BC;font-size:14px;padding:44px 0 120px}
+footer .w{display:flex;flex-direction:column;gap:18px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+footer a{color:#CFC7BC}footer a:hover{color:#fff}
+.ftc{color:#9A9088}
+/* sticky phone bar */
+.mbar{display:none}
+@media (max-width:900px){
+  .nav,.hcta{display:none}
+  .mt{display:flex}
+  .hero{padding:28px 0 36px}
+  .hero-i img{height:300px}
+  .hero .btns a,.final .btns a{flex:1 1 100%}
+  .facts{position:relative;left:auto;right:auto;bottom:auto;margin:-28px 12px 0}
+  .sec{padding:64px 0}
+  .about{padding:28px}
+  .about img{width:120px;height:120px}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:10px;padding:10px 12px calc(12px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--bdr);box-shadow:0 -6px 20px rgba(26,26,26,.10)}
+  .mbar a{flex:1 1 0;min-height:50px;padding:0 12px}
+  .mbar a.b-red{flex-grow:1.4}
+}
+@media (min-width:901px){footer{padding-bottom:44px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="ni">
-    <a href="#" class="nb">
-      <div class="nm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
-      Senior Home Safety
-    </a>
-    <ul class="nl">
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li>
-      <li><a href="alzheimers-dementia-home-safety.html">Dementia</a></li>
-      <li><a href="home-modification-funding-alberta.html">Funding</a></li>
-      <li><a href="sample-report.html">Sample Report</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="#contact">Request a Call</a></li>
-      <li><a href="https://book.novoseniorsafety.com/" class="nc">Book Online</a></li>
-    </ul>
-    <button class="mt" id="mt" aria-label="Menu"><span></span><span></span><span></span></button>
+<header class="hdr">
+  <div class="w">
+    <a class="logo" href="/" aria-label="Senior Home Safety, home"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></i>Senior Home Safety</a>
+    <nav class="nav" aria-label="Main">
+      <a href="pricing.html">Pricing</a>
+      <a href="sample-report.html">Sample report</a>
+      <a href="home-modification-funding-alberta.html">Funding</a>
+      <a href="for-occupational-therapists.html">For OTs</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="hcta">
+      <a class="btn b-out" href="tel:5879073566" data-track="header"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>587-907-3566</a>
+      <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="header">Book online</a>
+    </div>
+    <button class="mt" id="mt" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
-  <div class="mp" id="mp">
-    <a href="pricing.html" class="ml">Pricing</a>
-    <a href="fall-risk-assessment-calgary.html" class="ml">Fall Risk Assessment</a>
-    <a href="alzheimers-dementia-home-safety.html" class="ml">Dementia Home Safety</a>
-    <a href="home-modification-funding-alberta.html" class="ml">Funding Programs</a>
-    <a href="sample-report.html" class="ml">Sample Report</a>
-    <a href="methodology.html" class="ml">How We Assess</a>
-    <a href="for-occupational-therapists.html" class="ml">For Occupational Therapists</a>
-    <a href="about.html" class="ml">About</a>
-    <a href="#contact" class="ml">Request a Call</a>
-    <a href="https://book.novoseniorsafety.com/" class="mc ml">Book Online</a>
-  </div>
-</nav>
+  <nav class="mp" id="mp" aria-label="Mobile">
+    <a href="pricing.html">Pricing</a>
+    <a href="fall-risk-assessment-calgary.html">Fall risk assessment</a>
+    <a href="alzheimers-dementia-home-safety.html">Dementia home safety</a>
+    <a href="sample-report.html">Sample report</a>
+    <a href="home-modification-funding-alberta.html">Funding programs</a>
+    <a href="methodology.html">How we assess</a>
+    <a href="for-occupational-therapists.html">For occupational therapists</a>
+    <a href="about.html">About</a>
+    <a href="#contact">Request a call</a>
+  </nav>
+</header>
 
+<main>
 <section class="hero">
   <div class="w">
-    <div class="hg">
-      <h1 class="hl">Home safety assessments for seniors &middot; Calgary &amp; area</h1>
-      <p class="htitle">Every risk found.<br>Every fix <em>prioritized</em>.</p>
-      <ul class="hul">
-        <li>Every hazard ranked by safety impact and cost, so the first dollar counts</li>
-        <li>Funding programs matched to eligible modifications, with the paperwork you need</li>
-        <li>A Calgary price for every fix, from last month&rsquo;s market research</li>
-      </ul>
-      <div class="hpanel">
-        <div><span>Starting price</span>$395 plus GST</div>
-        <div><span>Report delivered</span>Within 3 business days</div>
-        <div><span>Visit length</span>1.5 to 3 hours</div>
-        <div><span>Assessor</span>Carl Christie, SHSS, RHFAC Professional</div>
+    <div class="hero-t">
+      <p class="eb">Home safety assessments for seniors &middot; Calgary &amp; area</p>
+      <h1>Every risk found.<br>Every fix <em>prioritized.</em></h1>
+      <p class="sub">One visit to your parent&rsquo;s home. Within 3 business days, a written report that ranks every hazard, prices every fix in Calgary dollars, and shows which funding programs can help pay.</p>
+      <div class="btns">
+        <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="hero">Book online &mdash; from $395</a>
+        <a class="btn b-ink" href="tel:5879073566" data-track="hero">Call 587-907-3566</a>
       </div>
-      <div class="hpills"><span>SHSS Designated</span><span>RHFAC Professional</span><span>Fully Insured</span><span>Laser-measured findings</span></div>
-      <div class="hb">
-        <a href="https://book.novoseniorsafety.com/" class="btn br">Book Online <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#contact" class="btn bo">Request a Free&nbsp;Call</a>
-        <a href="sample-report.html" class="hsec">See the sample report</a>
+      <p class="alt">Not sure yet? <a href="#contact"><strong>Ask for a free call back</strong></a> &mdash; we phone within one business day.</p>
+      <div class="creds"><span>SHSS designated</span><span>RHFAC Professional</span><span>Fully insured</span><span>Calgary-owned</span></div>
+    </div>
+    <div class="hero-i">
+      <img src="family_moment.jpg" alt="An adult daughter with her parents at the kitchen table" width="612" height="408" fetchpriority="high">
+      <div class="facts">
+        <div><small>Report</small><b>In 3 business days</b></div>
+        <div><small>Visit</small><b>1.5 to 3 hours</b></div>
+        <div><small>Checks</small><b>143 in 12 categories</b></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sa" style="padding:56px 0">
+<div class="strip"><div class="w">
+  <span>SHSS designated assessor</span><span>RHFAC Professional</span><span>Fully insured</span><span>Calgary-owned</span><span>No contractor referral fees, ever</span>
+</div></div>
+
+<section class="sec">
   <div class="w">
-    <div class="tsc rv" style="max-width:820px;margin:0 auto;text-align:center">
-      <blockquote style="font-size:1.45rem">&ldquo;AHS told us Mom could come home in a week, but her house wasn&rsquo;t ready. This assessment gave us a clear list of what had to be done before she arrived, plus the funding programs we could use. We booked the work the same day because the report made everything so straightforward.&rdquo;</blockquote>
-      <div class="tsa">Annette<span>Arbor Lake, Calgary</span></div>
+    <h2>Families usually call us when&hellip;</h2>
+    <p class="lede">Same visit, same price. The report is written around what&rsquo;s happening at home.</p>
+    <div class="grid3">
+      <a class="card" href="fall-risk-assessment-calgary.html"><span class="ct">A parent is coming home from hospital</span><span class="cd">A clear list of what must be done before discharge day, in order, with prices.</span><span class="cl">Fall risk assessment &rarr;</span></a>
+      <a class="card" href="fall-risk-assessment-calgary.html"><span class="ct">There&rsquo;s been a fall, or a near miss</span><span class="cd">Every trip, reach and transfer point measured, so you fix the cause and not just the room it happened in.</span><span class="cl">Fall risk assessment &rarr;</span></a>
+      <a class="card" href="alzheimers-dementia-home-safety.html"><span class="ct">Memory is changing</span><span class="cd">Wandering, exits, stove and medication safety, and wayfinding, for Alzheimer&rsquo;s and other dementias.</span><span class="cl">Dementia home safety &rarr;</span></a>
     </div>
   </div>
 </section>
 
-<section class="sec" style="background:var(--ink);color:var(--wh);border-top:4px solid var(--red)">
+<section class="sec dark rep" id="sample-report">
   <div class="w">
-    <div class="sc rv">
-      <p class="sl" style="color:rgba(255,255,255,.45)">What Makes This Report Different</p>
-      <h2 class="sh" style="color:var(--wh);font-size:2.8rem">Where should the next dollar go?</h2>
-      <p class="ss" style="margin:0 auto;font-size:1.05rem;color:rgba(255,255,255,.75)">Most reports leave you a list of problems and no idea where to start. This one ranks every finding by risk and cost, so you always know where the next dollar should go.</p>
+    <div>
+      <p class="eb">What you get</p>
+      <h2>Not a list of problems. A plan for where the next dollar goes.</h2>
+      <div class="pts">
+        <div class="pt"><span>1</span><div><strong>Every hazard ranked</strong> by safety impact per dollar, so the highest-value fixes come first.</div></div>
+        <div class="pt"><span>2</span><div><strong>A Calgary price for every fix</strong>, from monthly local market research.</div></div>
+        <div class="pt"><span>3</span><div><strong>A phased plan</strong>: this month, within 3 months, 6 to 12 months.</div></div>
+        <div class="pt"><span>4</span><div><strong>Funding matched</strong> to eligible fixes: SHARP, AADL, and federal tax credits.</div></div>
+      </div>
+      <div class="btns">
+        <a class="btn b-wh" href="sample-report.html">See the 43-page sample report</a>
+        <a class="btn b-outw" href="https://book.novoseniorsafety.com/" data-track="report">Book online</a>
+      </div>
     </div>
-    <div class="ndi-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;max-width:960px;margin-left:auto;margin-right:auto">
-      <div class="rv" style="background:rgba(255,255,255,.06);border-radius:var(--rl);padding:36px 30px;border-top:4px solid var(--red)">
-        <div style="width:52px;height:52px;border-radius:14px;background:var(--red);display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 14px rgba(192,57,43,.35)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 19h4v-8H4v8zm6 0h4V5h-4v14zm6 0h4v-11h-4v11z"/></svg></div>
-        <h3 style="color:var(--wh);font-size:1.2rem;margin-bottom:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800">Priority-Ranked Findings</h3>
-        <p style="color:rgba(255,255,255,.7);font-size:.92rem;line-height:1.65">Every hazard ranked by safety impact per dollar spent. The highest-impact, lowest-cost fixes surface first so your family addresses what matters most, not what is easiest.</p>
-      </div>
-      <div class="rv" style="background:rgba(255,255,255,.06);border-radius:var(--rl);padding:36px 30px;border-top:4px solid #2D7D9A">
-        <div style="width:52px;height:52px;border-radius:14px;background:#2D7D9A;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 14px rgba(45,125,154,.35)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2.5 3-2.5s3 1.1 3 2.2c0 2.8-6 1.3-6 4.1 0 1.1 1.3 2.2 3 2.2s3-1.1 3-2.5"/></svg></div>
-        <h3 style="color:var(--wh);font-size:1.2rem;margin-bottom:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800">Itemized Cost Per Finding</h3>
-        <p style="color:rgba(255,255,255,.7);font-size:.92rem;line-height:1.65">Every recommendation includes a specific Calgary price so you can plan and budget before committing to any work. No surprises when the contractor arrives.</p>
-      </div>
-      <div class="rv" style="background:rgba(255,255,255,.06);border-radius:var(--rl);padding:36px 30px;border-top:4px solid #2D9D6A">
-        <div style="width:52px;height:52px;border-radius:14px;background:#2D9D6A;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 14px rgba(45,157,106,.35)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M7 13h3M7 17h6"/></svg></div>
-        <h3 style="color:var(--wh);font-size:1.2rem;margin-bottom:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800">Phased Capital Plan</h3>
-        <p style="color:rgba(255,255,255,.7);font-size:.92rem;line-height:1.65">A phased roadmap showing what to fix this month, what can wait six months, and what is a longer-term project at a pace that fits the budget.</p>
+    <div><img src="report_pages_composite.jpg" alt="Pages from the sample home safety report" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="w">
+    <h2>One flat fee. Paid once, nothing after the visit.</h2>
+    <p class="lede">Plus GST. Within 50 km of Calgary, including Airdrie, Cochrane, Chestermere, Okotoks and Strathmore.</p>
+    <div class="grid3">
+      <div class="price"><div class="pn">Condo or apartment</div><div class="pp">$395</div><div class="pd">About 1.5 hours on site</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-condo">Book a condo visit</a></div>
+      <div class="price"><div class="pn">House up to 1,200 sq ft</div><div class="pp">$495</div><div class="pd">Bungalows and smaller houses</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-house">Book a house visit</a></div>
+      <div class="price"><div class="pn">1,200 to 2,500 sq ft</div><div class="pp">$595</div><div class="pd">Up to 3 hours on site</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-large">Book a larger home</a></div>
+    </div>
+    <div class="pnotes">
+      <span>Includes a 30-minute follow-up call within 60 days</span>
+      <span>Free cancellation up to 24 hours before</span>
+      <span>Bigger home? <a href="tel:5879073566" data-track="pricing"><strong>Call for a free quote</strong></a></span>
+      <span><a href="pricing.html">Full pricing details &rarr;</a></span>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="process">
+  <div class="w">
+    <h2 style="margin-bottom:40px">Three steps, one flat fee.</h2>
+    <div class="grid3" style="gap:32px">
+      <div class="step"><div class="n">1</div><h3>Book online or call</h3><p>Pick a time, sign the agreement on screen and pay by card. Or call and we&rsquo;ll set it up together. Carl phones within one business day either way.</p></div>
+      <div class="step"><div class="n">2</div><h3>The visit</h3><p>Every room, laser-measured. A family member or the homeowner shows us how the home is really used.</p></div>
+      <div class="step"><div class="n">3</div><h3>Your report</h3><p>Within 3 business days: ranked findings, Calgary prices, a phased plan and the funding that applies.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="testimonials">
+  <div class="w">
+    <div class="rhd">
+      <h2>What Calgary families say.</h2>
+      <a href="https://maps.app.goo.gl/97Um5JyAKHSDAxnD9" rel="noopener" target="_blank"><strong>Read our reviews on Google &rarr;</strong></a>
+    </div>
+    <div class="grid3">
+      <figure class="card rv"><blockquote>&ldquo;AHS told us Mom could come home in a week, but her house wasn&rsquo;t ready. This assessment gave us a clear list of what had to be done before she arrived, plus the funding programs we could use.&rdquo;</blockquote><figcaption>Annette <span>&middot; Arbor Lake, Calgary</span></figcaption></figure>
+      <figure class="card rv"><blockquote>&ldquo;When Mom fell in the bathroom, we had no idea where to start. The assessment showed us exactly what needed fixing first and what it would cost.&rdquo;</blockquote><figcaption>Ryan <span>&middot; Hamptons, Calgary</span></figcaption></figure>
+      <figure class="card rv"><blockquote>&ldquo;His practical recommendations and clear guidance on local home modification programs made the entire process simple and stress-free.&rdquo;</blockquote><figcaption>Craig <span>&middot; Springbank</span></figcaption></figure>
+    </div>
+    <p class="rnote">Published with each client&rsquo;s permission. First names and neighbourhoods only.</p>
+  </div>
+</section>
+
+<section class="sec" id="about" style="padding-top:0">
+  <div class="w">
+    <div class="about">
+      <img src="Carl.jpg" alt="Carl Christie, assessor" loading="lazy">
+      <div>
+        <h2>Meet your assessor.</h2>
+        <p>Carl Christie is an SHSS-designated assessor and RHFAC Professional, and the person who calls you after you book. He takes no referral fees or commissions from contractors, so the advice is only about what makes the home safer.</p>
+        <a href="about.html"><strong>More about Carl</strong></a> &nbsp;&middot;&nbsp; <a href="methodology.html"><strong>How we assess</strong></a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="trust sa">
-  <div class="w"><p style="text-align:center;font-weight:600;margin:0 0 16px">Years of professional home assessment experience, now backed by RHFAC Professional and Senior Home Safety Specialist credentials.</p><div class="tr">
-    <div class="ti"><span class="td" style="background:var(--red)"></span> SHSS Designated</div>
-    <div class="ti"><span class="td" style="background:#5B3E8A"></span> RHFAC Professional</div>
-    <div class="ti"><span class="td" style="background:var(--ink)"></span> Fully Insured</div>
-    <div class="ti"><span class="td" style="background:#8B6914"></span> Laser-Measured Findings</div>
-    <div class="ti"><span class="td" style="background:#2E6B4F"></span> Calgary Owned &amp; Operated</div>
-  </div></div>
-</section>
-
-<section class="gl sb">
-  <div class="w">
-    <h2 style="font-size:1.9rem;margin-bottom:8px">What a home safety assessment costs, covers and delivers</h2>
-    <p style="color:var(--ink2);font-size:.95rem;margin-bottom:26px">Everything on this page in one place.</p>
-    <dl class="glg">
-      <div class="gli"><dt>Price</dt><dd>From $395 + GST<small>Condo $395 &middot; House to 1,200 sq ft $495 &middot; 1,200&ndash;2,500 sq ft $595 &middot; larger quoted</small></dd></div>
-      <div class="gli"><dt>Report delivery</dt><dd>3 business days<small>By email, as a PDF, after the visit</small></dd></div>
-      <div class="gli"><dt>Visit length</dt><dd>1.5 to 3 hours<small>An hour and a half for a condo, up to three for a large home</small></dd></div>
-      <div class="gli"><dt>What is checked</dt><dd>143 checkpoints<small>Across 12 categories, every room, inside and out</small></dd></div>
-      <div class="gli"><dt>Assessor</dt><dd>Carl Christie<small>Senior Home Safety Specialist (SHSS) and RHFAC Professional</small></dd></div>
-      <div class="gli"><dt>Service area</dt><dd>Calgary + 50 km<small>Airdrie, Cochrane, Chestermere, Okotoks, Strathmore and more</small></dd></div>
-      <div class="gli"><dt>Also included</dt><dd>Prices and funding<small>A Calgary price for every fix, a contractor checklist, and the funding programs that may apply</small></dd></div>
-      <div class="gli"><dt>Follow-up</dt><dd>30-minute call<small>By phone or video, within 60 days of delivery</small></dd></div>
-      <div class="gli"><dt>Reassessment</dt><dd>$195 + GST<small>After modifications are complete, or when circumstances change</small></dd></div>
-    </dl>
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="w faq">
+    <h2>Questions families ask first.</h2>
+    <details open><summary>Who should consider this assessment?</summary><p>Families and individuals who want a clear picture of the fall risks and safety gaps in a senior&rsquo;s home. Most clients are adult children arranging an assessment for an aging parent, or seniors who want to understand what changes would help them stay safely in their home longer.</p></details>
+    <details><summary>Does the assessment address Alzheimer&rsquo;s or dementia-specific concerns?</summary><p>Yes. The SHSS assessment standard includes a dedicated module on Alzheimer&rsquo;s and dementia considerations: wandering risk, exit security, kitchen hazards for people with cognitive impairment, wayfinding cues, medication storage, and other environmental factors specific to cognitive decline.</p></details>
+    <details><summary>Can the report help me apply for government funding?</summary><p>The report identifies which modifications may qualify under programs such as SHARP, AADL, the Home Accessibility Tax Credit and the Multigenerational Home Renovation Tax Credit. It is not an application. Where a program asks for a written cost estimate or receipts, those come from the contractor you hire; where a program requires a clinical assessment, that comes from a health professional. <a href="home-modification-funding-alberta.html">Funding programs &rarr;</a></p></details>
+    <details><summary>How long does a home safety assessment visit take?</summary><p>About an hour and a half for a condo or apartment, and up to three hours for a larger house. The fee is set by home size and covers the full visit however long it takes.</p></details>
+    <details><summary>What if I need to cancel or reschedule?</summary><p>Cancel or move your visit for free up to 24 hours before it, and everything you paid is refunded. With less than 24 hours&rsquo; notice you can still move it once at no charge. If you cancel inside 24 hours, 10% of the fee plus GST is kept and the rest refunded. There is no charge for a medical emergency or hospital stay, severe weather, or a visit booked less than 24 hours ahead.</p></details>
+    <details><summary>How soon is the report delivered?</summary><p>The written report is delivered within three business days of the assessment visit, in PDF format.</p></details>
+    <details><summary>Is this an occupational therapy assessment or a home inspection?</summary><p>No. It is not a clinical or occupational therapy assessment, a home inspection, a building code or accessibility certification, or a contractor quote. It works alongside your OT. <a href="home-safety-assessment-vs-occupational-therapy.html">Assessment vs. an OT &rarr;</a></p></details>
   </div>
 </section>
 
-<section class="sec sa" id="self-check" style="background:var(--bgw)">
+<section class="sec final" id="contact">
   <div class="w">
-    <div class="sc rv">
-      <p class="sl">Not Sure Yet?</p>
-      <h2 class="sh">Take the 30-second home safety check.</h2>
-      <p class="ss">Answer five quick questions and see whether a full assessment makes sense for your family.</p>
+    <div>
+      <h2>Find out what to fix first.</h2>
+      <p style="margin:0 0 28px;font-size:19px">Book a visit online now, or talk it through on the phone first.</p>
+      <div class="btns">
+        <a class="btn b-wh" href="https://book.novoseniorsafety.com/" data-track="final">Book online &mdash; from $395</a>
+        <a class="btn b-outw" href="tel:5879073566" data-track="final">Call 587-907-3566</a>
+      </div>
+      <p class="small">Not ready yet? <a href="SHS_Home_Safety_Checklist.pdf">Get the free home safety checklist (PDF)</a></p>
     </div>
-    <div class="rv" style="max-width:620px;margin:44px auto 0;background:var(--wh);border:1px solid var(--bdr);border-radius:var(--rx);padding:36px 34px;box-shadow:0 8px 28px rgba(0,0,0,.05)">
-      <form id="quizForm">
-        <div class="qz-q"><label><input type="checkbox" name="q1"> Difficulty getting in or out of the bathtub or shower</label></div>
-        <div class="qz-q"><label><input type="checkbox" name="q2"> A fall in the home within the last 12 months</label></div>
-        <div class="qz-q"><label><input type="checkbox" name="q3"> A walker, cane, or wheelchair now used in the home</label></div>
-        <div class="qz-q"><label><input type="checkbox" name="q4"> Stairs required to reach the bedroom or bathroom</label></div>
-        <div class="qz-q"><label><input type="checkbox" name="q5"> A recent memory or dementia-related diagnosis</label></div>
-        <button type="submit" class="btn br" style="width:100%;justify-content:center;border:none;margin-top:8px">See My Result</button>
+    <div class="fcard">
+      <h3>Or we&rsquo;ll call you</h3>
+      <p class="fh">Free, no obligation, within one business day.</p>
+      <form id="cf" action="https://formspree.io/f/xnjwggwo" method="POST">
+        <label for="name">Your name<input type="text" id="name" name="name" required autocomplete="name"></label>
+        <label for="phone">Phone number<input type="tel" id="phone" name="phone" required autocomplete="tel"></label>
+        <label for="msg">What&rsquo;s happening at home? <span style="font-weight:400;color:var(--ink3)">(optional)</span><textarea id="msg" name="message" rows="2"></textarea></label>
+        <button type="submit">Request my free call</button>
+        <p class="fnt">Your information is never sold. <a href="privacy.html">Privacy</a></p>
       </form>
-      <div id="quizResult" style="display:none">
-        <div id="quizMsg" style="padding:18px 20px;border-radius:var(--r);margin-bottom:20px;font-size:.95rem;line-height:1.6"></div>
-        <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px">Want a copy of your result and our free 59-point home safety checklist? Leave your email and we will send both within one business day.</p>
-        <form id="quizLeadForm" action="https://formspree.io/f/xnjwggwo" method="POST">
-          <input type="hidden" name="form_type" value="Self-Check Quiz">
-          <input type="hidden" name="quiz_score" id="quizScoreField">
-          <div class="ffg"><input class="ffi" type="text" name="name" placeholder="Full Name" required></div>
-          <div class="ffg"><input class="ffi" type="email" name="email" placeholder="Email Address" required></div>
-          <button type="submit" class="fsb" style="width:100%">Email Me My Result &amp; Checklist</button>
-        </form>
-        <div id="quizLeadDone" style="display:none;text-align:center;padding:10px 0;color:var(--ink2);font-size:.9rem" data-msg="Thank you — your result and checklist will arrive by email within one business day."></div>
-        <p style="text-align:center;margin-top:18px"><a href="https://book.novoseniorsafety.com/" style="font-weight:700;color:var(--red);font-size:.92rem">Or skip ahead &mdash; book online &rarr;</a> <span style="color:var(--ink3);font-size:.88rem">&middot; or <a href="#contact">request a free call</a></span></p>
-      </div>
+      <div class="fok" id="fok" role="status" aria-live="polite"></div>
     </div>
   </div>
 </section>
-
-<section class="sec sb" id="assessment-options">
-  <div class="w">
-    <div class="sc rv">
-      <p class="sl">Choose Your Assessment</p>
-      <h2 class="sh">Which assessment fits: general fall risk or dementia?</h2>
-    </div>
-    <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;max-width:900px;margin-left:auto;margin-right:auto">
-      <div class="fuc">
-        <div style="width:48px;height:48px;border-radius:12px;background:var(--redp);display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><path d="M12 2v6m0 8v6m-6-6h12"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <div class="fusc">General Fall Risk</div>
-        <h4>Standard Home Safety Assessment</h4>
-        <p style="margin-bottom:10px">Full 12-category assessment focused on:</p>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="font-size:.88rem;color:var(--ink2);padding:5px 0 5px 22px;position:relative">Fall prevention &amp; mobility barriers<span style="position:absolute;left:0;color:var(--red);font-weight:800">✓</span></li>
-          <li style="font-size:.88rem;color:var(--ink2);padding:5px 0 5px 22px;position:relative">General aging-in-place safety<span style="position:absolute;left:0;color:var(--red);font-weight:800">✓</span></li>
-          <li style="font-size:.88rem;color:var(--ink2);padding:5px 0 5px 22px;position:relative">All 12 standard categories<span style="position:absolute;left:0;color:var(--red);font-weight:800">✓</span></li>
-        </ul>
-      </div>
-      <div class="fuc">
-        <div style="width:48px;height:48px;border-radius:12px;background:var(--redp);display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.5-1.5 4.5-3 6s-2 3.5-2 5h-4c0-1.5-.5-3.5-2-5s-3-3.5-3-6a7 7 0 017-7z"/><path d="M9 20h6"/><path d="M10 22h4"/></svg></div>
-        <div class="fusc">Cognitive Decline</div>
-        <h4>Alzheimer's &amp; Dementia Safety Assessment</h4>
-        <p style="margin-bottom:10px">Same 12-category assessment, deeper focus on:</p>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="font-size:.88rem;color:var(--ink2);padding:5px 0 5px 22px;position:relative">Wandering risk &amp; exit security<span style="position:absolute;left:0;color:var(--red);font-weight:800">✓</span></li>
-          <li style="font-size:.88rem;color:var(--ink2);padding:5px 0 5px 22px;position:relative">Medication storage &amp; wayfinding<span style="position:absolute;left:0;color:var(--red);font-weight:800">✓</span></li>
-          <li style="font-size:.88rem;color:var(--ink2);padding:5px 0 5px 22px;position:relative">All 12 standard categories<span style="position:absolute;left:0;color:var(--red);font-weight:800">✓</span></li>
-        </ul>
-      </div>
-    </div>
-    <p style="text-align:center;color:var(--ink3);font-size:.84rem;margin-top:22px">Same visit. Same price. Tell Carl which fits on the welcome call after you book, or on your free call. <a href="alzheimers-dementia-home-safety.html" style="font-weight:700">Read more about the dementia assessment &rarr;</a></p>
-  </div>
-</section>
-
-<section class="sec sa" id="pricing" style="background:var(--bgw)">
-  <div class="w">
-    <div class="sc rv">
-      <p class="sl">Pricing</p>
-      <h2 class="sh">How much does a home safety assessment cost?</h2>
-    </div>
-    <div class="prc rv">
-      <div class="pt">
-        <h3>Prices start at $395, plus GST</h3>
-        <p>Condo or apartment: $395 · House up to 1,200 sq ft: $495 · 1,200–2,500 sq ft: $595 · Larger homes quoted at your free consultation</p>
-      </div>
-      <div class="ppb">
-        <p class="ppn" style="margin-top:0">Applies to homes within 50 km of the Calgary city centre. GST is added to every fee. No add-ons, no hidden fees.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec process sb" id="process">
-  <div class="w">
-    <div class="sc rv"><p class="sl">The Process</p><h2 class="sh">How the assessment works, start to finish.</h2><p class="ss">Three steps, one flat fee, one written report in three business days.</p></div>
-    <div class="pg">
-      <div class="pc rv">
-        <div class="pi"><img src="step1.jpg" alt="Family scheduling a home safety assessment call" loading="lazy"></div>
-        <div class="pb"><div class="pn">1</div><h3>Request a Call</h3><p>Fill out the form with your name, phone number, and a few words about the situation. We will call you within one business day to talk it through and schedule a visit if it makes sense.</p></div>
-      </div>
-      <div class="pc rv">
-        <div class="pi"><img src="taking_measurements.jpg" alt="Assessor taking laser measurements during home safety visit" loading="lazy"></div>
-        <div class="pb"><div class="pn">2</div><h3>The Assessment Visit</h3><p>A designated assessor walks every room, and takes precision laser measurements on every finding. Visits take about an hour and a half for a condo, up to three hours for a large home.</p></div>
-      </div>
-      <div class="pc rv">
-        <div class="pi"><img src="report_handover.jpg" alt="Written home safety report delivered to client" loading="lazy"></div>
-        <div class="pb"><div class="pn">3</div><h3>Your Written Report</h3><p>Within three business days you receive a full written report with prioritized findings, specific fixes, cost estimates, and a phased capital plan you can act on immediately.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SAMPLE REPORT SECTION - Full emphasis -->
-<section class="sec report-prev" id="sample-report">
-  <div class="w">
-    <div class="sc rv">
-      <p class="sl" style="color:rgba(255,255,255,.5)">Sample Report</p>
-      <h2 class="sh" style="color:var(--wh);font-size:2.6rem">See exactly what the report contains.</h2>
-      <p class="ss" style="color:rgba(255,255,255,.65);margin:0 auto">The report is not a checklist. It is a prioritized action plan with cost estimates, a phased capital plan, and a laser measurement behind every finding. Here is what is inside every report.</p>
-    </div>
-    <div class="rp-grid">
-      <div class="rp-card rv">
-        <div class="rp-tag">Laser-Measured Findings</div>
-        <h4>Every Dimensional Finding Measured</h4>
-        <p>Measured on site with a professional laser measurer, so every dimensional finding comes with an on-site measurement. Findings that cannot be measured, like a missing grab bar, are recorded as observed.</p>
-        <div class="rp-sample">
-          <div class="rp-row"><span style="color:rgba(255,255,255,.55);font-size:.78rem">FRONT DOORWAY CLEAR</span><span style="color:var(--wh);font-weight:700">750 mm · #4</span></div>
-          <div class="rp-row"><span style="color:rgba(255,255,255,.55);font-size:.78rem">TOILET SEAT HEIGHT</span><span style="color:var(--wh);font-weight:700">365 mm · #15</span></div>
-          <div class="rp-row"><span style="color:rgba(255,255,255,.55);font-size:.78rem">EVERYDAY SHELF HEIGHT</span><span style="color:var(--wh);font-weight:700">1727 mm · #64</span></div>
-          <div class="rp-row"><span style="color:rgba(255,255,255,.55);font-size:.78rem">STAIR RISERS</span><span style="color:var(--wh);font-weight:700">150–175 mm · #78</span></div>
-          <div class="rp-row"><span style="color:rgba(255,255,255,.55);font-size:.78rem">ENTRY THRESHOLD</span><span style="color:var(--wh);font-weight:700">150 mm · #30</span></div>
-        </div>
-      </div>
-      <div class="rp-card rv">
-        <div class="rp-tag">Prioritized Findings</div>
-        <h4>Every Hazard Rated and Priced</h4>
-        <p>Every finding rated HIGH, MEDIUM, or LOW with a specific fix and cost&nbsp;estimate.</p>
-        <div class="rp-sample">
-          <div class="rp-row"><span>No grab bars at toilet / tub</span><span class="rp-hi">HIGH</span></div>
-          <div class="rp-row"><span>Stove can be left on</span><span class="rp-hi">HIGH</span></div>
-          <div class="rp-row"><span>No carbon monoxide alarm</span><span class="rp-hi">HIGH</span></div>
-          <div class="rp-row"><span>Tub mat worn out</span><span class="rp-med">MED</span></div>
-          <div class="rp-row"><span>Round knob on front door</span><span class="rp-lo">LOW</span></div>
-        </div>
-      </div>
-      <div class="rp-card rv">
-        <div class="rp-tag">Next Dollar Impact</div>
-        <h4>Ranked by Impact Per Dollar</h4>
-        <p>Highest-impact, lowest-cost fixes rise to the top. Illustrative examples&nbsp;below.</p>
-        <div class="rp-sample">
-          <div class="rp-row"><span>Secure cleaning chemicals</span><span style="color:#2D9D6A;font-weight:800">$30</span></div>
-          <div class="rp-row"><span>Medication off the counter</span><span style="color:#2D9D6A;font-weight:800">$35</span></div>
-          <div class="rp-row"><span>Post emergency contacts</span><span style="color:#2D9D6A;font-weight:800">$10</span></div>
-          <div class="rp-row"><span>Replace worn tub mat</span><span style="color:var(--wh);font-weight:800">$50</span></div>
-          <div class="rp-row"><span>Fall-detection pendant</span><span style="color:var(--wh);font-weight:800">$85</span></div>
-        </div>
-      </div>
-      <div class="rp-card rv">
-        <div class="rp-tag">Phased Capital Plan</div>
-        <h4>Phased Roadmap With Cost Totals</h4>
-        <p>Three phases: this month, within 3 months, and within 6 to 12 months, with a running cost total at each&nbsp;phase.</p>
-        <div class="rp-sample">
-          <div class="rp-row"><span style="color:var(--red);font-weight:700">Phase 1 · this month</span><span style="color:var(--wh)">$4,190</span></div>
-          <div class="rp-row"><span>Alarms, pendant, medication, stair contrast</span></div>
-          <div class="rp-row" style="margin-top:6px"><span style="color:#E8A838;font-weight:700">Phase 2 · 3 months</span><span style="color:var(--wh)">$12,935</span></div>
-          <div class="rp-row"><span>Grab bars, front steps, mixing valves, wiring</span></div>
-          <div class="rp-row" style="margin-top:6px"><span style="color:#4DA8C4;font-weight:700">Phase 3 · 6–12 months</span><span style="color:var(--wh)">$885</span></div>
-          <div class="rp-row"><span>Lever handle, entry rugs, chair, stair carpet</span></div>
-        </div>
-      </div>
-      <div class="rp-card rv">
-        <div class="rp-tag">Calgary Prices</div>
-        <h4>A Calgary Price for Every Fix</h4>
-        <p>Every fix carries the price we found in Calgary last month, so you know what the work should cost before you call anyone. Then a checklist for hiring any contractor you choose. No referral fees. No commissions. The choice is yours&nbsp;entirely.</p>
-        <div class="rp-sample">
-          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; Check Alberta corporate registration</span></div>
-          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; Ask for a WCB clearance letter</span></div>
-          <div class="rp-row" style="margin-bottom:4px"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; Check the prepaid contracting licence</span></div>
-          <div class="rp-row"><span style="color:var(--wh);font-weight:700;font-size:.85rem">&#10003;&nbsp; Ask for a $2M certificate of insurance</span></div>
-          <div class="rp-row" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18)"><span style="color:rgba(255,255,255,.78);font-weight:600;font-size:.8rem;line-height:1.5;display:block">Every check is free and takes about ten minutes.</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="rp-dl-wrap rv">
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px">
-        <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:40px;padding:10px 20px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          <span style="color:rgba(255,255,255,.9);font-weight:700;font-size:.88rem;white-space:nowrap">12 Safety Categories</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:40px;padding:10px 20px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2"><path d="M3 3h18v4H3zM3 10h18M3 17h18"/><circle cx="7" cy="17" r="1" fill="rgba(255,255,255,.85)"/></svg>
-          <span style="color:rgba(255,255,255,.9);font-weight:700;font-size:.88rem;white-space:nowrap">Laser-Measured Findings</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:40px;padding:10px 20px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><polyline points="9,12 11,14 15,10"/></svg>
-          <span style="color:rgba(255,255,255,.9);font-weight:700;font-size:.88rem;white-space:nowrap">Calgary Price for Every Fix</span>
-        </div>
-      </div>
-      <a href="SHS_Sample_Report.pdf" target="_blank" rel="noopener" class="btn br" style="display:inline-flex;font-size:1.05rem;padding:16px 36px;font-family:'Plus Jakarta Sans',sans-serif">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        &nbsp;Download the 43-page sample report (PDF, 880&nbsp;KB)
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- AFTER THE REPORT — Grab bar / contractor context -->
-<section class="sec sa" style="background:var(--bg);padding:80px 0">
-  <div class="w">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:56px;align-items:center">
-      <div class="rv" style="order:2">
-        <p class="sl">After the Report</p>
-        <h2 style="font-size:2.2rem;line-height:1.2;margin-bottom:20px">Your report gives the contractor the measurements, recommended fix and planning price needed to quote.</h2>
-        <p style="color:#4B5563;line-height:1.75;margin-bottom:20px">Every finding includes a precise measurement, a specific recommended modification, and a Calgary price from last month&rsquo;s market research. When your contractor arrives, there is no guessing.</p>
-        <div style="background:var(--redp);border-left:4px solid var(--red);border-radius:0 var(--r) var(--r) 0;padding:22px 26px">
-          <p style="font-weight:800;color:var(--ink);margin-bottom:12px;font-size:1.02rem">A Contractor Checklist — Included, Every Report</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 20px">
-            <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>No referral fees</div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>No commissions</div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>A Calgary price for every fix</div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink2);font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="3" style="flex-shrink:0"><polyline points="20,6 9,17 4,12"/></svg>Public-record checks you can run yourself</div>
-          </div>
-        </div>
-      </div>
-      <div class="rv" style="order:1">
-        <img src="grab_bar.jpg" alt="Grab bar installation following a home safety assessment recommendation" style="width:100%;border-radius:var(--rl);box-shadow:0 8px 32px rgba(26,26,26,.14)">
-        <p style="color:#9CA3AF;font-size:.82rem;margin-top:10px;text-align:center;font-style:italic">Illustrative example. Findings and contractor work vary by home.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sb" style="padding:72px 0;background:var(--bgw)">
-  <div class="w">
-    <div class="sc rv">
-      <p class="sl">Scope</p>
-      <h2 class="sh" style="font-size:2.1rem">What this assessment is not.</h2>
-      <p class="ss">Being clear about the edges of the work is part of doing it honestly.</p>
-    </div>
-    <div class="notg rv">
-      <div class="noti"><strong>Not a clinical or occupational therapy assessment</strong><span>The report assesses the home, not the person living in it. No medical or therapeutic opinion is given.</span></div>
-      <div class="noti"><strong>Not a home inspection</strong><span>No opinion is offered on the condition, structure, systems, value or insurability of the home.</span></div>
-      <div class="noti"><strong>Not a building code or accessibility certification</strong><span>Where a standard such as CSA B652 is cited, it is a plain-language reference point, not a certification.</span></div>
-      <div class="noti"><strong>Not a contractor quote</strong><span>Cost figures are a planning guide drawn from our monthly Calgary market research. Real quotes come from the contractor you hire.</span></div>
-    </div>
-    <p style="text-align:center;margin-top:24px;font-size:.88rem;color:var(--ink3)">The full scope is set out in the <a href="terms.html">Terms of Service</a>.</p>
-  </div>
-</section>
-
-<section class="sec sa" id="included">
-  <div class="w">
-    <div class="sc rv">
-      <p class="sl">Assessment Scope</p>
-      <h2 class="sh">12 categories. Every room. One visit.</h2>
-    </div>
-    <div class="cat-row">
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#C0392B,#E74C3C)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
-        <span class="cat-label">Entrances &amp; Exterior</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#2E86AB,#4DA8C4)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v6m0 8v6m-6-6h12"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <span class="cat-label">Bathroom Safety</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#D4880F,#E8A838)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg></div>
-        <span class="cat-label">Lighting &amp; Electrical</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#5B3E8A,#7B5EA7)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <span class="cat-label">Flooring &amp; Trip Hazards</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#1A6B4A,#2D9D6A)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/></svg></div>
-        <span class="cat-label">Bedroom &amp; Living Spaces</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#B5436E,#D4668E)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.5-1.5 4.5-3 6s-2 3.5-2 5h-4c0-1.5-.5-3.5-2-5s-3-3.5-3-6a7 7 0 017-7z"/><path d="M9 20h6"/><path d="M10 22h4"/></svg></div>
-        <span class="cat-label">Alzheimer's &amp; Dementia</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#C0392B,#96281B)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 2h18v8a9 9 0 01-18 0V2z"/><line x1="12" y1="10" x2="12" y2="22"/></svg></div>
-        <span class="cat-label">Kitchen Safety</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#2471A3,#3498DB)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-        <span class="cat-label">Stairs &amp; Hallways</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#E67E22,#D35400)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 16v-4M12 8h.01"/></svg></div>
-        <span class="cat-label">Fire Safety</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#16A085,#1ABC9C)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-        <span class="cat-label">Technology &amp; Emergency</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#7D6608,#A07808)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <span class="cat-label">Personal Safety</span>
-      </div>
-      <div class="cat-item rv">
-        <div class="cat-ico" style="background:linear-gradient(135deg,#2C3E50,#34495E)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-        <span class="cat-label">Crime Prevention</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="sec lidar">
-  <div class="w"><div class="lg">
-    <div class="li rv"><img src="taking_measurements.jpg" alt="Assessor taking precision laser measurements in hallway" loading="lazy"></div>
-    <div class="rv">
-      <p class="sl" style="color:rgba(255,255,255,.5)">Measurement</p>
-      <h2>Precise measurements on every finding.</h2>
-      <p>A tape measure is good enough for a renovation estimate. It is not good enough when you need to know whether a walker clears a doorframe, a bed is at the right height for a safe transfer, or a threshold lip is a trip hazard.</p>
-      <p>Every dimensional finding in this report is backed by a number. Doorway widths, clearance measurements, threshold heights, fixture dimensions, all captured on site with a professional laser distance measurer accurate to ±1.5 mm.</p>
-      <div class="lc">Every measured finding in your report lists the exact dimension and the change needed.</div>
-    </div>
-  </div></div>
-</section>
-
-<section class="sec funding sb" id="funding">
-  <div class="w">
-    <div class="sc rv"><p class="sl">Funding Programs</p><h2 class="sh">Your report helps unlock money<br>that's already available.</h2><p class="ss">Several government programs fund home safety modifications for seniors and people with disabilities. Our report gives you measured detail to support an application. Program rules and figures change &mdash; check each official page before you apply.</p><p class="ss" style="font-size:.82rem;color:var(--ink3);margin-top:10px">Funding details last reviewed 20 September 2026.</p></div>
-    <div class="fug">
-      <div class="fuc rv">
-        <h4>SHARP</h4><div class="fusc">Alberta</div>
-        <p>The Seniors Home Adaptation and Repair Program offers low-interest home equity loans for home adaptations and repairs, and grants for essential repairs to lower-income seniors who do not qualify for a loan. Your report identifies the modifications that may qualify and gives you measured detail to hand a contractor. SHARP asks for a written cost estimate or receipts, which come from the contractor you hire.</p>
-        <a class="fuli" href="https://www.alberta.ca/seniors-home-adaptation-repair-program" target="_blank" rel="noopener">Learn more at Alberta.ca &rarr;</a>
-      </div>
-      <div class="fuc rv">
-        <h4>AADL</h4><div class="fusc">Alberta</div>
-        <p>Alberta Aids to Daily Living funds essential medical equipment such as walkers, bathing equipment, and home care beds. AADL requires a clinical assessment by an OT, PT, or RN. Your SHS report gives the clinician detailed environmental data and measurements that support a faster, more thorough assessment.</p>
-        <a class="fuli" href="https://www.alberta.ca/aadl-eligibility-and-application-for-benefits" target="_blank" rel="noopener">Learn more at Alberta.ca &rarr;</a>
-      </div>
-      <div class="fuc rv">
-        <h4>Home Accessibility Tax Credit</h4><div class="fusc">Federal (Nationwide)</div>
-        <p>The HATC provides a non-refundable tax credit of 14% (2026 rate) on up to $20,000 in eligible accessibility expenses. Your report helps identify which modifications may qualify. The CRA wants your receipts, which you keep from the contractor who does the work.</p>
-        <a class="fuli" href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-31285-home-accessibility-expenses.html" target="_blank" rel="noopener">Learn more at Canada.ca &rarr;</a>
-      </div>
-      <div class="fuc rv">
-        <h4>Multigenerational Home Renovation Tax Credit</h4><div class="fusc">Federal (Nationwide)</div>
-        <p>The MHRTC is a refundable tax credit of 14% (2026 rate) on up to $50,000 in expenses for creating a self-contained secondary unit for a senior or person with a disability. If your report identifies that the current home layout cannot safely support aging in place, this program can help fund a secondary suite renovation.</p>
-        <a class="fuli" href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/multigenerational-home-renovation.html" target="_blank" rel="noopener">Learn more at Canada.ca &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="sec about sa" id="about">
-  <div class="w"><div class="ag">
-    <div class="apw rv">
-      <div class="ap"><img src="https://novoseniorsafety.com/Carl.jpg" alt="Carl Christie, Senior Home Safety Specialist"></div>
-      <div class="arb">SHSS Designated · RHFAC Professional</div>
-    </div>
-    <div class="at rv">
-      <p class="sl">About the Assessor</p>
-      <h2>Who carries out the assessment, and why.</h2>
-      <p>Carl Christie founded Senior Home Safety after watching firsthand what poorly designed spaces cost people with mobility challenges: their independence and their ability to stay home. Carl holds the <strong style="white-space:nowrap;display:inline-block">Senior Home Safety Specialist (SHSS)</strong> designation and is an <strong style="white-space:nowrap;display:inline-block">RHFAC Professional</strong> — the Rick Hansen Foundation credential for rating the accessibility of buildings and sites. Verify: <a href="https://agesafecanada.ca/" target="_blank" rel="noopener" style="font-weight:700;white-space:nowrap">SHSS (Age Safe Canada) &rarr;</a> <a href="https://www.rickhansen.com/become-accessible/rating-certification" target="_blank" rel="noopener" style="font-weight:700;white-space:nowrap">RHFAC (Rick Hansen Foundation) &rarr;</a> Carl uses professional laser measurement equipment on every visit and carries comprehensive liability insurance.</p>
-      <div class="atg"><span>SHSS Designated</span><span>RHFAC Professional</span><span>Laser-Measured</span><span>Fully Insured</span></div>
-    </div>
-  </div></div>
-</section>
-
-<section class="sec sb" id="faq">
-  <div class="w">
-    <div class="sc rv"><p class="sl">Common Questions</p><h2 class="sh">Frequently asked questions.</h2></div>
-    <div class="fql">
-      <div class="fqi rv"><button class="fqq">What does the assessment cost?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Condo or apartment: <strong>$395</strong>. House up to 1,200 sq ft: <strong>$495</strong>. 1,200–2,500 sq ft: <strong>$595</strong>. Larger homes quoted at your free consultation. Covers the full on-site visit and complete written report, delivered within 3 business days. Prices are plus GST. Applies within 50 km of the Calgary city centre — no add-ons, no hidden fees.</div></div></div>
-      <div class="fqi rv"><button class="fqq">How do I book and pay?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Two ways. <strong>Book online</strong>: <a href="https://book.novoseniorsafety.com/">choose a time</a>, enter your details, sign the service agreement on screen and pay by card. Your signed agreement and receipt arrive by email right away, and Carl calls within one business day to say hello. <strong>Or request a free call</strong>: we talk it through first, then email you the agreement to sign online, and you pay by Interac e-Transfer or by card. Either way, payment is in full when you book and nothing is billed after the visit.</div></div></div>
-      <div class="fqi rv"><button class="fqq">What if I need to cancel or reschedule?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Cancel or reschedule for free up to 24 hours before your visit, and everything you paid is refunded within 15 days. With less than 24 hours' notice you can still move the visit once at no charge. If you cancel inside 24 hours, or if no one is home when we arrive, 10% of the fee plus GST is kept and the rest refunded. There is no charge for a medical emergency or hospital stay, severe weather, or a visit booked less than 24 hours ahead. The full terms are in the service agreement you sign before booking.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Who should consider this assessment?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">This assessment is right for families who want a clear picture of the fall risks and safety gaps in a senior's home. Most clients are adult children arranging an assessment on behalf of an aging parent, or seniors who want to understand what changes would help them stay safely at home longer.</div></div></div>
-      <div class="fqi rv"><button class="fqq">How long does the visit take?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Visit length depends on the size of the home. A condo or apartment usually takes about an hour and a half. A larger multi-level house can run up to three hours. Your fee is set by home size and quoted before you book, and it covers the full visit however long it takes.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Why does precise measurement matter for a home safety assessment?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Because a vague finding is not actionable. "The hallway looks narrow" tells a family nothing. "The clearance between the dresser and the bed measures 62 cm — a walker requires 75 cm" tells them exactly what to move and why. Every dimensional finding in this report is backed by a measurement taken on site with a professional laser distance measurer accurate to ±1.5 mm. That precision is what separates a defensible finding from an opinion, and it gives contractors and families something concrete to act on.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Does the report tell me what to do, or just what's wrong?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Both. Every finding includes a specific recommended action, an estimated Calgary price, and a priority tier. The report also includes a phased capital plan organized by timeframe and impact, so you know what to address immediately, what can wait six months, and what is a longer-term project.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Does the assessment address Alzheimer's or dementia-specific concerns?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Yes. The SHSS assessment standard includes a dedicated module on Alzheimer's and dementia considerations. Beyond general fall prevention, the assessment evaluates wandering risk, exit security, kitchen hazards for people with cognitive impairment, wayfinding cues, medication storage, and other environmental factors that become critical as dementia progresses. If a family member has been diagnosed with Alzheimer's or another form of dementia, this assessment identifies the home modifications that can help them stay safe at home longer and reduce the burden on caregivers.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Can the report help me apply for government funding?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Yes. Several government programs fund home safety modifications, and our report is designed to support the application process. In Alberta, the <a href="https://www.alberta.ca/seniors-home-adaptation-repair-program" target="_blank" rel="noopener">Seniors Home Adaptation and Repair Program (SHARP)</a> provides low-interest home equity loans for home adaptations and repairs, with grants for essential repairs for lower-income seniors, and our report identifies which modifications may qualify. SHARP asks for a contractor&rsquo;s written estimate or receipts, which you supply. <a href="https://www.alberta.ca/aadl-eligibility-and-application-for-benefits" target="_blank" rel="noopener">Alberta Aids to Daily Living (AADL)</a> funds essential medical equipment and requires a clinical assessment by a health professional; our report gives the clinician detailed environmental data that supports a faster assessment. At the federal level, the <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-31285-home-accessibility-expenses.html" target="_blank" rel="noopener">Home Accessibility Tax Credit (HATC)</a> offers a tax credit on eligible renovation expenses, and our report helps identify which modifications qualify. The <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/multigenerational-home-renovation.html" target="_blank" rel="noopener">Multigenerational Home Renovation Tax Credit (MHRTC)</a> provides up to $7,000 (2026) toward creating a secondary suite for a senior. We note applicable programs alongside relevant findings so you know what funding may be available before committing to any work.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Do I need to be present during the assessment?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Someone needs to be present to provide access and answer questions about how the occupant uses different spaces. That can be the senior themselves, a family member, or a caregiver. The more context we have about daily routines and specific concerns, the more useful the report.</div></div></div>
-      <div class="fqi rv"><button class="fqq">What areas do you serve?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">The standard service area covers all of Calgary and surrounding communities including Airdrie, Cochrane, Chestermere, Okotoks, Strathmore, Langdon, Bragg Creek, De Winton, Heritage Pointe, Priddis, and Millarville. Properties in High River, Crossfield, and other communities beyond the standard area are welcome — confirm availability on your free call.</div></div></div>
-      <div class="fqi rv"><button class="fqq">Can I share this with my occupational therapist?<span class="fqp">+</span></button><div class="fqa"><div class="fqai">Yes. The written report is structured to complement occupational therapy assessments. If an OT is already involved, share the report with them. It gives them detailed environmental data from day one.</div></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sa" id="testimonials" style="padding:80px 0">
-  <div class="w">
-    <div class="sc rv">
-      <p class="sl">From Calgary-Area Families</p>
-      <h2 class="sh">What families say after the report arrives.</h2>
-    </div>
-    <div class="tsg">
-      <div class="tsc rv">
-        <blockquote>&ldquo;When Mom fell in the bathroom, we had no idea where to start. The assessment showed us exactly what needed fixing first and what it would cost. Having someone walk through the house with laser measurements and a clear plan took a huge weight off our shoulders.&rdquo;</blockquote>
-        <div class="tsa">Ryan<span>Hamptons, Calgary</span></div>
-      </div>
-      <div class="tsc rv">
-        <blockquote>&ldquo;It gave our family complete peace of mind with his thorough senior home safety report. His practical recommendations and clear guidance on local home modification programs made the entire process simple and stress-free.&rdquo;</blockquote>
-        <div class="tsa">Craig<span>Springbank</span></div>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:22px;font-size:.84rem;color:var(--ink3)">Published with each client&rsquo;s permission. First names and neighbourhoods only.</p>
-  </div>
-</section>
-
-<section class="sec contact" id="contact">
-  <div class="w">
-    <div class="rv"><p class="sl" style="color:rgba(255,255,255,.4)">Get Started</p><h2 class="sh" style="color:var(--wh)">Let's talk about the home.</h2></div>
-    <div class="cg">
-      <div class="cl rv">
-        <h3>Here's what happens next.</h3>
-        <p>Fill out the form and we will call you within one business day. That first conversation is free and has no obligation. We will talk through your concerns, answer your questions, and figure out together whether an assessment makes sense for your situation.</p>
-        <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>We call you back within one business day</div>
-        <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><a href="mailto:info@novoseniorsafety.com" style="color:inherit">info@novoseniorsafety.com</a></div>
-        <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><a href="tel:+15879073566" style="color:inherit">587-907-3566</a></div>
-        <div class="cp"><div class="cpi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>Calgary &amp; surrounding communities</div>
-      </div>
-      <div class="fcard rv">
-        <h4>Request a Free Call</h4>
-        <p class="fhint">Tell us a bit about the situation and we will be in touch.</p>
-        <form id="cf" action="https://formspree.io/f/xnjwggwo" method="POST">
-          <div class="ffr">
-            <div class="ffg"><label class="ffl" for="name">Your Name *</label><input class="ffi" type="text" id="name" name="name" required placeholder="Your full name"></div>
-            <div class="ffg"><label class="ffl" for="phone">Phone Number *</label><input class="ffi" type="tel" id="phone" name="phone" required placeholder="e.g. 403-555-0100"></div>
-          </div>
-          <div class="ffg"><label class="ffl" for="email">Email Address</label><input class="ffi" type="email" id="email" name="email" placeholder="your@email.com"></div>
-          <div class="ffg"><label class="ffl" for="msg">Tell us what's going on.</label><textarea class="fft" id="msg" name="message" rows="4" placeholder="For example: My mother fell in her bathroom last month and we want to understand what changes would help her stay safe at home..."></textarea></div>
-          <button type="submit" class="fsb">Request a Call</button>
-          <p class="fnt">We call back within one business day. Your information is never sold.</p>
-        </form>
-        <div class="fok" id="fok" data-msg="We got your message. Expect a call within one business day to talk through your situation."></div>
-      </div>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
-  <div class="w"><div class="fti">
-    <span class="ftb">Senior Home Safety &middot; A Novo Industries Service</span>
-    <ul class="ftn"><li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="SHS_Home_Safety_Checklist.pdf">Free Checklist</a></li><li><a href="for-occupational-therapists.html">For OTs</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">Assessment vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="#contact">Contact</a></li></ul>
-    <div class="ftc">&copy; 2026 Novo Industries Inc. &middot; Calgary, Alberta &middot; <a href="privacy.html" style="color:rgba(255,255,255,.4)">Privacy Policy</a> &middot; <a href="terms.html" style="color:rgba(255,255,255,.4)">Terms of Service</a></div>
-  </div></div>
+  <div class="w">
+    <ul>
+      <li><a href="pricing.html">Pricing</a></li><li><a href="fall-risk-assessment-calgary.html">Fall Risk</a></li><li><a href="alzheimers-dementia-home-safety.html">Dementia Safety</a></li><li><a href="home-modification-funding-alberta.html">Funding</a></li><li><a href="sample-report.html">Sample Report</a></li><li><a href="methodology.html">How We Assess</a></li><li><a href="SHS_Home_Safety_Checklist.pdf">Free Checklist</a></li><li><a href="for-occupational-therapists.html">For OTs</a></li><li><a href="home-safety-assessment-vs-occupational-therapy.html">Assessment vs. an OT</a></li><li><a href="how-we-vet-contractors.html">Contractors</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="about.html">About</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="ftc">Senior Home Safety &middot; A Novo Industries Service &middot; &copy; 2026 Novo Industries Inc. &middot; Calgary, Alberta &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></div>
+  </div>
 </footer>
+
+<div class="mbar" role="navigation" aria-label="Quick contact">
+  <a class="btn b-ink" href="tel:5879073566" data-track="sticky-bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+  <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="sticky-bar">Book online</a>
+</div>
 
 <script>
 const mt=document.getElementById('mt'),mp=document.getElementById('mp');
-mt.addEventListener('click',()=>{mt.classList.toggle('on');mp.classList.toggle('open')});
-document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',()=>{mt.classList.remove('on');mp.classList.remove('open')}));
-document.querySelectorAll('.fqq').forEach(b=>{b.addEventListener('click',()=>{const i=b.parentElement,a=i.querySelector('.fqa'),o=i.classList.contains('open');document.querySelectorAll('.fqi').forEach(x=>{x.classList.remove('open');x.querySelector('.fqa').style.maxHeight=null});if(!o){i.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}})});
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+mt.addEventListener('click',()=>{const o=mp.classList.toggle('open');mt.setAttribute('aria-expanded',o)});
+mp.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mp.classList.remove('open');mt.setAttribute('aria-expanded','false')}));
 const cf=document.getElementById('cf'),fok=document.getElementById('fok');
-cf.addEventListener('submit',async e=>{e.preventDefault();const b=cf.querySelector('[type=submit]');if(b){b.disabled=true}let ok=false;try{const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{'Accept':'application/json'}});ok=r.ok}catch(err){}
-if(ok){if(window.shsTrack)shsTrack('generate_lead',{form:'call_request',page:'home'});cf.style.display='none';fok.innerHTML='<h4>We got your message.</h4><p>Expect a call within one business day to talk through your situation.</p>';fok.classList.add('show')}
-else{if(b){b.disabled=false}fok.innerHTML='<h4>That didn&rsquo;t send.</h4><p>Please call <a href="tel:5879073566">587-907-3566</a> or email <a href="mailto:info@novoseniorsafety.com">info@novoseniorsafety.com</a>.</p>';fok.classList.add('show')}});
-</script>
-<script>
-const quizForm=document.getElementById('quizForm'),quizResult=document.getElementById('quizResult'),quizMsg=document.getElementById('quizMsg'),quizScoreField=document.getElementById('quizScoreField');
-quizForm.addEventListener('submit',e=>{
+cf.addEventListener('submit',async e=>{
   e.preventDefault();
-  const checked=quizForm.querySelectorAll('input[type=checkbox]:checked').length;
-  quizScoreField.value=checked+' of 5';
-  let msg='', bg='';
-  if(checked===0){
-    msg='<strong>Nothing raised yet \u2014 that\u2019s a great sign.</strong> A quick assessment can still catch hidden risks before they become a problem, but there\u2019s no urgency here.';
-    bg='#EAF5EE';
-  } else if(checked<=2){
-    msg='<strong>A couple of things worth a closer look.</strong> A full assessment would help you know exactly what to prioritize and what can wait.';
-    bg='#FFF6E8';
-  } else {
-    msg='<strong>Several risk factors present.</strong> Families in this situation usually benefit from a full assessment soon \u2014 we can help you know exactly what to fix first.';
-    bg='var(--redp)';
+  const b=cf.querySelector('button');b.disabled=true;b.textContent='Sending…';
+  let ok=false;
+  try{const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{'Accept':'application/json'}});ok=r.ok}catch(err){}
+  if(ok){
+    if(window.shsTrack)shsTrack('generate_lead',{form:'call_request',page:'home'});
+    cf.style.display='none';
+    fok.innerHTML='<h4>We got your message.</h4><p>Expect a call within one business day to talk through your situation.</p>';
+  }else{
+    b.disabled=false;b.textContent='Request my free call';
+    fok.innerHTML='<p><strong>That didn’t send.</strong> Please call <a href="tel:5879073566">587-907-3566</a> or email <a href="mailto:info@novoseniorsafety.com">info@novoseniorsafety.com</a>.</p>';
   }
-  quizMsg.style.background=bg;
-  quizMsg.innerHTML=msg;
-  quizForm.style.display='none';
-  quizResult.style.display='block';
-});
-
-const quizLeadForm=document.getElementById('quizLeadForm'),quizLeadDone=document.getElementById('quizLeadDone');
-quizLeadForm.addEventListener('submit',async e=>{
-  e.preventDefault();
-  try{const r=await fetch(quizLeadForm.action,{method:'POST',body:new FormData(quizLeadForm),headers:{'Accept':'application/json'}});if(r.ok&&window.shsTrack)shsTrack('generate_lead',{form:'checklist_signup',page:'home'});}catch(err){}
-  quizLeadForm.style.display='none';
-  quizLeadDone.style.display='block';
+  fok.classList.add('show');
 });
 </script>
 </body>
