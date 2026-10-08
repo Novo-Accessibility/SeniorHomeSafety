@@ -4,7 +4,9 @@
    Records no names, emails, phone numbers or form answers — only that something happened. */
 (function () {
   var SHS_TRACK = {
-    GA4: "G-8WHTX9P14G",                                          // Google Analytics 4 Measurement ID, "G-XXXXXXXXXX"
+    // GA4 (G-8WHTX9P14G) is linked inside the Google tag GT-55KSRDBV, so loading the Ads tag below
+    // already sends every page view and event to GA4. Leave this empty, or visits are counted twice.
+    GA4: "",
     ADS: "AW-18450182689",                              // Google Ads account tag
     ADS_LEAD: "AW-18450182689/tTadCPjLkfccEKHk3d1E",    // Ads conversion: call request / checklist sign-up
     ADS_BOOKING: "",                                    // Ads conversion: paid online booking  (AW-…/label)
