@@ -4,7 +4,7 @@
    Records no names, emails, phone numbers or form answers — only that something happened. */
 (function () {
   var SHS_TRACK = {
-    GA4: "",                                            // Google Analytics 4 Measurement ID, "G-XXXXXXXXXX"
+    GA4: "G-8WHTX9P14G",                                          // Google Analytics 4 Measurement ID, "G-XXXXXXXXXX"
     ADS: "AW-18450182689",                              // Google Ads account tag
     ADS_LEAD: "AW-18450182689/tTadCPjLkfccEKHk3d1E",    // Ads conversion: call request / checklist sign-up
     ADS_BOOKING: "",                                    // Ads conversion: paid online booking  (AW-…/label)
