@@ -9,8 +9,8 @@
     GA4: "",
     ADS: "AW-18450182689",                              // Google Ads account tag
     ADS_LEAD: "AW-18450182689/tTadCPjLkfccEKHk3d1E",    // Ads conversion: call request / checklist sign-up
-    ADS_BOOKING: "",                                    // Ads conversion: paid online booking  (AW-…/label)
-    ADS_PHONE: "",                                      // Ads conversion: phone-number tap     (AW-…/label)
+    ADS_BOOKING: "AW-18450182689/FmDzCOLFypUdEKHk3d1E", // Ads conversion: "Online booking (paid)"
+    ADS_PHONE: "AW-18450182689/igEbCOXFypUdEKHk3d1E",   // Ads conversion: "Phone tap on website"
     LEAD_VALUE: 150                                     // Value given to a lead in Google Ads, CAD
   };
 
