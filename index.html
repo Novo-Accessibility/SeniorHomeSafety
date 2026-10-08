@@ -5,14 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18450182689"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18450182689');
-</script>
+<script src="shs-track.js"></script>
 
 <!-- Primary Meta -->
 <title>Senior Home Safety | Calgary Home Safety Assessments</title>
@@ -1025,7 +1018,9 @@ document.querySelectorAll('.fqq').forEach(b=>{b.addEventListener('click',()=>{co
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 const cf=document.getElementById('cf'),fok=document.getElementById('fok');
-cf.addEventListener('submit',async e=>{e.preventDefault();try{const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{'Accept':'application/json'}});if(r.ok){cf.style.display='none';fok.innerHTML='<h4>We got your message.</h4><p>Expect a call within one business day to talk through your situation.</p>';fok.classList.add('show')}}catch(err){cf.style.display='none';fok.innerHTML='<h4>We got your message.</h4><p>Expect a call within one business day to talk through your situation.</p>';fok.classList.add('show')}});
+cf.addEventListener('submit',async e=>{e.preventDefault();const b=cf.querySelector('[type=submit]');if(b){b.disabled=true}let ok=false;try{const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{'Accept':'application/json'}});ok=r.ok}catch(err){}
+if(ok){if(window.shsTrack)shsTrack('generate_lead',{form:'call_request',page:'home'});cf.style.display='none';fok.innerHTML='<h4>We got your message.</h4><p>Expect a call within one business day to talk through your situation.</p>';fok.classList.add('show')}
+else{if(b){b.disabled=false}fok.innerHTML='<h4>That didn&rsquo;t send.</h4><p>Please call <a href="tel:5879073566">587-907-3566</a> or email <a href="mailto:info@novoseniorsafety.com">info@novoseniorsafety.com</a>.</p>';fok.classList.add('show')}});
 </script>
 <script>
 const quizForm=document.getElementById('quizForm'),quizResult=document.getElementById('quizResult'),quizMsg=document.getElementById('quizMsg'),quizScoreField=document.getElementById('quizScoreField');
@@ -1053,7 +1048,7 @@ quizForm.addEventListener('submit',e=>{
 const quizLeadForm=document.getElementById('quizLeadForm'),quizLeadDone=document.getElementById('quizLeadDone');
 quizLeadForm.addEventListener('submit',async e=>{
   e.preventDefault();
-  try{await fetch(quizLeadForm.action,{method:'POST',body:new FormData(quizLeadForm),headers:{'Accept':'application/json'}});}catch(err){}
+  try{const r=await fetch(quizLeadForm.action,{method:'POST',body:new FormData(quizLeadForm),headers:{'Accept':'application/json'}});if(r.ok&&window.shsTrack)shsTrack('generate_lead',{form:'checklist_signup',page:'home'});}catch(err){}
   quizLeadForm.style.display='none';
   quizLeadDone.style.display='block';
 });
