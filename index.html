@@ -249,11 +249,27 @@ a.card:hover{border-color:var(--red);color:var(--ink)}
 .pt{display:flex;gap:14px}
 .pt span{flex:0 0 28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
 .rep img{border-radius:20px;width:100%}
+/* finding card */
+.find{background:#fff;color:var(--ink);border-radius:18px;padding:22px 24px;margin:0 0 28px}
+.fhd{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-bottom:10px}
+.fp{background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.fc{font-size:14px;color:var(--ink3);font-weight:600}
+.ft{font-family:var(--serif);font-size:26px;line-height:1.2;margin:0 0 14px}
+.find dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.find dl div{display:grid;grid-template-columns:120px 1fr;gap:12px;border-top:1px solid var(--bdr);padding-top:10px}
+.find dt{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);padding-top:2px}
+.find dd{margin:0;font-size:16px;color:var(--ink2)}
+.find dd b{color:var(--ink)}
+.fsrc{margin:14px 0 0;font-size:13px;color:var(--ink3)}
+@media (max-width:560px){.find dl div{grid-template-columns:1fr;gap:2px}}
 /* pricing */
 .price{background:#fff;border:1px solid var(--bdr);border-radius:20px;padding:28px}
 .price .pn{font-weight:600;color:var(--ink2)}
 .price .pp{font-family:var(--serif);font-size:56px;line-height:1.1;margin:6px 0 4px}
-.price .pd{color:var(--ink3);font-size:15px;margin-bottom:20px}
+.price .pd{color:var(--ink3);font-size:15px;margin-bottom:12px}
+.price .pi{font-size:15px;font-weight:600;color:var(--ink);border-top:1px solid var(--bdr);padding-top:12px;margin-bottom:20px}
+.nr{margin:20px 0 0;font-size:16px;color:var(--ink2)}
+.rt{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red2);background:#FCEAE8;padding:4px 10px;border-radius:999px}
 .price .btn{width:100%;padding:13px}
 .pnotes{display:flex;flex-wrap:wrap;gap:10px 32px;color:var(--ink2);font-size:15px;margin-top:28px}
 /* steps */
@@ -324,7 +340,8 @@ footer a{color:#CFC7BC}footer a:hover{color:#fff}
   .about img{width:120px;height:120px}
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:10px;padding:10px 12px calc(12px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--bdr);box-shadow:0 -6px 20px rgba(26,26,26,.10)}
   .mbar a{flex:1 1 0;min-height:50px;padding:0 12px}
-  .mbar a.b-red{flex-grow:1.4}
+  .mbar a.b-red{flex-grow:1.6}
+  .mbar a{font-size:16px}
 }
 @media (min-width:901px){footer{padding-bottom:44px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
@@ -370,9 +387,9 @@ footer a{color:#CFC7BC}footer a:hover{color:#fff}
       <p class="sub">One visit to your parent&rsquo;s home. Within 3 business days, a written report that ranks every hazard, prices every fix in Calgary dollars, and shows which funding programs can help pay.</p>
       <div class="btns">
         <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="hero">Book online &mdash; from $395</a>
-        <a class="btn b-ink" href="tel:5879073566" data-track="hero">Call 587-907-3566</a>
+        <a class="btn b-out" href="sample-report.html" data-track="hero-sample">See the 44-page sample report</a>
       </div>
-      <p class="alt">Not sure yet? <a href="#contact"><strong>Ask for a free call back</strong></a> &mdash; we phone within one business day.</p>
+      <p class="alt">Rather talk first? Call <a href="tel:5879073566" data-track="hero"><strong>587-907-3566</strong></a> or <a href="#contact"><strong>ask for a free call back</strong></a> &mdash; we phone within one business day.</p>
       <div class="creds"><span>SHSS designated</span><span>RHFAC Professional</span><span>Fully insured</span><span>Calgary-owned</span></div>
     </div>
     <div class="hero-i">
@@ -413,8 +430,18 @@ footer a{color:#CFC7BC}footer a:hover{color:#fff}
         <div class="pt"><span>3</span><div><strong>A phased plan</strong>: this month, within 3 months, 6 to 12 months.</div></div>
         <div class="pt"><span>4</span><div><strong>Funding matched</strong> to eligible fixes: SHARP, AADL, and federal tax credits.</div></div>
       </div>
+      <div class="find" aria-label="One finding from the sample report">
+        <div class="fhd"><span class="fp">High priority</span><span class="fc">Finding 30 of 112 &middot; Flooring &amp; trip hazards</span></div>
+        <p class="ft">The entry threshold is a 150&nbsp;mm step in itself.</p>
+        <dl>
+          <div><dt>Measured</dt><dd>150&nbsp;mm at the front door. The standard calls for 13&nbsp;mm or less.</dd></div>
+          <div><dt>Fix</dt><dd>Fit an exterior threshold ramp, the single change that most improves getting in the door carrying anything.</dd></div>
+          <div><dt>Calgary price</dt><dd><b>About $435</b> before GST, from local market research.</dd></div>
+        </dl>
+        <p class="fsrc">From the sample report: a real Calgary home, client identity changed.</p>
+      </div>
       <div class="btns">
-        <a class="btn b-wh" href="sample-report.html">See the 43-page sample report</a>
+        <a class="btn b-wh" href="sample-report.html">See the 44-page sample report</a>
         <a class="btn b-outw" href="https://book.novoseniorsafety.com/" data-track="report">Book online</a>
       </div>
     </div>
@@ -427,9 +454,9 @@ footer a{color:#CFC7BC}footer a:hover{color:#fff}
     <h2>One flat fee. Paid once, nothing after the visit.</h2>
     <p class="lede">Plus GST. Within 50 km of Calgary, including Airdrie, Cochrane, Chestermere, Okotoks and Strathmore.</p>
     <div class="grid3">
-      <div class="price"><div class="pn">Condo or apartment</div><div class="pp">$395</div><div class="pd">About 1.5 hours on site</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-condo">Book a condo visit</a></div>
-      <div class="price"><div class="pn">House up to 1,200 sq ft</div><div class="pp">$495</div><div class="pd">Bungalows and smaller houses</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-house">Book a house visit</a></div>
-      <div class="price"><div class="pn">1,200 to 2,500 sq ft</div><div class="pp">$595</div><div class="pd">Up to 3 hours on site</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-large">Book a larger home</a></div>
+      <div class="price"><div class="pn">Condo or apartment</div><div class="pp">$395</div><div class="pd">About 1.5 hours on site</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-condo">Book a condo visit</a></div>
+      <div class="price"><div class="pn">House up to 1,200 sq ft</div><div class="pp">$495</div><div class="pd">Bungalows and smaller houses</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-house">Book a house visit</a></div>
+      <div class="price"><div class="pn">1,200 to 2,500 sq ft</div><div class="pp">$595</div><div class="pd">Up to 3 hours on site</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-large">Book a larger home</a></div>
     </div>
     <div class="pnotes">
       <span>Includes a 30-minute follow-up call within 60 days</span>
@@ -437,6 +464,7 @@ footer a{color:#CFC7BC}footer a:hover{color:#fff}
       <span>Bigger home? <a href="tel:5879073566" data-track="pricing"><strong>Call for a free quote</strong></a></span>
       <span><a href="pricing.html">Full pricing details &rarr;</a></span>
     </div>
+    <p class="nr">Not ready to book? <a href="SHS_Home_Safety_Checklist.pdf">Download the free home safety checklist (PDF)</a></p>
   </div>
 </section>
 
@@ -458,9 +486,9 @@ footer a{color:#CFC7BC}footer a:hover{color:#fff}
       <a href="https://maps.app.goo.gl/97Um5JyAKHSDAxnD9" rel="noopener" target="_blank"><strong>Read our reviews on Google &rarr;</strong></a>
     </div>
     <div class="grid3">
-      <figure class="card rv"><blockquote>&ldquo;AHS told us Mom could come home in a week, but her house wasn&rsquo;t ready. This assessment gave us a clear list of what had to be done before she arrived, plus the funding programs we could use.&rdquo;</blockquote><figcaption>Annette <span>&middot; Arbor Lake, Calgary</span></figcaption></figure>
-      <figure class="card rv"><blockquote>&ldquo;When Mom fell in the bathroom, we had no idea where to start. The assessment showed us exactly what needed fixing first and what it would cost.&rdquo;</blockquote><figcaption>Ryan <span>&middot; Hamptons, Calgary</span></figcaption></figure>
-      <figure class="card rv"><blockquote>&ldquo;His practical recommendations and clear guidance on local home modification programs made the entire process simple and stress-free.&rdquo;</blockquote><figcaption>Craig <span>&middot; Springbank</span></figcaption></figure>
+      <figure class="card rv"><span class="rt">Before hospital discharge</span><blockquote>&ldquo;AHS told us Mom could come home in a week, but her house wasn&rsquo;t ready. This assessment gave us a clear list of what had to be done before she arrived, plus the funding programs we could use.&rdquo;</blockquote><figcaption>Annette <span>&middot; Arbor Lake, Calgary</span></figcaption></figure>
+      <figure class="card rv"><span class="rt">After a fall</span><blockquote>&ldquo;When Mom fell in the bathroom, we had no idea where to start. The assessment showed us exactly what needed fixing first and what it would cost.&rdquo;</blockquote><figcaption>Ryan <span>&middot; Hamptons, Calgary</span></figcaption></figure>
+      <figure class="card rv"><span class="rt">Funding and modifications</span><blockquote>&ldquo;His practical recommendations and clear guidance on local home modification programs made the entire process simple and stress-free.&rdquo;</blockquote><figcaption>Craig <span>&middot; Springbank</span></figcaption></figure>
     </div>
     <p class="rnote">Published with each client&rsquo;s permission. First names and neighbourhoods only.</p>
   </div>
@@ -530,7 +558,7 @@ footer a{color:#CFC7BC}footer a:hover{color:#fff}
 
 <div class="mbar" role="navigation" aria-label="Quick contact">
   <a class="btn b-ink" href="tel:5879073566" data-track="sticky-bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
-  <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="sticky-bar">Book online</a>
+  <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="sticky-bar">Book online &middot; from $395</a>
 </div>
 
 <script>
