@@ -411,7 +411,7 @@ footer .w{display:flex;flex-direction:column;gap:18px}
         <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="hero">Book online, from $395</a>
         <a class="btn b-out" href="#independent">Why not a free assessment?</a>
       </div>
-      <p class="when">Visits Monday to Saturday, bookable from two days ahead.</p>
+      <p class="when" id="when">Visits Monday to Saturday, bookable from two days ahead.</p>
       <div class="talk">
         <span>Rather talk first?</span>
         <a class="btn btn-s b-sand" href="tel:5879073566" data-track="hero">Call 587-907-3566</a>
@@ -711,6 +711,10 @@ footer .w{display:flex;flex-direction:column;gap:18px}
 </div>
 
 <script>
+(function(){var w=document.getElementById('when');if(!w||!window.fetch)return;
+fetch('https://book.novoseniorsafety.com/api/next').then(function(r){return r.ok?r.json():null}).then(function(d){
+if(!d||!d.next||!d.next.label)return;var l=d.next.label.replace(/, \d{4},/,',');
+w.textContent='Next open visit: '+l+'. Visits Monday to Saturday.';}).catch(function(){});})();
 const mt=document.getElementById('mt'),mp=document.getElementById('mp');
 mt.addEventListener('click',()=>{const o=mp.classList.toggle('open');mt.setAttribute('aria-expanded',o)});
 mp.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mp.classList.remove('open');mt.setAttribute('aria-expanded','false')}));
