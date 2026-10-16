@@ -220,8 +220,8 @@ h2{font-size:clamp(34px,4.4vw,52px);line-height:1.06}
 .room img{width:100%;height:240px;object-fit:cover;border-radius:16px;background:var(--sage2)}
 .room h3{font-size:28px;line-height:1.15}
 .room p{margin:0;color:var(--ink2);font-size:16px}
-.room .btn{align-self:flex-start;margin-top:4px}
-.room:hover .btn{background:var(--ink);color:#fff}
+.room .more-l{font-weight:700;font-size:15px;color:var(--red2)}
+.room:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 /* report */
 .dark{background:var(--ink);color:#fff}
 .rep{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}
@@ -281,6 +281,12 @@ h2{font-size:clamp(34px,4.4vw,52px);line-height:1.06}
 .rv figcaption{margin-top:auto;font-weight:700}
 .rv figcaption span{font-weight:400;color:var(--ink3)}
 /* professionals */
+.prow{display:flex;flex-wrap:wrap;gap:40px 56px;align-items:center}
+.prow img{flex:1 1 420px;min-width:0;width:100%;height:360px;object-fit:cover;border-radius:22px}
+.prow>div{flex:1 1 420px;min-width:0}
+.prow h2{margin-bottom:14px}
+.prow .lede{margin-bottom:28px}
+@media (max-width:900px){.prow img{height:220px}}
 .pro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 48px}
 .pro-grid>div{border-top:1px solid rgba(255,255,255,.22);padding-top:24px;padding-bottom:12px}
 .pro-grid h3{font-size:32px;line-height:1.15;margin-bottom:10px}
@@ -355,7 +361,7 @@ footer .w{display:flex;flex-direction:column;gap:18px}
   .mbar a{flex:1 1 0;min-height:50px;padding:0 12px;font-size:16px}
   .mbar a.b-red{flex-grow:1.6}
 }
-@media (max-width:560px){.w{padding:0 16px}.hero .btns .btn,.final .btns .btn,.quote .btn{width:100%}.ggrid a{font-size:22px}}
+@media (max-width:560px){.rgrid{grid-template-columns:1fr 1fr;gap:28px 14px}.room{gap:8px}.room img{height:130px;border-radius:12px}.room h3{font-size:21px}.room p{font-size:14px;line-height:1.5}.room .more-l{font-size:14px}.mbar a{font-size:15px;padding:0 10px}.w{padding:0 16px}.hero .btns .btn,.final .btns .btn,.quote .btn{width:100%}.ggrid a{font-size:22px}}
 @media (min-width:901px){footer{padding-bottom:44px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
 </style>
@@ -496,12 +502,12 @@ footer .w{display:flex;flex-direction:column;gap:18px}
       <p>Every room is walked, measured and photographed. These are the places families most often ask about.</p>
     </div>
     <div class="rgrid">
-      <a class="room" href="entrances-and-steps.html"><img src="https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A porch with front steps and a white railing" width="800" height="533" loading="lazy"><h3>Entrances and steps</h3><p>Step heights, handrails on both sides, cracked or uneven concrete, lighting at the door, and where ice builds up.</p><span class="btn btn-s b-out">Entrances and steps</span></a>
-      <a class="room" href="bathroom-safety.html"><img src="https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A bright bathroom with a fold-down grab bar beside the toilet" width="800" height="533" loading="lazy"><h3>Bathroom</h3><p>Grab bars where you actually stand up and step in, tub height, toilet height and how slippery the floor is when wet.</p><span class="btn btn-s b-out">Bathroom safety</span></a>
-      <a class="room" href="stairs-and-hallways.html"><img src="https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A white staircase with a wooden handrail" width="800" height="533" loading="lazy"><h3>Stairs and hallways</h3><p>A handrail you can grip on each side, step edges you can see, light switches at the top and the bottom.</p><span class="btn btn-s b-out">Stairs and hallways</span></a>
-      <a class="room" href="kitchen-safety.html"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A bright kitchen with everyday items on the counter" width="800" height="533" loading="lazy"><h3>Kitchen</h3><p>Everyday items stored out of reach, step stools in use, stove controls and what happens if a burner is left on.</p><span class="btn btn-s b-out">Kitchen safety</span></a>
-      <a class="room" href="alzheimers-dementia-home-safety.html"><img src="https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="Hands opening a weekly pill organizer on a table" width="800" height="533" loading="lazy"><h3>Medications and memory</h3><p>Where pills are kept and sorted, the lighting there, and a dedicated set of checks for Alzheimer&rsquo;s and other dementias.</p><span class="btn btn-s b-out">Dementia home safety</span></a>
-      <a class="room" href="doors-and-hardware.html"><img src="https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1734094151911-803ee718a921?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A round door knob on a white interior door" width="800" height="533" loading="lazy"><h3>Doors and hardware</h3><p>Round knobs that are hard to grip, door widths for a walker or wheelchair, and raised thresholds.</p><span class="btn btn-s b-out">Doors and hardware</span></a>
+      <a class="room" href="entrances-and-steps.html"><img src="https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A porch with front steps and a white railing" width="800" height="533" loading="lazy"><h3>Entrances and steps</h3><p>Step heights, handrails on both sides, cracked or uneven concrete, lighting at the door, and where ice builds up.</p><span class="more-l">Read the guide &rarr;</span></a>
+      <a class="room" href="bathroom-safety.html"><img src="https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A bright bathroom with a fold-down grab bar beside the toilet" width="800" height="533" loading="lazy"><h3>Bathroom</h3><p>Grab bars where you actually stand up and step in, tub height, toilet height and how slippery the floor is when wet.</p><span class="more-l">Read the guide &rarr;</span></a>
+      <a class="room" href="stairs-and-hallways.html"><img src="https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A white staircase with a wooden handrail" width="800" height="533" loading="lazy"><h3>Stairs and hallways</h3><p>A handrail you can grip on each side, step edges you can see, light switches at the top and the bottom.</p><span class="more-l">Read the guide &rarr;</span></a>
+      <a class="room" href="kitchen-safety.html"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A bright kitchen with everyday items on the counter" width="800" height="533" loading="lazy"><h3>Kitchen</h3><p>Everyday items stored out of reach, step stools in use, stove controls and what happens if a burner is left on.</p><span class="more-l">Read the guide &rarr;</span></a>
+      <a class="room" href="alzheimers-dementia-home-safety.html"><img src="https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="Hands opening a weekly pill organizer on a table" width="800" height="533" loading="lazy"><h3>Medications and memory</h3><p>Where pills are kept and sorted, the lighting there, and a dedicated set of checks for Alzheimer&rsquo;s and other dementias.</p><span class="more-l">Read the guide &rarr;</span></a>
+      <a class="room" href="doors-and-hardware.html"><img src="https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1734094151911-803ee718a921?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A round door knob on a white interior door" width="800" height="533" loading="lazy"><h3>Doors and hardware</h3><p>Round knobs that are hard to grip, door widths for a walker or wheelchair, and raised thresholds.</p><span class="more-l">Read the guide &rarr;</span></a>
     </div>
   </div>
 </section>
@@ -588,6 +594,20 @@ footer .w{display:flex;flex-direction:column;gap:18px}
   </div>
 </section>
 
+<section class="sec" id="about" style="padding-bottom:0">
+  <div class="w">
+    <div class="about">
+      <img src="Carl.jpg" alt="Carl Christie, assessor" width="460" height="583" loading="lazy">
+      <div>
+        <h2>Meet your assessor. Read his promise.</h2>
+        <p>Carl Christie is an SHSS-designated assessor and RHFAC Professional, and the person who calls you after you book. He does the visit, writes the report, and answers your questions afterward.</p>
+        <blockquote class="promise">&ldquo;No commission, referral fee, kickback or other benefit is accepted from any contractor or supplier, and none is paid to them.&rdquo;<span>A term of your Service Agreement, not a policy that can quietly change.</span></blockquote>
+        <a class="btn btn-s b-out" href="about.html">More about Carl</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="testimonials">
   <div class="w">
     <div class="rvhd">
@@ -604,33 +624,14 @@ footer .w{display:flex;flex-direction:column;gap:18px}
 </section>
 
 <section class="sec dark" id="professionals">
-  <div class="w">
-    <h2>For professionals.</h2>
-    <p class="lede">An independent report you can hand to a family, a care team or a board, with no product or renovation attached.</p>
-    <div class="pro-grid">
-      <div>
-        <h3>Occupational therapists and discharge planners</h3>
-        <p>Measured environmental data before your first visit: door widths, step rise, grab bar runs and clearances. We never make clinical calls or authorize equipment; that stays with you.</p>
-        <a class="btn btn-s b-outw" href="for-occupational-therapists.html">How a referral works</a>
-      </div>
-      <div>
-        <h3>Housing providers and seniors&rsquo; organizations</h3>
-        <p>One assessor across many units, with identical fixes grouped and priced together, and a total to bring the whole building up to standard.</p>
-        <a class="btn btn-s b-outw" href="tel:5879073566" data-track="professionals">Ask about group pricing</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="about">
-  <div class="w">
-    <div class="about">
-      <img src="Carl.jpg" alt="Carl Christie, assessor" width="460" height="583" loading="lazy">
-      <div>
-        <h2>Meet your assessor. Read his promise.</h2>
-        <p>Carl Christie is an SHSS-designated assessor and RHFAC Professional, and the person who calls you after you book. He does the visit, writes the report, and answers your questions afterward.</p>
-        <blockquote class="promise">&ldquo;No commission, referral fee, kickback or other benefit is accepted from any contractor or supplier, and none is paid to them.&rdquo;<span>A term of your Service Agreement, not a policy that can quietly change.</span></blockquote>
-        <a class="btn btn-s b-out" href="about.html">More about Carl</a>
+  <div class="w prow">
+    <img src="https://images.unsplash.com/photo-1765896387387-0538bc9f997e?w=1000&h=660&fit=crop&crop=faces,entropy&auto=format&q=70" srcset="https://images.unsplash.com/photo-1765896387387-0538bc9f997e?w=480&h=317&fit=crop&crop=faces,entropy&auto=format&q=70 480w, https://images.unsplash.com/photo-1765896387387-0538bc9f997e?w=800&h=528&fit=crop&crop=faces,entropy&auto=format&q=70 800w, https://images.unsplash.com/photo-1765896387387-0538bc9f997e?w=1000&h=660&fit=crop&crop=faces,entropy&auto=format&q=70 1000w" sizes="(max-width: 900px) 100vw, 520px" alt="A health professional smiling with an older woman in her room" width="1000" height="660" loading="lazy">
+    <div>
+      <h2>For professionals.</h2>
+      <p class="lede">Measured data for occupational therapists and discharge planners, and building-wide reports for housing providers. No product or renovation attached, and clinical calls stay with you.</p>
+      <div class="btns">
+        <a class="btn b-wh" href="for-occupational-therapists.html">How an OT referral works</a>
+        <a class="btn b-outw" href="tel:5879073566" data-track="professionals">Ask about group pricing</a>
       </div>
     </div>
   </div>
