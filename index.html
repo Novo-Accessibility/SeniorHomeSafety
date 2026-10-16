@@ -714,7 +714,7 @@ footer .w{display:flex;flex-direction:column;gap:18px}
 (function(){var w=document.getElementById('when');if(!w||!window.fetch)return;
 fetch('https://book.novoseniorsafety.com/api/next').then(function(r){return r.ok?r.json():null}).then(function(d){
 if(!d||!d.next||!d.next.label)return;var l=d.next.label.replace(/, \d{4},/,',');
-w.textContent='Next open visit: '+l+'. Visits Monday to Saturday.';}).catch(function(){});})();
+w.textContent='Next open visit: '+l+(/\.$/.test(l)?'':'.')+' Visits Monday to Saturday.';}).catch(function(){});})();
 const mt=document.getElementById('mt'),mp=document.getElementById('mp');
 mt.addEventListener('click',()=>{const o=mp.classList.toggle('open');mt.setAttribute('aria-expanded',o)});
 mp.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mp.classList.remove('open');mt.setAttribute('aria-expanded','false')}));
