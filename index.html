@@ -336,6 +336,21 @@ h2{font-size:clamp(34px,4.4vw,52px);line-height:1.06}
 .fnt{font-size:13px;color:var(--ink3);margin:0}
 .fok{display:none}.fok.show{display:block}
 .fok h4{margin:0 0 6px;font-size:20px}
+/* question form */
+.qcard{max-width:860px;background:var(--bgw);border-radius:24px;padding:28px}
+.qcard h2{margin:0 0 4px}
+.qcard .qh{color:var(--ink2);font-size:17px;margin:0 0 16px}
+#qf{display:flex;flex-direction:column;gap:14px;max-width:560px}
+#qf label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
+#qf .opt{font-weight:400;color:var(--ink3)}
+#qf input,#qf textarea{font:inherit;font-weight:400;padding:12px 14px;border:1.5px solid #CFC7BC;border-radius:10px;min-height:48px;background:#fff;color:var(--ink)}
+#qf input:focus,#qf textarea:focus{outline:2px solid var(--red);outline-offset:1px;border-color:var(--red)}
+#qf button{font:inherit;font-weight:700;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:15px;min-height:50px;cursor:pointer}
+#qf button:disabled{opacity:.6}
+.mp a.mp-email{background:transparent;border:1.5px solid var(--ink)}
+.fcta{display:flex;flex-wrap:wrap;gap:10px}
+.nav .nav-pro{display:none}
+.hcta a{white-space:nowrap}
 /* footer */
 footer{background:var(--ink);color:#CFC7BC;font-size:14px;padding:44px 0 120px}
 footer .w{display:flex;flex-direction:column;gap:18px}
@@ -379,10 +394,11 @@ footer .w{display:flex;flex-direction:column;gap:18px}
       <a href="#rooms">What we check</a>
       <a href="#pricing">Pricing</a>
       <a href="sample-report.html">Sample report</a>
-      <a href="#professionals">For professionals</a>
+      <a class="nav-pro" href="#professionals">For professionals</a>
     </nav>
     <div class="hcta">
       <a class="btn btn-s b-out" href="tel:5879073566" data-track="header">587-907-3566</a>
+      <a class="btn btn-s b-out" href="mailto:info@novoseniorsafety.com" data-track="header-email">Email us</a>
       <a class="btn btn-s b-red" href="https://book.novoseniorsafety.com/" data-track="header">Book online</a>
     </div>
     <button class="mt" id="mt" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -396,6 +412,7 @@ footer .w{display:flex;flex-direction:column;gap:18px}
     <a href="#professionals">For professionals</a>
     <a href="about.html">About Carl</a>
     <a href="#contact">Request a call</a>
+    <a class="mp-email" href="mailto:info@novoseniorsafety.com" data-track="menu-email">Email us</a>
   </nav>
 </header>
 
@@ -416,6 +433,7 @@ footer .w{display:flex;flex-direction:column;gap:18px}
         <span>Rather talk first?</span>
         <a class="btn btn-s b-sand" href="tel:5879073566" data-track="hero">Call 587-907-3566</a>
         <a class="btn btn-s b-sand" href="#contact">Ask for a free call back</a>
+        <a class="btn btn-s b-sand" href="mailto:info@novoseniorsafety.com" data-track="hero-email">Email us</a>
       </div>
       <div class="creds"><span>SHSS designated</span><span>RHFAC Professional</span><span>Fully insured</span><span>Calgary-owned</span></div>
     </div>
@@ -667,6 +685,26 @@ footer .w{display:flex;flex-direction:column;gap:18px}
   </div>
 </section>
 
+<section class="sec" id="ask" style="padding-top:0">
+  <div class="w">
+    <div class="qcard">
+      <h2>Have a question?</h2>
+      <p class="qh">Ask it here. We reply within one business day.</p>
+      <form id="qf" action="https://formspree.io/f/xnjwggwo" method="POST">
+        <input type="hidden" name="_subject" value="Website question">
+        <input type="hidden" name="form" value="Question">
+        <label for="q-name">Your name<input type="text" id="q-name" name="name" required autocomplete="name"></label>
+        <label for="q-email">Your email<input type="email" id="q-email" name="email" required autocomplete="email"></label>
+        <label for="q-phone"><span>Phone <span class="opt">(optional)</span></span><input type="tel" id="q-phone" name="phone" autocomplete="tel"></label>
+        <label for="q-msg">Your question<textarea id="q-msg" name="message" rows="3" required></textarea></label>
+        <button type="submit">Send my question</button>
+        <p class="fnt">We reply within one business day. Your information is never sold.</p>
+      </form>
+      <div class="fok" id="qok" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec final" id="contact">
   <div class="w">
     <div>
@@ -701,6 +739,7 @@ footer .w{display:flex;flex-direction:column;gap:18px}
     <nav class="fnav" aria-label="Site">
       <a href="#independent">Why independent</a><a href="#rooms">What we check</a><a href="pricing.html">Pricing</a><a href="sample-report.html">Sample report</a><a href="home-modification-funding-alberta.html">Funding</a><a href="methodology.html">How we assess</a><a href="#professionals">For professionals</a><a href="how-to-choose-a-contractor.html">Contractors</a><a href="service-areas.html">Service areas</a><a href="about.html">About</a><a href="#contact">Contact</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a>
     </nav>
+    <div class="fcta"><a class="btn btn-s b-outw" href="mailto:info@novoseniorsafety.com" data-track="footer-email">Email us</a></div>
     <div class="ftc">Senior Home Safety, a Novo Industries service. &copy; 2026 Novo Industries Inc., Calgary, Alberta. Trade name registration 28564144.</div>
   </div>
 </footer>
@@ -733,6 +772,22 @@ cf.addEventListener('submit',async e=>{
     fok.innerHTML='<p><strong>That didn’t send.</strong> Please call 587-907-3566 or email info@novoseniorsafety.com.</p><a class="btn btn-s b-out" href="tel:5879073566">Call 587-907-3566</a>';
   }
   fok.classList.add('show');
+});
+const qf=document.getElementById('qf'),qok=document.getElementById('qok');
+qf.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const b=qf.querySelector('button');b.disabled=true;b.textContent='Sending…';
+  let ok=false;
+  try{const r=await fetch(qf.action,{method:'POST',body:new FormData(qf),headers:{'Accept':'application/json'}});ok=r.ok}catch(err){}
+  if(ok){
+    if(window.shsTrack)shsTrack('generate_lead',{form:'question',page:'home'});
+    qf.style.display='none';
+    qok.innerHTML='<h4>Thanks, we got your question.</h4><p>We reply within one business day.</p>';
+  }else{
+    b.disabled=false;b.textContent='Send my question';
+    qok.innerHTML='<p><strong>That didn’t send.</strong> Please try again, call 587-907-3566, or use the Email us button.</p>';
+  }
+  qok.classList.add('show');
 });
 </script>
 </body>
