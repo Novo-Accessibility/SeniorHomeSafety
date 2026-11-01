@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-<!-- independent-report redesign, 2026-10-16 -->
+<!-- readability and single payment story update, 2026-11-01 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="Senior Home Safety">
 <meta property="og:title" content="We don't sell grab bars. We tell you which ones you actually need.">
 <meta property="og:description" content="Independent home safety assessments for seniors in Calgary. One visit, a written report in 3 business days: every hazard ranked, every fix priced, funding matched.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=1200&h=630&fit=crop&auto=format&q=70">
-<meta property="og:image:alt" content="A younger woman and an older woman laughing over a tablet on the sofa at home">
+<meta property="og:image" content="https://novoseniorsafety.com/img/report-pair-1600.webp">
+<meta property="og:image:alt" content="Two pages of a Senior Home Safety report: the one-page summary and a page of measured findings with Calgary prices">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="We don't sell grab bars. We tell you which ones you actually need.">
 <meta name="twitter:description" content="Independent home safety assessments for seniors in Calgary. Every hazard ranked, every fix priced, funding matched.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=1200&h=630&fit=crop&auto=format&q=70">
+<meta name="twitter:image" content="https://novoseniorsafety.com/img/report-pair-1600.webp">
 
 <script type="application/ld+json">
 {
@@ -80,313 +80,243 @@
 </script>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23C0392B'/%3E%3Cpath d='M16 7L6 15v11a1.5 1.5 0 001.5 1.5h5.25V21h6.5v6.5h5.25A1.5 1.5 0 0026 26V15L16 7z' fill='white'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FAF9F6;--bgw:#F0EBE1;--sage:#E4EAE1;--sage2:#CBD6C6;--ink:#1A1A1A;--ink2:#504840;--ink3:#6B625A;--red:#C0392B;--red2:#A93226;--pink:#F1A097;--bdr:#E5DFD6;--bdr2:#D9D0C3;--serif:'Instrument Serif',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif}
+:root{--bg:#FAF9F6;--bgw:#F0EBE1;--sage:#E4EAE1;--peach:#F7E2D2;--honey:#F4E6C4;--ink:#1A1A1A;--ink2:#3F3832;--ink3:#544B43;--red:#C0392B;--red2:#A93226;--bdr:#E2DACE;--bdr2:#CFC5B7;--serif:'Instrument Serif',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
-a{color:var(--red2)}
-:focus-visible{outline:3px solid var(--red);outline-offset:3px}
-.skip{position:absolute;left:-9999px;top:0;background:var(--red);color:#fff;padding:12px 20px;z-index:2000;font-weight:700;border-radius:0 0 10px 0}
+a{color:var(--ink);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:12px 20px;z-index:2000;font-weight:700}
 .skip:focus{left:0}
 .w{max-width:1200px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;color:var(--ink)}
 p{text-wrap:pretty}
-h2{font-size:clamp(34px,4.4vw,52px);line-height:1.06}
-.lede{color:var(--ink2);font-size:19px;max-width:40em;margin:12px 0 36px}
-.sec{padding:96px 0}
-/* buttons: every link on this page is a button */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:700;text-decoration:none;border-radius:999px;padding:0 28px;min-height:52px;font-size:17px;border:1.5px solid transparent;transition:transform .15s,background .15s;text-align:center;line-height:1.25}
+h2{font-size:clamp(36px,4.4vw,52px);line-height:1.08}
+.lede{color:var(--ink2);font-size:20px;max-width:40em;margin:14px 0 36px}
+.sec{padding:88px 0}
+.kick{margin:0 0 14px;font-size:17px;font-weight:700;color:var(--ink2)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:700;text-decoration:none;border-radius:999px;padding:0 28px;min-height:56px;font-size:18px;border:2px solid transparent;transition:transform .15s,background .15s;text-align:center;line-height:1.25}
 .btn:hover{transform:translateY(-1px)}
-.btn-s{min-height:44px;padding:0 18px;font-size:15px}
+.btn-s{min-height:50px;padding:0 20px;font-size:17px}
 .b-red{background:var(--red);color:#fff}.b-red:hover{background:var(--red2);color:#fff}
 .b-ink{background:var(--ink);color:#fff}.b-ink:hover{background:#000;color:#fff}
-.b-out{border-color:var(--ink);color:var(--ink);background:transparent}.b-out:hover{background:rgba(26,26,26,.05);color:var(--ink)}
-.b-sand{background:var(--bgw);color:var(--ink)}.b-sand:hover{background:#E6DED1;color:var(--ink)}
-.b-wh{background:#fff;color:var(--ink)}.b-wh:hover{color:var(--ink)}
-.b-outw{border-color:#fff;color:#fff}.b-outw:hover{background:rgba(255,255,255,.1);color:#fff}
+.b-out{border-color:var(--ink);color:var(--ink);background:#fff}.b-out:hover{background:var(--bgw);color:var(--ink)}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
+.addr{font-size:17px;font-weight:600;color:var(--ink);user-select:all;-webkit-user-select:all;word-break:break-all}
 /* header */
-.hdr{position:sticky;top:0;z-index:50;background:rgba(250,249,246,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--bdr)}
-.hdr .w{display:flex;align-items:center;gap:20px;padding-top:12px;padding-bottom:12px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:24px;white-space:nowrap}
-.logo i{width:34px;height:34px;border-radius:9px;background:var(--red);display:flex;align-items:center;justify-content:center}
-.nav{display:flex;gap:6px;flex:1;flex-wrap:nowrap}
-.nav a{display:inline-flex;align-items:center;white-space:nowrap;min-height:44px;padding:0 12px;border-radius:999px;background:var(--bgw);color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
-.nav a:hover{background:#E6DED1}
-.hcta{display:flex;gap:10px;align-items:center}
-.mt{display:none;width:44px;height:44px;border:0;background:transparent;align-items:center;justify-content:center;margin-left:auto;cursor:pointer}
+.hdr{position:sticky;top:0;z-index:50;background:#FAF9F6;border-bottom:1px solid var(--bdr)}
+.hdr .w{display:flex;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px;max-width:1440px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:25px;white-space:nowrap}
+.logo i{width:36px;height:36px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.nav{display:flex;gap:4px;flex:1}
+.nav a{display:inline-flex;align-items:center;white-space:nowrap;min-height:48px;padding:0 12px;border-radius:999px;color:var(--ink);text-decoration:none;font-size:16px;font-weight:600}
+.nav a:hover{background:var(--bgw)}
+.hcta{display:flex;gap:10px;align-items:center;margin-left:auto}
+.hcta a{white-space:nowrap}
+.hmail{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2}
+.hmail .addr{font-size:14px;margin-top:3px;white-space:nowrap;word-break:normal}
+.htel{display:none;white-space:nowrap}
+.mt{display:none;width:52px;height:52px;border:2px solid var(--ink);border-radius:12px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
 .mp{display:none;border-top:1px solid var(--bdr);background:var(--bg);padding:12px 16px 16px}
 .mp.open{display:grid;gap:8px}
-.mp a{display:flex;align-items:center;min-height:50px;padding:0 18px;border-radius:14px;background:var(--bgw);color:var(--ink);text-decoration:none;font-weight:700}
+.mp a{display:flex;align-items:center;min-height:54px;padding:0 18px;border-radius:14px;background:var(--bgw);color:var(--ink);text-decoration:none;font-weight:700}
+.mp a.b-ink{background:var(--ink);color:#fff}
+.mp .addr{padding:4px 18px 0}
 /* hero */
-.hero{padding:64px 0 48px}
-.hero .w{display:flex;flex-wrap:wrap;gap:40px;align-items:center}
-.hero-t{flex:1 1 420px;min-width:0}
-.kick{margin:0 0 16px;font-size:16px;font-weight:600;color:var(--red2)}
-.hero h1{font-size:clamp(44px,5.4vw,72px);line-height:1.02;letter-spacing:-.01em;margin-bottom:22px}
-.hero .sub{margin:0 0 30px;font-size:20px;color:var(--ink2);max-width:34em}
-.when{margin:14px 0 0;font-size:16px;font-weight:600;color:var(--ink2)}
-.talk{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:20px 0 22px}
-.talk span{font-size:15px;color:var(--ink2);margin-right:4px}
-.creds{display:flex;flex-wrap:wrap;gap:8px 10px;font-size:14px;font-weight:600;color:var(--ink2)}
-.creds span{border:1px solid var(--bdr2);border-radius:999px;padding:5px 12px}
-.hero-i{flex:1 1 360px;min-width:0;position:relative}
-.hero-i img{width:100%;height:600px;object-fit:cover;object-position:60% 50%;border-radius:28px}
-.sold{position:absolute;left:20px;right:20px;bottom:20px;background:#fff;border-radius:6px;padding:22px 24px;box-shadow:0 18px 40px rgba(26,26,26,.22);font-variant-numeric:tabular-nums}
-.sold h2{font-size:26px;line-height:1.1;margin:0 0 10px}
-.sold div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px dashed #CFC7BC;color:var(--ink3)}
-.sold div:first-of-type{border-top:2px solid var(--ink);color:var(--ink);font-weight:700}
-.sold div:last-child{padding-bottom:0}
-.sold s{text-decoration:line-through}
-/* situations */
-.sit{padding:16px 0 80px}
-.sit h2{margin-bottom:28px}
-.sitg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.sc{display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
-.sc:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(26,26,26,.10)}
-.sc img{width:100%;height:230px;object-fit:cover}
-.sc div{padding:20px 22px 24px}
-.sc h3{font-size:28px;line-height:1.12;margin-bottom:6px}
-.sc p{margin:0;color:var(--ink2);font-size:16px}
-.sc span{display:inline-block;margin-top:12px;font-weight:700;color:var(--red2);font-size:15px}
-.forrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:28px}
-.forrow b{font-weight:600;color:var(--ink2);margin-right:4px}
-.forrow a{display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border-radius:999px;background:var(--bgw);color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}
-.forrow a:hover{background:#E6DED1}
-.forrow a.pro{background:var(--ink);color:#fff}
-/* who */
-.who{padding:8px 0 72px}
-.who-box{background:#fff;border:1px solid var(--bdr);border-radius:22px;padding:28px 32px;display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center}
-.who-t{flex:1 1 280px}
-.who-box h2{font-size:30px;line-height:1.15}
-.who-t p{margin:8px 0 0;color:var(--ink2);font-size:16px}
-.who-btns{flex:3 1 600px;display:flex;flex-wrap:wrap;gap:10px}
-.who-btns a{flex:1 1 140px;display:flex;align-items:center;justify-content:center;min-height:56px;padding:0 18px;border-radius:14px;background:var(--bgw);color:var(--ink);text-decoration:none;font-weight:700;text-align:center}
-.who-btns a:hover{background:#E6DED1}
-.who-btns a.pro{background:var(--ink);color:#fff}
-/* why */
-.split{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
-.split>div{flex:1 1 520px;min-width:0}
-.split p{margin:0 0 16px;font-size:19px;color:var(--ink2)}
-.split h2{margin-bottom:20px}
-.math{flex:1 1 380px!important;background:var(--bgw);border-radius:24px;padding:36px}
-.math .big{margin:0 0 18px;font-family:var(--serif);font-size:34px;line-height:1.15;color:var(--ink)}
-.math dl{margin:0;display:flex;flex-direction:column;gap:10px;font-size:16px;color:var(--ink2);font-variant-numeric:tabular-nums}
-.math dl div{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--bdr2);padding-top:10px}
-.math dd{margin:0;font-weight:700;color:var(--ink)}
-/* compare */
-.tblw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--bdr);border-radius:20px;background:#fff}
-.cmp{width:100%;min-width:720px;border-collapse:collapse;font-size:16px}
-.cmp th,.cmp td{text-align:left;padding:18px 22px;border-top:1px solid var(--bdr);vertical-align:top}
-.cmp thead th{border-top:0;background:var(--bgw);color:var(--ink2);font-size:16px}
-.cmp thead th.us{background:var(--ink);color:#fff}
-.cmp tbody th{font-weight:700;width:24%}
-.cmp td{color:var(--ink2);width:38%}
-.cmp td.us{background:#FCF6F4;color:var(--ink)}
-@media (max-width:700px){
-  .tblw{overflow:visible;border:0;background:transparent}
-  .cmp{min-width:0}
-  .cmp thead{display:none}
-  .cmp tbody tr{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--bdr);border-radius:16px;margin-bottom:12px;overflow:hidden}
-  .cmp tbody th{grid-column:1/-1;width:auto;border-top:0;background:var(--bgw);padding:12px 14px}
-  .cmp td{width:auto;border-top:0;padding:12px 14px;font-size:15px}
-  .cmp td::before{content:attr(data-l);display:block;font-size:12px;font-weight:700;color:var(--ink3);margin-bottom:4px}
-  .cmp td.us::before{color:var(--red2)}
-}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.fine{margin:16px 0 0;font-size:14px;color:var(--ink3)}
-.more{margin-top:14px}
-.more summary{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 20px;border-radius:999px;border:1.5px solid var(--ink);font-weight:700;cursor:pointer;list-style:none}
-.more summary::-webkit-details-marker{display:none}
-.more summary::after{content:"+";font-size:20px;color:var(--red)}
-.more[open] summary::after{content:"\2212"}
-.more[open] summary{margin-bottom:14px}
-.rule{margin:28px 0 0;font-family:var(--serif);font-size:clamp(26px,3vw,34px);line-height:1.2;color:var(--ink)}
-.skipbox{margin:40px 0 0;background:var(--ink);color:#fff;border-radius:24px;padding:36px 40px}
-.skipbox h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,40px);line-height:1.12;margin:0 0 12px}
-.skipbox p{margin:0;color:rgba(255,255,255,.86);font-size:18px;max-width:46em}
-/* rooms */
-.rooms{background:var(--sage)}
-.rhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:40px}
-.rhead h2{flex:1 1 480px}
-.rhead p{flex:1 1 380px;margin:0;font-size:18px;color:var(--ink2)}
-.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px 28px}
-.room{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:12px}
-.room img{width:100%;height:240px;object-fit:cover;border-radius:16px;background:var(--sage2)}
-.room h3{font-size:28px;line-height:1.15}
-.room p{margin:0;color:var(--ink2);font-size:16px}
-.room .more-l{font-weight:700;font-size:15px;color:var(--red2)}
-.room:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
-/* report */
-.dark{background:var(--ink);color:#fff}
+.hero{padding:56px 0 40px}
+.hero .w{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.hero-t{flex:1 1 480px;min-width:0}
+.hero h1{font-size:clamp(38px,4.6vw,60px);line-height:1.04;letter-spacing:-.01em;margin-bottom:20px}
+.hero .sub{margin:0 0 22px;font-size:21px;color:var(--ink2);max-width:32em}
+.nextv{margin:0 0 18px;display:inline-block;background:var(--sage);border-radius:12px;padding:10px 16px;font-size:18px;font-weight:700;color:var(--ink)}
+.nextv[hidden]{display:none}
+.from{margin:0 0 20px;font-size:20px;color:var(--ink2)}
+.from b{font-family:var(--serif);font-weight:400;font-size:40px;color:var(--ink);margin-right:6px}
+.hero .btns{margin-bottom:16px}
+.hmailrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 16px}
+.when{margin:0 0 18px;font-size:17px;font-weight:600;color:var(--ink2)}
+.creds{display:flex;flex-wrap:wrap;gap:8px 10px;font-size:15px;font-weight:700;color:var(--ink)}
+.creds span{border:1.5px solid var(--bdr2);border-radius:999px;padding:6px 14px;background:#fff}
+.hero-i{flex:1 1 420px;min-width:0;margin:40px 0 0}
+.hero-i figcaption{margin-top:10px;font-size:16px;color:var(--ink3)}
+.sells{border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:#fff}
+.sells p{margin:0;padding:22px 0;font-size:19px;color:var(--ink)}
+.sells b{font-weight:700}
+/* ask */
+.ask .w{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.ask-call{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.ask-call p{margin:0;font-size:20px;color:var(--ink2)}
+.ask-call .btn{min-width:280px}
+.qcard{flex:1 1 440px;min-width:0;background:#fff;border:1.5px solid var(--bdr2);border-radius:24px;padding:32px}
+.qcard h3{margin:0;font-family:var(--sans);font-weight:700;font-size:23px}
+.qcard .qh{color:var(--ink2);font-size:18px;margin:4px 0 18px}
+#qf{display:flex;flex-direction:column;gap:16px}
+#qf label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:18px}
+#qf .opt{font-weight:400;color:var(--ink3)}
+#qf input,#qf textarea{font:inherit;font-size:19px;font-weight:400;padding:12px 14px;border:2px solid #A79C8E;border-radius:10px;min-height:54px;background:#fff;color:var(--ink)}
+#qf input:focus,#qf textarea:focus{outline:3px solid var(--ink);outline-offset:1px}
+#qf button{font:inherit;font-size:19px;font-weight:700;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:15px;min-height:58px;cursor:pointer}
+#qf button:disabled{opacity:.7}
+.fnt{font-size:16px;color:var(--ink3);margin:0}
+.fok{display:none}.fok.show{display:block}
+.fok h4{margin:0 0 6px;font-size:22px}
+/* steps */
+.tint{background:var(--sage)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;margin-top:36px}
+.step .n{font-family:var(--serif);font-size:64px;line-height:1;color:var(--ink)}
+.step h3{margin:8px 0;font-family:var(--sans);font-weight:700;font-size:23px}
+.step p{margin:0;color:var(--ink2)}
+.links{margin-top:36px}
+/* report proof */
 .rep{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}
 .rep>div{flex:1 1 460px;min-width:0}
-.rep .kick{color:var(--pink)}
 .rep h2{margin-bottom:16px}
-.rep .hours{margin:0 0 24px;color:rgba(255,255,255,.86);font-size:18px}
-.pts p{margin:0;padding:14px 0;border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.86)}
-.pts p:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
-.pts strong{color:#fff}
-.rep .btns{margin-top:34px}
+.rep .hours{margin:0 0 22px;color:var(--ink2);font-size:20px}
+.pts p{margin:0;padding:14px 0;border-top:1px solid var(--bdr2);color:var(--ink2)}
+.pts p:last-child{border-bottom:1px solid var(--bdr2)}
+.pts strong{color:var(--ink)}
+.rep .btns{margin-top:32px}
 .repv{display:flex;flex-direction:column;gap:20px}
 .repimg{display:block;border-radius:22px;overflow:hidden;background:var(--sage)}
 .repimg img{width:100%;height:auto}
-.find{background:#fff;color:var(--ink);border-radius:22px;overflow:hidden}
-.find img{width:100%;height:260px;object-fit:cover}
-.find>div{padding:24px 26px 26px}
+.find{background:#fff;border:1.5px solid var(--bdr2);border-radius:22px;padding:24px 26px 26px}
 .fhd{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-bottom:12px}
-.fp{background:var(--red);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px}
-.fc{font-size:14px;color:var(--ink3);font-weight:600}
-.ft{margin:0 0 16px;font-family:var(--serif);font-size:28px;line-height:1.2}
-.find dl{margin:0;display:grid;grid-template-columns:130px minmax(0,1fr);gap:10px 14px;font-size:16px}
+.fp{background:var(--ink);color:#fff;font-size:15px;font-weight:700;padding:4px 12px;border-radius:999px}
+.fc{font-size:16px;color:var(--ink3);font-weight:600}
+.ft{margin:0 0 16px;font-family:var(--serif);font-size:30px;line-height:1.2}
+.find dl{margin:0;display:grid;grid-template-columns:140px minmax(0,1fr);gap:10px 14px;font-size:18px}
 .find dt,.find dd{border-top:1px solid var(--bdr);padding-top:10px;margin:0}
-.find dt{font-size:14px;font-weight:700;color:var(--ink3)}
+.find dt{font-size:16px;font-weight:700;color:var(--ink3)}
 .find dd{color:var(--ink2)}
 .find dd b{color:var(--ink)}
-.fsrc{margin:16px 0 0;font-size:13px;color:var(--ink3)}
+.fsrc{margin:16px 0 0;font-size:16px;color:var(--ink3)}
 @media (max-width:560px){.find dl{grid-template-columns:1fr;gap:2px}.find dd{border-top:0;padding-top:0}}
-/* quote */
-.quote{background:var(--bgw);border-radius:28px;padding:48px;display:flex;flex-wrap:wrap;gap:32px;align-items:center}
-.quote>div:first-child{flex:1 1 520px;min-width:0}
-.quote h2{font-size:clamp(32px,3.8vw,46px);line-height:1.08;margin-bottom:14px}
-.quote p{margin:0;font-size:18px;color:var(--ink2)}
-.quote .stack{flex:0 1 auto;display:flex;flex-direction:column;gap:10px}
-/* pricing */
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.price{background:#fff;border:1px solid var(--bdr);border-radius:20px;padding:28px;display:flex;flex-direction:column}
-.price .pn{font-weight:600;color:var(--ink2)}
-.price .pp{font-family:var(--serif);font-size:60px;line-height:1.1;margin:6px 0 4px}
-.price .pd{color:var(--ink3);font-size:15px;margin-bottom:14px}
-.price .pi{font-size:15px;font-weight:600;border-top:1px solid var(--bdr);padding-top:12px;margin-bottom:20px}
-.price .btn{margin-top:auto;width:100%}
-.pnotes{display:flex;flex-wrap:wrap;gap:10px 32px;color:var(--ink2);font-size:15px;margin-top:28px}
-.pbtns{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
-/* steps */
-.tint{background:var(--sage)}
-.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;margin-top:40px}
-.step .n{font-family:var(--serif);font-size:64px;line-height:1;color:var(--red)}
-.step h3{margin:8px 0;font-family:var(--sans);font-weight:700;font-size:21px}
-.step p{margin:0;color:var(--ink2)}
-/* reviews */
+/* reviews band */
+.band-honey{background:var(--honey)}
 .rvhd{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:36px}
 .rvgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.rv{margin:0;background:#fff;border:1px solid var(--bdr);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px}
-.rv .tag{align-self:flex-start;font-size:13px;font-weight:700;color:var(--red2);background:#FCEAE8;padding:4px 12px;border-radius:999px}
-.rv blockquote{margin:0;font-size:18px}
+.rv{margin:0;background:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.rv .tag{align-self:flex-start;font-size:15px;font-weight:700;color:var(--ink);background:var(--bgw);padding:4px 12px;border-radius:999px}
+.rv blockquote{margin:0;font-size:20px;color:var(--ink)}
 .rv figcaption{margin-top:auto;font-weight:700}
 .rv figcaption span{font-weight:400;color:var(--ink3)}
-/* professionals */
-.prow{display:flex;flex-wrap:wrap;gap:40px 56px;align-items:center}
-.prow img{flex:1 1 420px;min-width:0;width:100%;height:360px;object-fit:cover;border-radius:22px}
-.prow>div{flex:1 1 420px;min-width:0}
-.prow h2{margin-bottom:14px}
-.prow .lede{margin-bottom:28px}
-@media (max-width:900px){.prow img{height:220px}}
-.pro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 48px}
-.pro-grid>div{border-top:1px solid rgba(255,255,255,.22);padding-top:24px;padding-bottom:12px}
-.pro-grid h3{font-size:32px;line-height:1.15;margin-bottom:10px}
-.pro-grid p{margin:0 0 18px;color:rgba(255,255,255,.82)}
-.dark .lede{color:rgba(255,255,255,.82)}
+.fine{margin:18px 0 0;font-size:16px;color:var(--ink2)}
+/* pricing band */
+.band-peach{background:var(--peach)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.price{background:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column}
+.price .pn{font-weight:700;color:var(--ink)}
+.price .pp{font-family:var(--serif);font-size:62px;line-height:1.1;margin:6px 0 4px}
+.price .pd{color:var(--ink2);font-size:17px;margin-bottom:14px}
+.price .pi{font-size:17px;font-weight:600;border-top:1px solid var(--bdr);padding-top:12px;margin-bottom:20px}
+.price .btn{margin-top:auto;width:100%}
+.pnotes{margin:28px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 32px;color:var(--ink);font-size:18px}
+.pnotes li{padding-left:22px;position:relative}
+.pnotes li::before{content:"";position:absolute;left:0;top:.65em;width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.paystory{margin:32px 0 0;background:#fff;border-radius:20px;padding:26px 28px;max-width:860px}
+.paystory h3{margin:0 0 8px;font-family:var(--sans);font-weight:700;font-size:22px}
+.paystory p{margin:0;font-size:19px;color:var(--ink)}
+.pbtns{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px}
+/* compare */
+.tblw{border:1.5px solid var(--bdr2);border-radius:20px;background:#fff;overflow:hidden}
+.cmp{width:100%;border-collapse:collapse;font-size:18px}
+.cmp th,.cmp td{text-align:left;padding:18px 22px;border-top:1px solid var(--bdr);vertical-align:top}
+.cmp thead th{border-top:0;background:var(--bgw);color:var(--ink);font-size:18px}
+.cmp thead th.us{background:var(--ink);color:#fff}
+.cmp tbody th{font-weight:700;width:24%}
+.cmp td{color:var(--ink2);width:38%}
+.cmp td.us{background:#FBF7F1;color:var(--ink)}
+@media (max-width:700px){
+  .tblw{border:0;background:transparent;border-radius:0}
+  .cmp thead{display:none}
+  .cmp tbody tr{display:grid;grid-template-columns:1fr;background:#fff;border:1.5px solid var(--bdr2);border-radius:16px;margin-bottom:12px;overflow:hidden}
+  .cmp tbody th{width:auto;border-top:0;background:var(--bgw);padding:12px 16px}
+  .cmp td{width:auto;border-top:0;padding:12px 16px;font-size:18px}
+  .cmp td::before{content:attr(data-l);display:block;font-size:15px;font-weight:700;color:var(--ink3);margin-bottom:2px}
+}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.rule{margin:28px 0 0;font-family:var(--serif);font-size:clamp(28px,3vw,36px);line-height:1.2;color:var(--ink)}
 /* about */
-.about{background:#fff;border:1px solid var(--bdr);border-radius:28px;padding:44px;display:flex;flex-wrap:wrap;gap:44px;align-items:center}
+.about{background:#fff;border:1.5px solid var(--bdr2);border-radius:28px;padding:44px;display:flex;flex-wrap:wrap;gap:44px;align-items:center}
 .about img{width:200px;height:200px;object-fit:cover;border-radius:50%;flex:0 0 auto}
 .about>div{flex:1 1 420px;min-width:0}
-.about h2{font-size:42px;line-height:1.1;margin-bottom:14px}
+.about h2{font-size:44px;line-height:1.1;margin-bottom:14px}
 .about p{margin:0 0 18px;color:var(--ink2)}
-.promise{margin:0 0 20px;padding:20px 24px;background:var(--bg);border-radius:16px;font-family:var(--serif);font-size:24px;line-height:1.3}
-.promise span{display:block;margin-top:10px;font-family:var(--sans);font-size:14px;color:var(--ink3)}
-/* guides */
-.ggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
-.ggrid a{display:flex;align-items:center;min-height:72px;padding:14px 24px;border-radius:16px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);text-decoration:none;font-family:var(--serif);font-size:25px;line-height:1.2}
-.ggrid a:hover{background:var(--bgw)}
-.ggrid a.dl{background:var(--ink);color:#fff}
+.promise{margin:0 0 20px;padding:20px 24px;background:var(--bgw);border-radius:16px;font-family:var(--serif);font-size:26px;line-height:1.3;color:var(--ink)}
+.promise span{display:block;margin-top:10px;font-family:var(--sans);font-size:16px;color:var(--ink2)}
 /* faq */
-.faq{max-width:860px}
+.faq{max-width:880px}
 .faq h2{margin-bottom:28px}
-.faq details{border-top:1px solid var(--bdr);padding:20px 0}
-.faq details:last-of-type{border-bottom:1px solid var(--bdr)}
-.faq summary{font-weight:700;font-size:19px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq details{border-top:1px solid var(--bdr2);padding:20px 0}
+.faq details:last-of-type{border-bottom:1px solid var(--bdr2)}
+.faq summary{font-weight:700;font-size:21px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;min-height:44px;align-items:center}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--red)}
+.faq summary::after{content:"+";font-size:28px;line-height:1;color:var(--ink)}
 .faq details[open] summary::after{content:"\2212"}
 .faq details p{margin:12px 0 0;color:var(--ink2)}
 .faq details .btn{margin-top:14px}
 /* final */
-.final{background:var(--red);color:#fff}
-.final .w{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.final{background:#fff;border-top:1px solid var(--bdr)}
+.final .w{display:flex;flex-wrap:wrap;gap:40px;align-items:center}
 .final .w>div{flex:1 1 440px;min-width:0}
 .final h2{font-size:clamp(40px,5vw,60px);line-height:1.04;margin-bottom:16px}
-.final .b-wh{color:var(--red2)}
-.final .note{margin:22px 0 0;display:flex;flex-wrap:wrap;gap:10px}
-.fcard{flex:1 1 380px!important;background:#fff;color:var(--ink);border-radius:24px;padding:28px}
-.fcard h3{margin:0;font-family:var(--sans);font-weight:700;font-size:20px}
-.fcard .fh{color:var(--ink2);font-size:15px;margin:2px 0 16px}
-#cf{display:flex;flex-direction:column;gap:14px}
-#cf label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
-#cf input,#cf textarea{font:inherit;font-weight:400;padding:12px 14px;border:1.5px solid #CFC7BC;border-radius:10px;min-height:48px;background:#fff;color:var(--ink)}
-#cf input:focus,#cf textarea:focus{outline:2px solid var(--red);outline-offset:1px;border-color:var(--red)}
-#cf button{font:inherit;font-weight:700;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:15px;min-height:50px;cursor:pointer}
-#cf button:disabled{opacity:.6}
-.fnt{font-size:13px;color:var(--ink3);margin:0}
-.fok{display:none}.fok.show{display:block}
-.fok h4{margin:0 0 6px;font-size:20px}
-/* question form */
-.ask{padding:8px 0 56px;scroll-margin-top:72px}
-.ask .w{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
-.ask-call{flex:1 1 380px;min-width:0;background:var(--bgw);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
-.ask-call h2{margin:0}
-.ask-call p{margin:0;font-size:18px;color:var(--ink2)}
-.ask-call .ask-tel{font-size:22px;min-height:60px;padding:0 32px}
-.qcard{flex:1 1 420px;min-width:0;background:#fff;border:1px solid var(--bdr);border-radius:24px;padding:28px}
-.qcard h3{margin:0;font-family:var(--sans);font-weight:700;font-size:20px}
-.qcard .qh{color:var(--ink2);font-size:15px;margin:2px 0 16px}
-@media (max-width:560px){.ask-call,.qcard{padding:22px}.ask-call .btn{width:100%}}
-#qf{display:flex;flex-direction:column;gap:14px}
-#qf label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
-#qf .opt{font-weight:400;color:var(--ink3)}
-#qf input,#qf textarea{font:inherit;font-weight:400;padding:12px 14px;border:1.5px solid #CFC7BC;border-radius:10px;min-height:48px;background:#fff;color:var(--ink)}
-#qf input:focus,#qf textarea:focus{outline:2px solid var(--red);outline-offset:1px;border-color:var(--red)}
-#qf button{font:inherit;font-weight:700;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:15px;min-height:50px;cursor:pointer}
-#qf button:disabled{opacity:.6}
-.mp a.mp-email{background:transparent;border:1.5px solid var(--ink)}
-.fcta{display:flex;flex-wrap:wrap;gap:10px}
-.nav .nav-pro{display:none}
-.hcta a{white-space:nowrap}
+.final p{margin:0 0 26px;font-size:20px;color:var(--ink2)}
+.fbox{background:var(--bgw);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.fbox .btn{width:100%}
+.hero-i img{width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:24px;background:var(--sage)}
+.hero-i img.fit-report{object-fit:contain}
+.grab{margin:24px 0 0;font-family:var(--serif);font-size:clamp(24px,2.6vw,30px);line-height:1.25;color:var(--ink);max-width:860px}
+.qline{font-weight:600;color:var(--ink)!important}
+.final .nextv{margin:0 0 18px}
+.paths{background:var(--bgw);padding:56px 0;border-top:1px solid var(--bdr)}
+.pathg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.path p{margin:8px 0 0;font-size:18px;color:var(--ink2)}
+.pl{display:flex;align-items:center;min-height:56px;padding:10px 20px;border-radius:16px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:19px;line-height:1.3}
+.pl:hover{background:#000}
+.sub2{display:flex;flex-wrap:wrap;gap:8px}
+.sub2 a{display:inline-flex;align-items:center;min-height:48px;padding:0 16px;border-radius:999px;background:#fff;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;font-size:17px}
+.sub2 a:hover{background:var(--bg)}
 /* footer */
-footer{background:var(--ink);color:#CFC7BC;font-size:14px;padding:44px 0 120px}
-footer .w{display:flex;flex-direction:column;gap:18px}
+footer{background:var(--ink);color:#E9E3DA;font-size:16px;padding:48px 0 130px}
+footer .w{display:flex;flex-direction:column;gap:22px}
 .fnav{display:flex;flex-wrap:wrap;gap:8px}
-.fnav a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #6B625A;color:#fff;text-decoration:none;font-weight:600}
+.fnav a{display:inline-flex;align-items:center;min-height:48px;padding:0 16px;border-radius:999px;border:1.5px solid #8A8077;color:#fff;text-decoration:none;font-weight:600}
 .fnav a:hover{border-color:#fff}
-.ftc{color:#A39A92}
-.fpay{margin:-8px 0 0;color:#CFC7BC;font-size:14px;max-width:640px}
+.fcon{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
+.fcon .btn{background:#000;color:#fff;border-color:#fff}
+.fcon .addr{color:#fff}
+.fcon a.ftel{background:#000;color:#fff;border-color:#fff}
+.fpayrow{display:flex;flex-wrap:wrap;gap:12px}
+.fpayrow .btn{background:transparent;color:#fff;border-color:#fff}
+.ftc{color:#CFC7BC}
 /* sticky phone bar */
 .mbar{display:none}
-@media (max-width:1180px){.nav{display:none}.mt{display:flex;margin-left:4px}.hcta{margin-left:auto}}
+@media (max-width:1400px){.nav{display:none}.mt{display:flex}}
+@media (max-width:1180px){.hmail .addr{display:none}}
 @media (max-width:900px){
   .hcta{display:none}
-  .mt{margin-left:auto}
-  .hero{padding:28px 0 36px}
+  .htel{display:inline-flex;margin-left:auto;min-height:52px;padding:0 16px;font-size:17px}
+  .logo{font-size:21px}
+  .hero{padding:24px 0 32px}
+  .hero-i{margin:0}
+  .hero .sub{font-size:19px}
   .hero .w{gap:24px}
-  .hero-i{display:contents}
-  .hero-i img{order:-1;flex:1 1 100%;height:260px;border-radius:22px}
-  .sold{order:2;flex:1 1 100%;position:relative;left:auto;right:auto;bottom:auto;margin:0;box-shadow:none;border:1px solid var(--bdr2)}
-  .sc img{height:200px}
   .sec{padding:64px 0}
-  .quote,.about,.who-box{padding:28px}
+  .about,.qcard{padding:26px}
   .about img{width:140px;height:140px}
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:10px;padding:10px 12px calc(12px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--bdr);box-shadow:0 -6px 20px rgba(26,26,26,.10)}
-  .mbar a{flex:1 1 0;min-height:50px;padding:0 12px;font-size:16px}
+  .mbar a{flex:1 1 0;min-height:54px;padding:0 12px;font-size:18px}
   .mbar a.b-red{flex-grow:1.6}
 }
-@media (max-width:560px){.rgrid{grid-template-columns:1fr 1fr;gap:28px 14px}.room{gap:8px}.room img{height:130px;border-radius:12px}.room h3{font-size:21px}.room p{font-size:14px;line-height:1.5}.room .more-l{font-size:14px}.mbar a{font-size:15px;padding:0 10px}.w{padding:0 16px}.hero .btns .btn,.final .btns .btn,.quote .btn{width:100%}.ggrid a{font-size:22px}}
-@media (min-width:901px){footer{padding-bottom:44px}}
+@media (max-width:560px){.w{padding:0 16px}.logo span{display:none}.hero .btns .btn,.ask-call .btn,.pbtns .btn,.rep .btns .btn{width:100%;min-width:0}.paystory{padding:22px}}
+@media (max-width:1300px){.nav a{padding:0 9px;font-size:15px}}
+@media (min-width:901px){footer{padding-bottom:48px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
 </style>
 </head>
@@ -396,31 +326,31 @@ footer .w{display:flex;flex-direction:column;gap:18px}
 
 <header class="hdr">
   <div class="w">
-    <a class="logo" href="/" aria-label="Senior Home Safety, home"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></i>Senior Home Safety</a>
+    <a class="logo" href="/" aria-label="Senior Home Safety, home"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></i><span>Senior Home Safety</span></a>
     <nav class="nav" aria-label="Main">
-      <a href="#independent">Why independent</a>
-      <a href="#rooms">What we check</a>
+      <a href="#process">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="sample-report.html">Sample report</a>
-      <a class="nav-pro" href="#professionals">For professionals</a>
+      <a href="#faq">Questions</a>
     </nav>
     <div class="hcta">
-      <a class="btn btn-s b-out" href="tel:5879073566" data-track="header">587-907-3566</a>
-      <a class="btn btn-s b-out" href="mailto:info@novoseniorsafety.com" data-track="header-email">Email us</a>
+      <a class="btn btn-s b-ink" href="tel:5879073566" data-track="header">587-907-3566</a>
+      <div class="hmail"><a class="btn btn-s b-ink" href="mailto:info@novoseniorsafety.com" data-track="header-email">Email us</a><span class="addr">info@novoseniorsafety.com</span></div>
       <a class="btn btn-s b-red" href="https://book.novoseniorsafety.com/" data-track="header">Book online</a>
     </div>
-    <button class="mt" id="mt" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="btn b-ink htel" href="tel:5879073566" data-track="header-mobile" aria-label="Call 587-907-3566">Call 587-907-3566</a>
+    <button class="mt" id="mt" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
   <nav class="mp" id="mp" aria-label="Mobile">
-    <a href="#independent">Why independent</a>
-    <a href="#rooms">What we check</a>
+    <a href="#process">How it works</a>
     <a href="#pricing">Pricing</a>
     <a href="sample-report.html">Sample report</a>
-    <a href="home-modification-funding-alberta.html">Funding programs</a>
-    <a href="#professionals">For professionals</a>
+    <a href="methodology.html">How we assess</a>
+    <a href="#faq">Questions</a>
     <a href="about.html">About Carl</a>
-    <a href="#contact">Request a call</a>
-    <a class="mp-email" href="mailto:info@novoseniorsafety.com" data-track="menu-email">Email us</a>
+    <a href="#ask">Ask a question</a>
+    <a class="b-ink" href="mailto:info@novoseniorsafety.com" data-track="menu-email">Email us</a>
+    <span class="addr">info@novoseniorsafety.com</span>
   </nav>
 </header>
 
@@ -432,40 +362,41 @@ footer .w{display:flex;flex-direction:column;gap:18px}
       <p class="kick">Independent home safety assessments in Calgary and area</p>
       <h1>We don&rsquo;t sell grab bars. We tell you which ones you actually need.</h1>
       <p class="sub">One visit to the home. Within 3 business days, a written report that ranks every hazard, prices every fix in Calgary dollars and shows which funding can help pay.</p>
+      <!-- NEXT VISIT DATE: filled automatically from the booking system. If that ever stops working, type a date between the quotes in data-manual, for example data-manual="Tuesday, November 10". Leave it empty to hide the line. -->
+      <p class="nextv" id="nextv" data-next data-manual="" hidden>Next visit available: <span class="nextd"></span></p>
+      <p class="from"><b>From $395</b> plus GST</p>
       <div class="btns">
-        <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="hero">Book online, from $395</a>
-        <a class="btn b-out" href="#independent">Why not a free assessment?</a>
+        <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="hero">Book online</a>
+        <a class="btn b-ink" href="tel:5879073566" data-track="hero">Call 587-907-3566</a>
       </div>
-      <p class="when" id="when">Visits Monday to Saturday, bookable from two days ahead.</p>
-      <div class="talk">
-        <span>Rather talk first?</span>
-        <a class="btn btn-s b-ink" href="tel:5879073566" data-track="hero">Call 587-907-3566</a>
-        <a class="btn btn-s b-sand" href="#contact">Ask for a free call back</a>
-        <a class="btn btn-s b-sand" href="mailto:info@novoseniorsafety.com" data-track="hero-email">Email us</a>
-        <a class="btn btn-s b-sand" href="#ask" data-track="hero-ask">Ask a question</a>
+      <div class="hmailrow">
+        <a class="btn b-ink" href="mailto:info@novoseniorsafety.com" data-track="hero-email">Email us</a>
+        <a class="btn b-ink" href="#ask" data-track="hero-ask">Ask a question</a>
+        <span class="addr">info@novoseniorsafety.com</span>
       </div>
+      <p class="when">Visits Monday to Saturday, bookable from two days ahead.</p>
       <div class="creds"><span>SHSS designated</span><span>RHFAC Professional</span><span>Fully insured</span><span>Calgary-owned</span></div>
     </div>
-    <div class="hero-i">
-      <img src="https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=1200&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=1200&fit=crop&auto=format&q=70 1200w" sizes="(max-width: 900px) 100vw, 560px" alt="A younger woman and an older woman laughing over a tablet on the sofa at home" width="1200" height="800" fetchpriority="high">
-      <div class="sold" aria-label="Everything we sell">
-        <h2>Everything we sell</h2>
-        <div><span>Home safety report</span><span>from $395</span></div>
-        <div><s>Grab bars and equipment</s><span>Not sold</span></div>
-        <div><s>Renovations and installs</s><span>Not offered</span></div>
-        <div><s>Contractor referral fees</s><span>Never taken</span></div>
-      </div>
-    </div>
+    <!-- HERO PHOTO: the frame is fixed at 3 by 2. To use a real photo of Carl at work, save it as img/carl-at-work.jpg (about 1500 by 1000 pixels, landscape), change src to that file, delete the srcset and sizes lines, remove class="fit-report", and update the alt and figcaption text. Nothing else moves. -->
+    <figure class="hero-i">
+      <img class="fit-report" src="img/report-pair-1600.webp" srcset="img/report-pair-900.webp 900w, img/report-pair-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 560px" alt="Two pages of a Senior Home Safety report: the one-page summary and a page of measured findings, each with a Calgary price" width="1600" height="1000" fetchpriority="high">
+      <figcaption>Pages from the sample report. This is what your family receives.</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="ask" id="ask" aria-labelledby="ask-h">
+<div class="sells" aria-label="Everything we sell">
+  <div class="w"><p><b>Everything we sell is the home safety report.</b> Grab bars and equipment, not sold. Renovations and installs, not offered. Contractor referral fees, never taken.</p></div>
+</div>
+
+<section class="sec ask" id="ask" aria-labelledby="ask-h">
   <div class="w">
     <div class="ask-call">
       <h2 id="ask-h">Questions? Ask Carl.</h2>
-      <p>Call or text, or send a question with the form. We reply within one business day.</p>
-      <a class="btn b-ink ask-tel" href="tel:5879073566" data-track="ask-call">Call 587-907-3566</a>
-      <a class="btn b-out" href="mailto:info@novoseniorsafety.com" data-track="ask-email">Email us</a>
+      <p>Call or text, email, or send a question with the form. We reply within one business day.</p>
+      <a class="btn b-ink" href="tel:5879073566" data-track="ask-call">Call 587-907-3566</a>
+      <a class="btn b-ink" href="mailto:info@novoseniorsafety.com" data-track="ask-email">Email us</a>
+      <span class="addr">info@novoseniorsafety.com</span>
     </div>
     <div class="qcard">
       <h3>Send a question</h3>
@@ -475,8 +406,8 @@ footer .w{display:flex;flex-direction:column;gap:18px}
         <input type="hidden" name="form" value="Question">
         <label for="q-name">Your name<input type="text" id="q-name" name="name" required autocomplete="name"></label>
         <label for="q-email">Your email<input type="email" id="q-email" name="email" required autocomplete="email"></label>
-        <label for="q-phone"><span>Phone <span class="opt">(optional)</span></span><input type="tel" id="q-phone" name="phone" autocomplete="tel"></label>
         <label for="q-msg">Your question<textarea id="q-msg" name="message" rows="3" required></textarea></label>
+        <label for="q-phone"><span>Phone <span class="opt">(optional)</span></span><input type="tel" id="q-phone" name="phone" autocomplete="tel"></label>
         <button type="submit">Send my question</button>
         <p class="fnt">We reply within one business day. Your information is never sold.</p>
       </form>
@@ -485,89 +416,22 @@ footer .w{display:flex;flex-direction:column;gap:18px}
   </div>
 </section>
 
-<section class="sit" aria-labelledby="sit-h">
+<section class="sec tint" id="process">
   <div class="w">
-    <h2 id="sit-h">What&rsquo;s happening at home?</h2>
-    <div class="sitg">
-      <a class="sc" href="for-a-parent.html"><img src="https://images.unsplash.com/photo-1782905270542-af1be61ef9ac?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1782905270542-af1be61ef9ac?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1782905270542-af1be61ef9ac?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1782905270542-af1be61ef9ac?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 900px) 100vw, 380px" alt="A younger man talking with an older man in a sunlit bedroom" width="800" height="533" loading="lazy"><div><h3>Coming home from hospital</h3><p>Know what has to change before the discharge date, and what each change costs.</p><span>For a parent &rarr;</span></div></a>
-      <a class="sc" href="fall-risk-assessment-calgary.html"><img src="https://images.unsplash.com/photo-1773227055624-07b515ba87c5?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1773227055624-07b515ba87c5?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1773227055624-07b515ba87c5?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1773227055624-07b515ba87c5?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 900px) 100vw, 380px" alt="A caregiver helping an older woman in her armchair" width="800" height="533" loading="lazy"><div><h3>After a fall or a near miss</h3><p>Every room measured, so the hazards behind a fall are found and ranked.</p><span>Fall risk assessment &rarr;</span></div></a>
-      <a class="sc" href="alzheimers-dementia-home-safety.html"><img src="https://images.unsplash.com/photo-1580883344775-c5a84aa3b7e7?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1580883344775-c5a84aa3b7e7?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1580883344775-c5a84aa3b7e7?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1580883344775-c5a84aa3b7e7?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 900px) 100vw, 380px" alt="An older woman sitting quietly at home, deep in thought" width="800" height="533" loading="lazy"><div><h3>Memory loss or dementia</h3><p>A dedicated set of dementia checks, from medication storage to stove controls.</p><span>Dementia home safety &rarr;</span></div></a>
+    <h2>Three steps.</h2>
+    <div class="sgrid">
+      <div class="step"><div class="n">1</div><h3>Book online or call</h3><p>Book online to hold a time, with nothing to pay to book. Or call and we&rsquo;ll set it up together. Carl calls within one business day to confirm.</p></div>
+      <div class="step"><div class="n">2</div><h3>The visit</h3><p>Every room, laser-measured. A family member or the homeowner shows us how the home is really used.</p></div>
+      <div class="step"><div class="n">3</div><h3>Your report</h3><p>Within 3 business days: ranked findings, Calgary prices, a phased plan and the funding that applies.</p></div>
     </div>
-    <div class="forrow"><b>Finding help for</b><a href="for-a-parent.html">A parent</a><a href="for-a-spouse.html">My spouse or partner</a><a href="for-myself.html">Myself</a><a class="pro" href="#professionals">A client or tenant</a></div>
-  </div>
-</section>
-
-<section class="sec" id="independent" style="padding-top:24px">
-  <div class="w split">
-    <div>
-      <h2>Free assessments are paid for by what you buy next.</h2>
-      <p>A company that sells renovations or equipment can visit for free because the visit leads to the job. There&rsquo;s nothing wrong with that. It just means the person deciding what your home needs is also the person selling it.</p>
-      <p style="margin:0">Our report is paid for once, before the visit. Nothing is sold afterward, so every recommendation is about safety, including what you can skip.</p>
-    </div>
-    <div class="math">
-      <p class="big">Talked out of three grab bars you didn&rsquo;t need? At about $169 each installed in Calgary, that&rsquo;s more than the report costs.</p>
-      <dl>
-        <div><dt>Condo or apartment report</dt><dd>$395</dd></div>
-        <div><dt>House up to 1,200 sq ft</dt><dd>$495</dd></div>
-        <div><dt>One grab bar, installed (Calgary)</dt><dd>About $169</dd></div>
-        <div><dt>Every fix in the report</dt><dd>Priced on its own</dd></div>
-      </dl>
+    <div class="btns links" id="rooms">
+      <a class="btn btn-s b-out" href="methodology.html">How we assess, in full</a>
+      <a class="btn btn-s b-out" href="methodology.html#rooms">What we check, room by room</a>
     </div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
-  <div class="w">
-    <h2>Two ways to get an assessment.</h2>
-    <p class="lede" style="margin-bottom:32px">Both have their place. Here is what each one is built to do.</p>
-    <div class="tblw">
-      <table class="cmp">
-        <thead><tr><th scope="col"><span class="vh">Question</span></th><th scope="col">A free visit from a company that sells the renovation</th><th scope="col" class="us">A Senior Home Safety report</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Paid for by</th><td data-l="Free visit">The work you buy afterward</td><td class="us" data-l="Our report"><strong>You, once, before the visit</strong></td></tr>
-          <tr><th scope="row">What you get</th><td data-l="Free visit">A plan or quote for their own work</td><td class="us" data-l="Our report"><strong>A written report</strong>: 143 checks, every hazard ranked, every fix priced on its own</td></tr>
-          <tr><th scope="row">Who does the work</th><td data-l="Free visit">That company</td><td class="us" data-l="Our report"><strong>Any contractor you choose</strong>, or a handy family member</td></tr>
-          <tr><th scope="row">Will it tell you to buy less?</th><td data-l="Free visit">Hard to, when the job pays for the visit</td><td class="us" data-l="Our report"><strong>Yes.</strong> What you can skip is part of the job.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <details class="more"><summary>See the full comparison</summary>
-    <div class="tblw">
-      <table class="cmp">
-        <thead><tr><th scope="col"><span class="vh">Question</span></th><th scope="col">A free visit from a company that sells the renovation</th><th scope="col" class="us">A Senior Home Safety report</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Price shown up front</th><td data-l="Free visit">The visit is free; the work is quoted later</td><td class="us" data-l="Our report"><strong>$395 to $595</strong>, listed on this page</td></tr>
-          <tr><th scope="row">Time and depth</th><td data-l="Free visit">Often a short visit to scope a project</td><td class="us" data-l="Our report"><strong>1.5 to 3 hours on site, room by room</strong>, then the ranking, pricing and funding work is done afterward. The visit only gathers the data.</td></tr>
-          <tr><th scope="row">Who the report is written for</th><td data-l="Free visit">Usually the project that company will quote</td><td class="us" data-l="Our report"><strong>Your family</strong>, including what you can skip</td></tr>
-          <tr><th scope="row">Funding</th><td data-l="Free visit">Varies</td><td class="us" data-l="Our report"><strong>Matched to each fix</strong>: SHARP, AADL and federal tax credits</td></tr>
-        </tbody>
-      </table>
-    </div>
-    </details>
-    <p class="rule">A simple test: if the visit is free, ask what they sell after the visit.</p>
-    <p class="fine">This compares two ways of paying for an assessment, not any particular company.</p>
-    <div class="btns" style="margin-top:20px"><a class="btn b-ink" href="sample-report.html" data-track="compare">See the actual report families receive</a><a class="btn b-out" href="https://book.novoseniorsafety.com/" data-track="compare">Book online, from $395</a></div>
-  </div>
-</section>
-
-<section class="sec rooms" id="rooms">
-  <div class="w">
-    <div class="rhead">
-      <h2>What we check, room by room.</h2>
-      <p>Every room is walked, measured and photographed. These are the places families most often ask about.</p>
-    </div>
-    <div class="rgrid">
-      <a class="room" href="entrances-and-steps.html"><img src="https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1776538229229-db629deb6c21?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A porch with front steps and a white railing" width="800" height="533" loading="lazy"><h3>Entrances and steps</h3><p>Step heights, handrails on both sides, cracked or uneven concrete, lighting at the door, and where ice builds up.</p><span class="more-l">Read the guide &rarr;</span></a>
-      <a class="room" href="bathroom-safety.html"><img src="https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A bright bathroom with a fold-down grab bar beside the toilet" width="800" height="533" loading="lazy"><h3>Bathroom</h3><p>Grab bars where you actually stand up and step in, tub height, toilet height and how slippery the floor is when wet.</p><span class="more-l">Read the guide &rarr;</span></a>
-      <a class="room" href="stairs-and-hallways.html"><img src="https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1560170433-bc0adc32bccd?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A white staircase with a wooden handrail" width="800" height="533" loading="lazy"><h3>Stairs and hallways</h3><p>A handrail you can grip on each side, step edges you can see, light switches at the top and the bottom.</p><span class="more-l">Read the guide &rarr;</span></a>
-      <a class="room" href="kitchen-safety.html"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A bright kitchen with everyday items on the counter" width="800" height="533" loading="lazy"><h3>Kitchen</h3><p>Everyday items stored out of reach, step stools in use, stove controls and what happens if a burner is left on.</p><span class="more-l">Read the guide &rarr;</span></a>
-      <a class="room" href="alzheimers-dementia-home-safety.html"><img src="https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1666887360789-34b40bcb9d38?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="Hands opening a weekly pill organizer on a table" width="800" height="533" loading="lazy"><h3>Medications and memory</h3><p>Where pills are kept and sorted, the lighting there, and a dedicated set of checks for Alzheimer&rsquo;s and other dementias.</p><span class="more-l">Read the guide &rarr;</span></a>
-      <a class="room" href="doors-and-hardware.html"><img src="https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1734094151911-803ee718a921?w=480&fit=crop&auto=format&q=70 480w, https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70 800w, https://images.unsplash.com/photo-1734094151911-803ee718a921?w=800&fit=crop&auto=format&q=70 800w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 380px" alt="A round door knob on a white interior door" width="800" height="533" loading="lazy"><h3>Doors and hardware</h3><p>Round knobs that are hard to grip, door widths for a walker or wheelchair, and raised thresholds.</p><span class="more-l">Read the guide &rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="sec dark" id="report">
+<section class="sec" id="report">
   <div class="w rep">
     <div>
       <p class="kick">What the visit and the desk work produce</p>
@@ -581,14 +445,13 @@ footer .w{display:flex;flex-direction:column;gap:18px}
         <p><strong>Funding matched</strong> to eligible fixes: SHARP, AADL and federal tax credits.</p>
       </div>
       <div class="btns">
-        <a class="btn b-wh" href="sample-report.html" data-track="report">See the actual report families receive</a>
-        <a class="btn b-outw" href="https://book.novoseniorsafety.com/" data-track="report">Book online</a>
+        <a class="btn b-ink" href="sample-report.html" data-track="report">See the sample report</a>
+        <a class="btn b-out" href="SHS_Sample_Report.pdf" data-track="report-pdf">Open the full sample PDF</a>
       </div>
     </div>
     <div class="repv">
-    <a class="repimg" href="sample-report.html" data-track="report-image"><img src="img/report-spread-1600.webp" srcset="img/report-spread-900.webp 900w, img/report-spread-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 560px" alt="Three pages of the sample report: the cover, the one-page summary of 112 findings, and a page of measured findings with prices" width="1600" height="1000" loading="lazy"></a>
-    <div class="find" aria-label="One finding from the sample report">
-      <div>
+      <a class="repimg" href="sample-report.html" data-track="report-image"><img src="img/report-spread-1600.webp" srcset="img/report-spread-900.webp 900w, img/report-spread-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 560px" alt="Three pages of the sample report: the cover, the one-page summary of 112 findings, and a page of measured findings with prices" width="1600" height="1000" loading="lazy"></a>
+      <div class="find" aria-label="One finding from the sample report">
         <div class="fhd"><span class="fp">High priority</span><span class="fc">Finding 30 of 112, flooring and trip hazards</span></div>
         <p class="ft">The threshold is a 150&nbsp;mm step in itself.</p>
         <dl>
@@ -599,71 +462,10 @@ footer .w{display:flex;flex-direction:column;gap:18px}
         <p class="fsrc">From the sample report: a real Calgary home, client identity changed.</p>
       </div>
     </div>
-    </div>
   </div>
 </section>
 
-<section class="sec" style="padding-bottom:16px">
-  <div class="w">
-    <div class="quote">
-      <div>
-        <h2>Already had a free visit? Find out if the quote is fair before you sign.</h2>
-        <p>Our report prices every fix on its own, from Calgary cost data updated every month. Hold it next to the quote and you&rsquo;ll see what&rsquo;s needed, what&rsquo;s extra, and what a fair price looks like.</p>
-      </div>
-      <div class="stack">
-        <a class="btn b-ink" href="https://book.novoseniorsafety.com/" data-track="quote-check">Book a second opinion</a>
-        <a class="btn b-out" href="tel:5879073566" data-track="quote-check">Call 587-907-3566</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="pricing">
-  <div class="w">
-    <h2>One flat fee. Paid once, nothing sold after.</h2>
-    <p class="lede">Every fee includes the home visit and the complete written report. Plus GST. Within 50 km of Calgary, including Airdrie, Cochrane, Chestermere, Okotoks and Strathmore.</p>
-    <div class="pgrid">
-      <div class="price"><div class="pn">Condo or apartment</div><div class="pp">$395</div><div class="pd">About 1.5 hours on site</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-condo">Book a condo visit</a></div>
-      <div class="price"><div class="pn">House up to 1,200 sq ft</div><div class="pp">$495</div><div class="pd">Bungalows and smaller houses</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-house">Book a house visit</a></div>
-      <div class="price"><div class="pn">1,200 to 2,500 sq ft</div><div class="pp">$595</div><div class="pd">Up to 3 hours on site</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-large">Book a larger home</a></div>
-    </div>
-    <div class="pnotes">
-      <span>Includes a 30-minute follow-up call within 60 days</span>
-      <span>Free cancellation up to 24 hours before</span>
-    </div>
-    <div class="pbtns">
-      <a class="btn btn-s b-out" href="tel:5879073566" data-track="pricing">Bigger home? Call for a free quote</a>
-      <a class="btn btn-s b-out" href="pricing.html">Full pricing details</a>
-    </div>
-  </div>
-</section>
-
-<section class="sec tint" id="process">
-  <div class="w">
-    <h2>Three steps, one flat fee.</h2>
-    <div class="sgrid">
-      <div class="step"><div class="n">1</div><h3>Book online or call</h3><p>Pick a time online and leave your details, with nothing to pay to book. Or call and we&rsquo;ll set it up together. Carl phones within one business day either way.</p></div>
-      <div class="step"><div class="n">2</div><h3>The visit</h3><p>Every room, laser-measured. A family member or the homeowner shows us how the home is really used.</p></div>
-      <div class="step"><div class="n">3</div><h3>Your report</h3><p>Within 3 business days: ranked findings, Calgary prices, a phased plan and the funding that applies.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="about" style="padding-bottom:0">
-  <div class="w">
-    <div class="about">
-      <img src="Carl.jpg" alt="Carl Christie, assessor" width="460" height="583" loading="lazy">
-      <div>
-        <h2>Meet your assessor. Read his promise.</h2>
-        <p>Carl Christie is an SHSS-designated assessor and RHFAC Professional, and the person who calls you after you book. He does the visit, writes the report, and answers your questions afterward.</p>
-        <blockquote class="promise">&ldquo;No commission, referral fee, kickback or other benefit is accepted from any contractor or supplier, and none is paid to them.&rdquo;<span>A term of your Service Agreement, not a policy that can quietly change.</span></blockquote>
-        <a class="btn btn-s b-out" href="about.html">More about Carl</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="testimonials">
+<section class="sec band-honey" id="testimonials">
   <div class="w">
     <div class="rvhd">
       <h2>What Calgary families say.</h2>
@@ -678,31 +480,65 @@ footer .w{display:flex;flex-direction:column;gap:18px}
   </div>
 </section>
 
-<section class="sec dark" id="professionals">
-  <div class="w prow">
-    <img src="https://images.unsplash.com/photo-1765896387387-0538bc9f997e?w=1000&h=660&fit=crop&crop=faces,entropy&auto=format&q=70" srcset="https://images.unsplash.com/photo-1765896387387-0538bc9f997e?w=480&h=317&fit=crop&crop=faces,entropy&auto=format&q=70 480w, https://images.unsplash.com/photo-1765896387387-0538bc9f997e?w=800&h=528&fit=crop&crop=faces,entropy&auto=format&q=70 800w, https://images.unsplash.com/photo-1765896387387-0538bc9f997e?w=1000&h=660&fit=crop&crop=faces,entropy&auto=format&q=70 1000w" sizes="(max-width: 900px) 100vw, 520px" alt="A health professional smiling with an older woman in her room" width="1000" height="660" loading="lazy">
-    <div>
-      <h2>For professionals.</h2>
-      <p class="lede">Measured data for occupational therapists and discharge planners, and building-wide reports for housing providers. No product or renovation attached, and clinical calls stay with you.</p>
-      <div class="btns">
-        <a class="btn b-wh" href="for-occupational-therapists.html">How an OT referral works</a>
-        <a class="btn b-outw" href="tel:5879073566" data-track="professionals">Ask about group pricing</a>
-      </div>
+<section class="sec band-peach" id="pricing">
+  <div class="w">
+    <h2>One flat fee. Paid once, nothing sold after.</h2>
+    <p class="lede">Every fee includes the home visit and the complete written report. Plus GST. Within 50 km of Calgary, including Airdrie, Cochrane, Chestermere, Okotoks and Strathmore.</p>
+    <div class="pgrid">
+      <div class="price"><div class="pn">Condo or apartment</div><div class="pp">$395</div><div class="pd">About 1.5 hours on site</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-condo">Book online</a></div>
+      <div class="price"><div class="pn">House up to 1,200 sq ft</div><div class="pp">$495</div><div class="pd">Bungalows and smaller houses</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-house">Book online</a></div>
+      <div class="price"><div class="pn">House 1,200 to 2,500 sq ft</div><div class="pp">$595</div><div class="pd">Up to 3 hours on site</div><div class="pi">Full report: ranked fixes, Calgary prices, funding matched</div><a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="price-large">Book online</a></div>
+    </div>
+    <ul class="pnotes">
+      <li>Larger homes are quoted before booking</li>
+      <li>Reassessment $195, after changes are made</li>
+      <li>Report within 3 business days</li>
+      <li>A 30 minute follow up call within 60 days</li>
+      <li>Free cancellation up to 24 hours before</li>
+    </ul>
+    <p class="grab">Talked out of three grab bars you did not need? At about $169 each installed in Calgary, that is more than the report costs.</p>
+    <div class="paystory" id="payment">
+      <h3>Booking and paying</h3>
+      <p>Book online to hold a time. Nothing to pay to book. Carl calls within one business day to confirm. The service agreement is emailed to sign online. Pay before the visit by Interac eTransfer or by card.</p>
+    </div>
+    <div class="pbtns">
+      <a class="btn btn-s b-ink" href="tel:5879073566" data-track="pricing">Bigger home? Call for a quote</a>
+      <a class="btn btn-s b-out" href="pricing.html">Full pricing details</a>
     </div>
   </div>
 </section>
 
-<section class="sec" id="guides" style="padding-top:0">
+<section class="sec" id="independent">
   <div class="w">
-    <h2>Guides for families.</h2>
-    <p class="lede" style="margin-bottom:28px">Free reading before you decide anything.</p>
-    <div class="ggrid">
-      <a href="fall-risk-assessment-calgary.html">Fall risk assessment in Calgary</a>
-      <a href="home-modification-funding-alberta.html">Home modification funding in Alberta</a>
-      <a href="alzheimers-dementia-home-safety.html">Home safety for Alzheimer&rsquo;s and dementia</a>
-      <a href="home-safety-assessment-vs-occupational-therapy.html">A home safety assessment or an OT?</a>
-      <a href="how-to-choose-a-contractor.html">How to check a contractor in ten minutes</a>
-      <a class="dl" href="SHS_Home_Safety_Checklist.pdf" data-track="checklist">Download the free home safety checklist</a>
+    <h2>Two ways to get an assessment.</h2>
+    <p class="lede">Free checklists are worth using. There is nothing wrong with a free visit from a company that sells the work. It just means the visit is paid for by what you buy next, so the person deciding what you need also profits from the job.</p>
+    <div class="tblw">
+      <table class="cmp">
+        <thead><tr><th scope="col"><span class="vh">Question</span></th><th scope="col">A free visit from a company that sells the renovation</th><th scope="col" class="us">A Senior Home Safety report</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Paid for by</th><td data-l="Free visit">The work you buy afterward</td><td class="us" data-l="Our report"><strong>You, once, before the visit</strong></td></tr>
+          <tr><th scope="row">What you get</th><td data-l="Free visit">A plan or quote for their own work</td><td class="us" data-l="Our report"><strong>A written report</strong>: 143 checks, every hazard ranked, every fix priced on its own</td></tr>
+          <tr><th scope="row">Who does the work</th><td data-l="Free visit">That company</td><td class="us" data-l="Our report"><strong>Any contractor you choose</strong>, or a handy family member</td></tr>
+          <tr><th scope="row">Will it tell you to buy less?</th><td data-l="Free visit">Hard to, when the job pays for the visit</td><td class="us" data-l="Our report"><strong>Yes.</strong> What you can skip is part of the job.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rule">A simple test: if the visit is free, ask what they sell after the visit.</p>
+    <p class="fine">This compares two ways of paying for an assessment, not any particular company.</p>
+    <div class="btns" style="margin-top:20px"><a class="btn btn-s b-out" href="pricing.html#compare">See the full comparison</a></div>
+  </div>
+</section>
+
+<section class="sec" id="about" style="padding-top:0">
+  <div class="w">
+    <div class="about">
+      <img src="Carl.jpg" alt="Carl Christie, assessor" width="460" height="583" loading="lazy">
+      <div>
+        <h2>Meet your assessor. Read his promise.</h2>
+        <p>Carl Christie is an SHSS-designated assessor and RHFAC Professional, and the person who calls you after you book. He does the visit, writes the report, and answers your questions afterward.</p>
+        <blockquote class="promise">&ldquo;No commission, referral fee, kickback or other benefit is accepted from any contractor or supplier, and none is paid to them.&rdquo;<span>A term of your Service Agreement, not a policy that can quietly change.</span></blockquote>
+        <a class="btn btn-s b-out" href="about.html">More about Carl</a>
+      </div>
     </div>
   </div>
 </section>
@@ -724,26 +560,28 @@ footer .w{display:flex;flex-direction:column;gap:18px}
   <div class="w">
     <div>
       <h2>An honest answer about the home. Nothing to sell you after.</h2>
-      <p style="margin:0 0 28px;font-size:19px">Book a visit online now, or talk it through on the phone first.</p>
+      <p>Book a visit online now, or talk it through first. Nothing to pay to book.</p>
+      <p class="nextv" data-next hidden>Next visit available: <span class="nextd"></span></p>
+      <p class="qline">Already had a free visit? Use the report to check the quote line by line before you sign.</p>
       <div class="btns">
-        <a class="btn b-wh" href="https://book.novoseniorsafety.com/" data-track="final">Book online, from $395</a>
-        <a class="btn b-outw" href="tel:5879073566" data-track="final">Call 587-907-3566</a>
-      </div>
-      <div class="note">
-        <a class="btn btn-s b-outw" href="SHS_Home_Safety_Checklist.pdf" data-track="checklist">Not ready yet? Get the free checklist</a>
+        <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="final">Book online</a>
+        <a class="btn b-ink" href="tel:5879073566" data-track="final">Call 587-907-3566</a>
       </div>
     </div>
-    <div class="fcard">
-      <h3>Or we&rsquo;ll call you</h3>
-      <p class="fh">Free, no obligation, within one business day.</p>
-      <form id="cf" action="https://formspree.io/f/xnjwggwo" method="POST">
-        <label for="name">Your name<input type="text" id="name" name="name" required autocomplete="name"></label>
-        <label for="phone">Phone number<input type="tel" id="phone" name="phone" required autocomplete="tel"></label>
-        <label for="msg">What&rsquo;s happening at home? <span style="font-weight:400;color:var(--ink3)">(optional)</span><textarea id="msg" name="message" rows="2"></textarea></label>
-        <button type="submit">Request my free call</button>
-        <p class="fnt">Your information is never sold. Read our privacy policy from the buttons at the foot of the page.</p>
-      </form>
-      <div class="fok" id="fok" role="status" aria-live="polite"></div>
+    <div class="fbox">
+      <a class="btn b-ink" href="mailto:info@novoseniorsafety.com" data-track="final-email">Email us</a>
+      <span class="addr">info@novoseniorsafety.com</span>
+      <a class="btn b-ink" href="#ask" data-track="final-ask">Ask a question</a>
+      <a class="btn b-out" href="SHS_Home_Safety_Checklist.pdf" data-track="checklist">Not ready yet? Get the free checklist</a>
+    </div>
+  </div>
+</section>
+<section class="paths" id="professionals" aria-label="Who this is for">
+  <div class="w">
+    <div class="pathg">
+      <div class="path"><a class="pl" href="for-occupational-therapists.html">For occupational therapists and discharge planners</a><p>Measured data for your clients, with no product or renovation attached. Clinical calls stay with you.</p></div>
+      <div class="path"><a class="pl" href="for-a-parent.html">For families</a><p class="sub2"><a href="for-a-parent.html">A parent</a><a href="for-a-spouse.html">A spouse or partner</a><a href="for-myself.html">Myself</a></p></div>
+      <div class="path"><a class="pl" href="fall-risk-assessment-calgary.html">Guides for families</a><p class="sub2"><a href="fall-risk-assessment-calgary.html">Fall risk</a><a href="home-modification-funding-alberta.html">Funding programs</a><a href="alzheimers-dementia-home-safety.html">Dementia safety</a><a href="home-safety-assessment-vs-occupational-therapy.html">Assessment or an OT</a><a href="how-to-choose-a-contractor.html">Choosing a contractor</a><a href="SHS_Home_Safety_Checklist.pdf">Free checklist</a></p></div>
     </div>
   </div>
 </section>
@@ -752,43 +590,38 @@ footer .w{display:flex;flex-direction:column;gap:18px}
 <footer>
   <div class="w">
     <nav class="fnav" aria-label="Site">
-      <a href="#independent">Why independent</a><a href="#rooms">What we check</a><a href="pricing.html">Pricing</a><a href="sample-report.html">Sample report</a><a href="home-modification-funding-alberta.html">Funding</a><a href="methodology.html">How we assess</a><a href="#professionals">For professionals</a><a href="how-to-choose-a-contractor.html">Contractors</a><a href="service-areas.html">Service areas</a><a href="about.html">About</a><a href="#contact">Contact</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a>
+      <a href="pricing.html">Pricing</a><a href="sample-report.html">Sample report</a><a href="methodology.html">How we assess</a><a href="home-modification-funding-alberta.html">Funding</a><a href="fall-risk-assessment-calgary.html">Fall risk</a><a href="alzheimers-dementia-home-safety.html">Dementia safety</a><a href="for-occupational-therapists.html">For professionals</a><a href="how-to-choose-a-contractor.html">Contractors</a><a href="service-areas.html">Service areas</a><a href="about.html">About</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a>
     </nav>
-    <div class="fcta"><a class="btn btn-s b-outw" href="mailto:info@novoseniorsafety.com" data-track="footer-email">Email us</a><a class="btn btn-s b-outw" href="https://book.novoseniorsafety.com/pay.html" data-track="footer-pay">Pay for your assessment</a></div>
-    <p class="fpay">Paying online is optional: pay the fee by card any time before your visit, or by Interac e-Transfer once Carl sends your agreement.</p>
+    <div class="fcon">
+      <a class="btn btn-s" href="mailto:info@novoseniorsafety.com" data-track="footer-email">Email us</a>
+      <span class="addr">info@novoseniorsafety.com</span>
+      <a class="btn btn-s ftel" href="tel:5879073566" data-track="footer-call">Call 587-907-3566</a>
+    </div>
+    <div class="fpayrow"><a class="btn btn-s" href="https://book.novoseniorsafety.com/pay.html" data-track="footer-pay">Pay for your assessment by card</a></div>
     <div class="ftc">Senior Home Safety, a Novo Industries service. &copy; 2026 Novo Industries Inc., Calgary, Alberta. Trade name registration 28564144.</div>
   </div>
 </footer>
 
 <div class="mbar" role="navigation" aria-label="Quick contact">
   <a class="btn b-ink" href="tel:5879073566" data-track="sticky-bar">Call</a>
-  <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="sticky-bar">Book online, from $395</a>
+  <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="sticky-bar">Book online</a>
 </div>
 
 <script>
-(function(){var w=document.getElementById('when');if(!w||!window.fetch)return;
-fetch('https://book.novoseniorsafety.com/api/next').then(function(r){return r.ok?r.json():null}).then(function(d){
-if(!d||!d.next||!d.next.label)return;var l=d.next.label.replace(/, \d{4},/,',');
-w.textContent='Next open visit: '+l+(/\.$/.test(l)?'':'.')+' Visits Monday to Saturday.';}).catch(function(){});})();
+(function(){
+  var box=document.getElementById('nextv');if(!box)return;
+  var lines=document.querySelectorAll('[data-next]');
+  function show(t){t=String(t||'').trim().replace(/\.$/,'');if(!t)return;lines.forEach(function(l){l.querySelector('.nextd').textContent=t+'.';l.hidden=false;});}
+  var manual=box.getAttribute('data-manual');
+  if(manual&&manual.trim()){show(manual);return;}
+  if(!window.fetch)return;
+  fetch('https://book.novoseniorsafety.com/api/next').then(function(r){return r.ok?r.json():null}).then(function(j){
+    if(j&&j.next&&j.next.label)show(j.next.label.replace(/, \d{4},/,','));
+  }).catch(function(){});
+})();
 const mt=document.getElementById('mt'),mp=document.getElementById('mp');
 mt.addEventListener('click',()=>{const o=mp.classList.toggle('open');mt.setAttribute('aria-expanded',o)});
 mp.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mp.classList.remove('open');mt.setAttribute('aria-expanded','false')}));
-const cf=document.getElementById('cf'),fok=document.getElementById('fok');
-cf.addEventListener('submit',async e=>{
-  e.preventDefault();
-  const b=cf.querySelector('button');b.disabled=true;b.textContent='Sending…';
-  let ok=false;
-  try{const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{'Accept':'application/json'}});ok=r.ok}catch(err){}
-  if(ok){
-    if(window.shsTrack)shsTrack('generate_lead',{form:'call_request',page:'home'});
-    cf.style.display='none';
-    fok.innerHTML='<h4>We got your message.</h4><p>Expect a call within one business day to talk through your situation.</p>';
-  }else{
-    b.disabled=false;b.textContent='Request my free call';
-    fok.innerHTML='<p><strong>That didn’t send.</strong> Please call 587-907-3566 or email info@novoseniorsafety.com.</p><a class="btn btn-s b-out" href="tel:5879073566">Call 587-907-3566</a>';
-  }
-  fok.classList.add('show');
-});
 const qf=document.getElementById('qf'),qok=document.getElementById('qok');
 qf.addEventListener('submit',async e=>{
   e.preventDefault();
@@ -801,7 +634,7 @@ qf.addEventListener('submit',async e=>{
     qok.innerHTML='<h4>Thanks, we got your question.</h4><p>We reply within one business day.</p>';
   }else{
     b.disabled=false;b.textContent='Send my question';
-    qok.innerHTML='<p><strong>That didn’t send.</strong> Please try again, call 587-907-3566, or use the Email us button.</p>';
+    qok.innerHTML='<p><strong>That didn’t send.</strong> Please try again, call 587-907-3566, or email info@novoseniorsafety.com.</p>';
   }
   qok.classList.add('show');
 });

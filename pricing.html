@@ -41,7 +41,7 @@
         "@id": "https://novoseniorsafety.com/#business"
       },
       "inLanguage": "en-CA",
-      "dateModified": "2026-09-20"
+      "dateModified": "2026-11-01"
     },
     {
       "@type": "BreadcrumbList",
@@ -111,6 +111,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shs.css?v=4">
+<style>@media(max-width:1440px){.nav{display:none}.mt{display:flex;margin-left:4px}.hcta{margin-left:auto}}@media(max-width:900px){.mt{margin-left:auto}}</style>
 <link rel="preconnect" href="https://images.unsplash.com">
 </head>
 <body>
@@ -129,6 +130,7 @@
     </nav>
     <div class="hcta">
       <a class="btn b-out" href="tel:5879073566" data-track="header"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>587-907-3566</a>
+      <a class="btn b-ink" href="mailto:info@novoseniorsafety.com" data-track="header-email" style="background:#1A1A1A;color:#fff">Email us</a>
       <a class="btn b-red" href="https://book.novoseniorsafety.com/" data-track="header">Book online</a>
     </div>
     <button class="mt" id="mt" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -227,15 +229,13 @@
   <div class="w">
     <p class="sl">Booking and payment</p>
     <h2>How booking works.</h2>
-    <p><strong>Book online.</strong> <a href="https://book.novoseniorsafety.com/">Choose a time</a> and leave your details. There is nothing to pay to book. A link to manage your booking arrives by email straight away, Carl calls within one business day to confirm, and then emails the service agreement to sign online. Pay before the visit by Interac e-Transfer or by card on our <a href="https://book.novoseniorsafety.com/pay.html">secure pay page</a>.</p>
-    <p><strong>Or start with a free call.</strong></p>
-    <ol>
-      <li>You request a free call. We call back within one business day and talk through the situation.</li>
-      <li>If an assessment makes sense, we email you the service agreement to sign online.</li>
-      <li>Payment is due in full when you book, by Interac e-Transfer or by card through Stripe, your choice. Cash and cheques are not accepted.</li>
-      <li>Once the agreement and payment are both in, we confirm your visit date and time by email.</li>
-    </ol>
-    <p><strong>Nothing is billed after the visit.</strong> The booking is not confirmed until payment clears.</p>
+    <p><strong>Book online to hold a time. Nothing to pay to book. Carl calls within one business day to confirm. The service agreement is emailed to sign online. Pay before the visit by Interac eTransfer or by card.</strong></p>
+    <p>Card payments go through our secure pay page. Cash and cheques are not accepted. Nothing is billed after the visit.</p>
+    <div class="paybtns" style="display:flex;flex-wrap:wrap;gap:12px;margin:0 0 20px">
+      <a class="btn" href="https://book.novoseniorsafety.com/" data-track="pricing-book" style="background:#C0392B;color:#fff">Book online</a>
+      <a class="btn" href="https://book.novoseniorsafety.com/pay.html" data-track="pricing-pay" style="background:#1A1A1A;color:#fff">Secure pay page</a>
+    </div>
+    <p><strong>Or start with a free call.</strong> Request a call and we call back within one business day to talk through the situation. If an assessment makes sense, the steps above are the same.</p>
 
     <h3>Cancelling or rescheduling</h3>
     <div class="tblw">
@@ -267,6 +267,30 @@
       <p>Delivered by email as a PDF. The sample runs to 44 pages, structured so the one-page summary at the front works on its own for the family member who will not read the rest.</p>
       <p><a href="sample-report.html">See what is inside a finished report</a></p>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="compare">
+  <div class="w">
+    <p class="sl">Comparison</p>
+    <h2>A free visit, or a paid report.</h2>
+    <p>Free checklists are worth using. There is nothing wrong with a free visit from a company that sells the work. It just means the visit is paid for by what you buy next, so the person deciding what you need also profits from the job. This compares two ways of paying for an assessment, not any particular company.</p>
+    <div class="tblw">
+    <table class="tbl">
+      <thead><tr><th></th><th>A free visit from a company that sells the renovation</th><th>A Senior Home Safety report</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Paid for by</strong></td><td>The work you buy afterward</td><td><strong>You, once, before the visit</strong></td></tr>
+        <tr><td><strong>What you get</strong></td><td>A plan or quote for their own work</td><td>A written report: 143 checks, every hazard ranked, every fix priced on its own</td></tr>
+        <tr><td><strong>Who does the work</strong></td><td>That company</td><td>Any contractor you choose, or a handy family member</td></tr>
+        <tr><td><strong>Will it tell you to buy less?</strong></td><td>Hard to, when the job pays for the visit</td><td><strong>Yes.</strong> What you can skip is part of the job.</td></tr>
+        <tr><td><strong>Price shown up front</strong></td><td>The visit is free, and the work is quoted later</td><td><strong>$395 to $595</strong>, listed on this page</td></tr>
+        <tr><td><strong>Time and depth</strong></td><td>Often a short visit to scope a project</td><td>1.5 to 3 hours on site, room by room, then the ranking, pricing and funding work is done afterward. The visit only gathers the data.</td></tr>
+        <tr><td><strong>Who the report is written for</strong></td><td>Usually the project that company will quote</td><td>Your family, including what you can skip</td></tr>
+        <tr><td><strong>Funding</strong></td><td>Varies</td><td>Matched to each fix: SHARP, AADL and federal tax credits</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><strong>A simple test:</strong> if the visit is free, ask what they sell after the visit.</p>
   </div>
 </section>
 
