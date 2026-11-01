@@ -80,11 +80,12 @@
 </script>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23C0392B'/%3E%3Cpath d='M16 7L6 15v11a1.5 1.5 0 001.5 1.5h5.25V21h6.5v6.5h5.25A1.5 1.5 0 0026 26V15L16 7z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FAF9F6;--bgw:#F0EBE1;--sage:#E4EAE1;--peach:#F7E2D2;--honey:#F4E6C4;--ink:#1A1A1A;--ink2:#3F3832;--ink3:#544B43;--red:#C0392B;--red2:#A93226;--bdr:#E2DACE;--bdr2:#CFC5B7;--serif:'Instrument Serif',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif}
+:root{--teal:#0B4F55;--gold:#E3A33B;--bg:#FAF9F6;--bgw:#F0EBE1;--sage:#E4EAE1;--ink:#1A1A1A;--ink2:#3F3832;--ink3:#544B43;--red:#C0392B;--red2:#A93226;--bdr:#E2DACE;--bdr2:#CFC5B7;--serif:'Instrument Serif',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -106,26 +107,29 @@ h2{font-size:clamp(36px,4.4vw,52px);line-height:1.08}
 .btn-s{min-height:50px;padding:0 20px;font-size:17px}
 .b-red{background:var(--red);color:#fff}.b-red:hover{background:var(--red2);color:#fff}
 .b-ink{background:var(--ink);color:#fff}.b-ink:hover{background:#000;color:#fff}
-.b-out{border-color:var(--ink);color:var(--ink);background:#fff}.b-out:hover{background:var(--bgw);color:var(--ink)}
+.b-out{border-color:var(--ink);color:#fff;background:var(--ink)}.b-out:hover{background:#000;color:#fff}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
 .addr{font-size:17px;font-weight:600;color:var(--ink);user-select:all;-webkit-user-select:all;word-break:break-all}
 /* header */
 .hdr{position:sticky;top:0;z-index:50;background:#FAF9F6;border-bottom:1px solid var(--bdr)}
-.hdr .w{display:flex;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px;max-width:1440px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:25px;white-space:nowrap}
-.logo i{width:36px;height:36px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.hdr .hrow{display:flex;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px;max-width:1440px}
+.tband{background:var(--teal)}
+@media (max-width:900px){.hdr .hrow .mt{margin-left:auto}}
+.tband .w{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px 12px;padding-top:8px;padding-bottom:8px;max-width:1440px}
+.tband .btn{border-color:rgba(255,255,255,.55)}
+.tband .addr{color:#fff;font-size:16px}
+@media (max-width:700px){.tband .w{justify-content:flex-start}.tband .addr{display:none}.tband .btn{flex:1 1 auto}}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:24px;white-space:nowrap}
+.logo i{width:34px;height:34px;border-radius:9px;background:var(--red);display:flex;align-items:center;justify-content:center}
 .nav{display:flex;gap:4px;flex:1}
 .nav a{display:inline-flex;align-items:center;white-space:nowrap;min-height:48px;padding:0 12px;border-radius:999px;color:var(--ink);text-decoration:none;font-size:16px;font-weight:600}
 .nav a:hover{background:var(--bgw)}
 .hcta{display:flex;gap:10px;align-items:center;margin-left:auto}
 .hcta a{white-space:nowrap}
-.hmail{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2}
-.hmail .addr{font-size:14px;margin-top:3px;white-space:nowrap;word-break:normal}
-.htel{display:none;white-space:nowrap}
-.mt{display:none;width:52px;height:52px;border:2px solid var(--ink);border-radius:12px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
+.mt{display:none;width:52px;height:52px;border:2px solid var(--ink);border-radius:12px;background:var(--ink);align-items:center;justify-content:center;cursor:pointer}
 .mp{display:none;border-top:1px solid var(--bdr);background:var(--bg);padding:12px 16px 16px}
 .mp.open{display:grid;gap:8px}
-.mp a{display:flex;align-items:center;min-height:54px;padding:0 18px;border-radius:14px;background:var(--bgw);color:var(--ink);text-decoration:none;font-weight:700}
+.mp a{display:flex;align-items:center;min-height:54px;padding:0 18px;border-radius:14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
 .mp a.b-ink{background:var(--ink);color:#fff}
 .mp .addr{padding:4px 18px 0}
 /* hero */
@@ -134,7 +138,7 @@ h2{font-size:clamp(36px,4.4vw,52px);line-height:1.08}
 .hero-t{flex:1 1 480px;min-width:0}
 .hero h1{font-size:clamp(38px,4.6vw,60px);line-height:1.04;letter-spacing:-.01em;margin-bottom:20px}
 .hero .sub{margin:0 0 22px;font-size:21px;color:var(--ink2);max-width:32em}
-.nextv{margin:0 0 18px;display:inline-block;background:var(--sage);border-radius:12px;padding:10px 16px;font-size:18px;font-weight:700;color:var(--ink)}
+.nextv{margin:0 0 18px;display:inline-block;background:var(--teal);color:#fff!important;border-radius:12px;padding:10px 16px;font-size:18px;font-weight:700}
 .nextv[hidden]{display:none}
 .from{margin:0 0 20px;font-size:20px;color:var(--ink2)}
 .from b{font-family:var(--serif);font-weight:400;font-size:40px;color:var(--ink);margin-right:6px}
@@ -143,9 +147,9 @@ h2{font-size:clamp(36px,4.4vw,52px);line-height:1.08}
 .when{margin:0 0 18px;font-size:17px;font-weight:600;color:var(--ink2)}
 .creds{display:flex;flex-wrap:wrap;gap:8px 10px;font-size:15px;font-weight:700;color:var(--ink)}
 .creds span{border:1.5px solid var(--bdr2);border-radius:999px;padding:6px 14px;background:#fff}
-.hero-i{flex:1 1 420px;min-width:0;margin:40px 0 0}
+.hero-i{flex:1.15 1 480px;min-width:0;margin:40px 0 0}
 .hero-i figcaption{margin-top:10px;font-size:16px;color:var(--ink3)}
-.sells{border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:#fff}
+.sells{border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:var(--bg)}
 .sells p{margin:0;padding:22px 0;font-size:19px;color:var(--ink)}
 .sells b{font-weight:700}
 /* ask */
@@ -167,7 +171,7 @@ h2{font-size:clamp(36px,4.4vw,52px);line-height:1.08}
 .fok{display:none}.fok.show{display:block}
 .fok h4{margin:0 0 6px;font-size:22px}
 /* steps */
-.tint{background:var(--sage)}
+.tint{background:var(--bg)}
 .sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;margin-top:36px}
 .step .n{font-family:var(--serif);font-size:64px;line-height:1;color:var(--ink)}
 .step h3{margin:8px 0;font-family:var(--sans);font-weight:700;font-size:23px}
@@ -198,17 +202,20 @@ h2{font-size:clamp(36px,4.4vw,52px);line-height:1.08}
 .fsrc{margin:16px 0 0;font-size:16px;color:var(--ink3)}
 @media (max-width:560px){.find dl{grid-template-columns:1fr;gap:2px}.find dd{border-top:0;padding-top:0}}
 /* reviews band */
-.band-honey{background:var(--honey)}
+.band-honey{background:var(--teal);color:#fff}
+.band-honey h2,.band-honey .fine{color:#fff}
+.band-honey .rvhd .btn{border-color:#fff}
 .rvhd{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:36px}
 .rvgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.rv{margin:0;background:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.rv{margin:0;background:#fff;color:var(--ink);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px}
 .rv .tag{align-self:flex-start;font-size:15px;font-weight:700;color:var(--ink);background:var(--bgw);padding:4px 12px;border-radius:999px}
 .rv blockquote{margin:0;font-size:20px;color:var(--ink)}
 .rv figcaption{margin-top:auto;font-weight:700}
 .rv figcaption span{font-weight:400;color:var(--ink3)}
 .fine{margin:18px 0 0;font-size:16px;color:var(--ink2)}
 /* pricing band */
-.band-peach{background:var(--peach)}
+.band-peach{background:var(--gold)}
+.band-peach .lede{color:var(--ink)}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .price{background:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column}
 .price .pn{font-weight:700;color:var(--ink)}
@@ -218,7 +225,7 @@ h2{font-size:clamp(36px,4.4vw,52px);line-height:1.08}
 .price .btn{margin-top:auto;width:100%}
 .pnotes{margin:28px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 32px;color:var(--ink);font-size:18px}
 .pnotes li{padding-left:22px;position:relative}
-.pnotes li::before{content:"";position:absolute;left:0;top:.65em;width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.band-peach .pnotes li::before{content:"";position:absolute;left:0;top:.65em;width:9px;height:9px;border-radius:50%;background:var(--ink)}
 .paystory{margin:32px 0 0;background:#fff;border-radius:20px;padding:26px 28px;max-width:860px}
 .paystory h3{margin:0 0 8px;font-family:var(--sans);font-weight:700;font-size:22px}
 .paystory p{margin:0;font-size:19px;color:var(--ink)}
@@ -262,26 +269,26 @@ h2{font-size:clamp(36px,4.4vw,52px);line-height:1.08}
 .faq details p{margin:12px 0 0;color:var(--ink2)}
 .faq details .btn{margin-top:14px}
 /* final */
-.final{background:#fff;border-top:1px solid var(--bdr)}
+.final{background:var(--bg);border-top:1px solid var(--bdr)}
 .final .w{display:flex;flex-wrap:wrap;gap:40px;align-items:center}
 .final .w>div{flex:1 1 440px;min-width:0}
 .final h2{font-size:clamp(40px,5vw,60px);line-height:1.04;margin-bottom:16px}
 .final p{margin:0 0 26px;font-size:20px;color:var(--ink2)}
-.fbox{background:var(--bgw);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.fbox{background:#fff;border:1.5px solid var(--bdr2);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 .fbox .btn{width:100%}
-.hero-i img{width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:24px;background:var(--sage)}
-.hero-i img.fit-report{object-fit:contain}
+.hero-i img{width:100%;height:auto;border-radius:24px;background:var(--bgw)}
+.hero-more{margin-top:28px}
 .grab{margin:24px 0 0;font-family:var(--serif);font-size:clamp(24px,2.6vw,30px);line-height:1.25;color:var(--ink);max-width:860px}
 .qline{font-weight:600;color:var(--ink)!important}
 .final .nextv{margin:0 0 18px}
-.paths{background:var(--bgw);padding:56px 0;border-top:1px solid var(--bdr)}
+.paths{background:var(--bg);padding:56px 0;border-top:1px solid var(--bdr)}
 .pathg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
 .path p{margin:8px 0 0;font-size:18px;color:var(--ink2)}
 .pl{display:flex;align-items:center;min-height:56px;padding:10px 20px;border-radius:16px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:19px;line-height:1.3}
 .pl:hover{background:#000}
 .sub2{display:flex;flex-wrap:wrap;gap:8px}
-.sub2 a{display:inline-flex;align-items:center;min-height:48px;padding:0 16px;border-radius:999px;background:#fff;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;font-size:17px}
-.sub2 a:hover{background:var(--bg)}
+.sub2 a{display:inline-flex;align-items:center;min-height:48px;padding:0 16px;border-radius:999px;background:var(--ink);border:1.5px solid var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:17px}
+.sub2 a:hover{background:#000}
 /* footer */
 footer{background:var(--ink);color:#E9E3DA;font-size:16px;padding:48px 0 130px}
 footer .w{display:flex;flex-direction:column;gap:22px}
@@ -298,11 +305,8 @@ footer .w{display:flex;flex-direction:column;gap:22px}
 /* sticky phone bar */
 .mbar{display:none}
 @media (max-width:1400px){.nav{display:none}.mt{display:flex}}
-@media (max-width:1180px){.hmail .addr{display:none}}
 @media (max-width:900px){
   .hcta{display:none}
-  .htel{display:inline-flex;margin-left:auto;min-height:52px;padding:0 16px;font-size:17px}
-  .logo{font-size:21px}
   .hero{padding:24px 0 32px}
   .hero-i{margin:0}
   .hero .sub{font-size:19px}
@@ -314,7 +318,7 @@ footer .w{display:flex;flex-direction:column;gap:22px}
   .mbar a{flex:1 1 0;min-height:54px;padding:0 12px;font-size:18px}
   .mbar a.b-red{flex-grow:1.6}
 }
-@media (max-width:560px){.w{padding:0 16px}.logo span{display:none}.hero .btns .btn,.ask-call .btn,.pbtns .btn,.rep .btns .btn{width:100%;min-width:0}.paystory{padding:22px}}
+@media (max-width:560px){.w{padding:0 16px}.hero .btns .btn,.ask-call .btn,.pbtns .btn,.rep .btns .btn{width:100%;min-width:0}.paystory{padding:22px}}
 @media (max-width:1300px){.nav a{padding:0 9px;font-size:15px}}
 @media (min-width:901px){footer{padding-bottom:48px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
@@ -325,8 +329,13 @@ footer .w{display:flex;flex-direction:column;gap:22px}
 <a href="#main" class="skip">Skip to main content</a>
 
 <header class="hdr">
-  <div class="w">
-    <a class="logo" href="/" aria-label="Senior Home Safety, home"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></i><span>Senior Home Safety</span></a>
+  <div class="tband"><div class="w">
+    <a class="btn btn-s b-ink" href="tel:5879073566" data-track="header">Call 587-907-3566</a>
+    <a class="btn btn-s b-ink" href="mailto:info@novoseniorsafety.com" data-track="header-email">Email us</a>
+    <span class="addr">info@novoseniorsafety.com</span>
+  </div></div>
+  <div class="w hrow">
+    <a class="logo" href="/" aria-label="Senior Home Safety, home"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></i>Senior Home Safety</a>
     <nav class="nav" aria-label="Main">
       <a href="#process">How it works</a>
       <a href="#pricing">Pricing</a>
@@ -334,12 +343,9 @@ footer .w{display:flex;flex-direction:column;gap:22px}
       <a href="#faq">Questions</a>
     </nav>
     <div class="hcta">
-      <a class="btn btn-s b-ink" href="tel:5879073566" data-track="header">587-907-3566</a>
-      <div class="hmail"><a class="btn btn-s b-ink" href="mailto:info@novoseniorsafety.com" data-track="header-email">Email us</a><span class="addr">info@novoseniorsafety.com</span></div>
       <a class="btn btn-s b-red" href="https://book.novoseniorsafety.com/" data-track="header">Book online</a>
     </div>
-    <a class="btn b-ink htel" href="tel:5879073566" data-track="header-mobile" aria-label="Call 587-907-3566">Call 587-907-3566</a>
-    <button class="mt" id="mt" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button class="mt" id="mt" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
   <nav class="mp" id="mp" aria-label="Mobile">
     <a href="#process">How it works</a>
@@ -377,12 +383,11 @@ footer .w{display:flex;flex-direction:column;gap:22px}
       <p class="when">Visits Monday to Saturday, bookable from two days ahead.</p>
       <div class="creds"><span>SHSS designated</span><span>RHFAC Professional</span><span>Fully insured</span><span>Calgary-owned</span></div>
     </div>
-    <!-- HERO PHOTO: the frame is fixed at 3 by 2. To use a real photo of Carl at work, save it as img/carl-at-work.jpg (about 1500 by 1000 pixels, landscape), change src to that file, delete the srcset and sizes lines, remove class="fit-report", and update the alt and figcaption text. Nothing else moves. -->
     <figure class="hero-i">
-      <img class="fit-report" src="img/report-pair-1600.webp" srcset="img/report-pair-900.webp 900w, img/report-pair-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 560px" alt="Two pages of a Senior Home Safety report: the one-page summary and a page of measured findings, each with a Calgary price" width="1600" height="1000" fetchpriority="high">
-      <figcaption>Pages from the sample report. This is what your family receives.</figcaption>
+      <img src="https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=1400&fit=crop&auto=format&q=70" srcset="https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=700&fit=crop&auto=format&q=70 700w, https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=1000&fit=crop&auto=format&q=70 1000w, https://images.unsplash.com/photo-1656646523653-fffffc75b0e5?w=1400&fit=crop&auto=format&q=70 1400w" sizes="(max-width: 900px) 100vw, 640px" alt="A bright bathroom with a fold-down grab bar beside the toilet" fetchpriority="high">
     </figure>
   </div>
+  <div class="w hero-more"><a class="btn b-ink" href="sample-report.html" data-track="hero-sample">See sample report</a></div>
 </section>
 
 <div class="sells" aria-label="Everything we sell">
